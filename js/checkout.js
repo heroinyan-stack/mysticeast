@@ -335,7 +335,11 @@ function initPayPalButtons() {
 
     onError: function(err) {
       console.error('PayPal error:', err);
-      cart.showNotification('Payment error. Please try again or choose another payment method.', 'error');
+      let errorMsg = 'Payment error. Please try again or choose another payment method.';
+      if (err && err.message) {
+        errorMsg += ' (' + err.message + ')';
+      }
+      cart.showNotification(errorMsg, 'error');
     }
   });
 
