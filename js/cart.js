@@ -366,7 +366,6 @@ class Cart {
     };
   }
 
-  // Checkout (placeholder for payment integration)
   checkout() {
     if (this.isEmpty()) {
       this.showNotification('Your cart is empty', 'error');
@@ -374,14 +373,9 @@ class Cart {
     }
 
     const orderData = this.getOrderData();
-    
-    // In production, this would redirect to payment page
-    // For now, show a placeholder message
     console.log('Order data:', orderData);
-    this.showNotification('Proceeding to checkout... (Payment integration required)');
     
-    // Placeholder: redirect to a checkout page or show modal
-    // window.location.href = '/checkout.html';
+    window.location.href = 'checkout.html';
   }
 }
 
