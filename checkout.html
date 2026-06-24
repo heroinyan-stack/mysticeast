@@ -12,6 +12,8 @@
   
   <link rel="stylesheet" href="css/styles.css">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✦</text></svg>">
+
+  <script src="https://www.paypal.com/sdk/js?client-id=test&currency=USD"></script>
 </head>
 <body>
   <header class="header">
@@ -33,8 +35,8 @@
         <h1 class="checkout-title">Checkout</h1>
         <div class="checkout-steps">
           <div class="step active"><span class="step-num">1</span> Information</div>
-          <div class="step"><span class="step-num">2</span> Shipping</div>
-          <div class="step"><span class="step-num">3</span> Payment</div>
+          <div class="step"><span class="step-num">2</span> Payment</div>
+          <div class="step"><span class="step-num">3</span> Done</div>
         </div>
       </div>
 
@@ -143,56 +145,50 @@
 
             <div class="form-section">
               <h2 class="form-section-title">Payment Method</h2>
-              <div class="payment-options">
-                <label class="payment-option">
-                  <input type="radio" name="payment" value="paypal" checked>
-                  <div class="payment-option-content">
-                    <span class="payment-option-name">PayPal</span>
-                    <span class="payment-option-icon">PayPal</span>
-                  </div>
-                </label>
-                <label class="payment-option">
-                  <input type="radio" name="payment" value="card">
-                  <div class="payment-option-content">
-                    <span class="payment-option-name">Credit / Debit Card</span>
-                    <span class="payment-option-icon">Visa • MC • Amex</span>
-                  </div>
-                </label>
+              
+              <div class="payment-tabs">
+                <button type="button" class="payment-tab active" data-payment="paypal">
+                  <span class="payment-tab-icon">🅿️</span>
+                  PayPal / Card
+                </button>
+                <button type="button" class="payment-tab" data-payment="creem">
+                  <span class="payment-tab-icon">💳</span>
+                  Creem
+                </button>
               </div>
 
-              <div id="cardDetails" class="card-details" style="display: none;">
-                <div class="form-row">
-                  <div class="form-group">
-                    <label for="cardNumber">Card Number *</label>
-                    <input type="text" id="cardNumber" placeholder="1234 5678 9012 3456">
+              <div class="payment-method-content">
+                <div id="paypalPayment" class="payment-method-panel active">
+                  <div class="payment-note">
+                    🔒 Pay securely with PayPal, credit card, or debit card.
                   </div>
+                  <div id="paypal-button-container"></div>
                 </div>
-                <div class="form-row">
-                  <div class="form-group">
-                    <label for="cardName">Name on Card *</label>
-                    <input type="text" id="cardName" placeholder="JOHN DOE">
+
+                <div id="creemPayment" class="payment-method-panel">
+                  <div class="payment-note">
+                    💎 Fast and secure checkout with Creem. Supports all major cards.
                   </div>
-                </div>
-                <div class="form-row">
-                  <div class="form-group">
-                    <label for="cardExpiry">Expiry Date *</label>
-                    <input type="text" id="cardExpiry" placeholder="MM/YY">
+                  <div class="creem-checkout-info">
+                    <p class="creem-amount">Amount: <strong id="creemAmount">$0.00</strong></p>
+                    <button type="button" id="creemCheckoutBtn" class="btn btn-primary btn-block">
+                      Pay with Creem →
+                    </button>
                   </div>
-                  <div class="form-group">
-                    <label for="cardCvv">CVV *</label>
-                    <input type="text" id="cardCvv" placeholder="123">
-                  </div>
+                  <p class="creem-hint">
+                    <small>⚠️ Creem checkout requires a Creem account. 
+                    <a href="https://creem.io" target="_blank">Learn more →</a></small>
+                  </p>
                 </div>
               </div>
             </div>
 
-            <button type="submit" class="btn btn-primary checkout-submit-btn">
-              Complete Order
-            </button>
-            
-            <p class="checkout-secure">
-              🔒 Your information is secure and encrypted
-            </p>
+            <div class="discount-code-section">
+              <div class="discount-input-wrapper">
+                <input type="text" id="discountCode" placeholder="Discount code">
+                <button type="button" id="applyDiscountBtn">Apply</button>
+              </div>
+            </div>
           </form>
         </div>
 
@@ -221,13 +217,6 @@
             <div class="summary-row total">
               <span>Total</span>
               <span id="summaryTotal">$0.00</span>
-            </div>
-
-            <div class="summary-discount-code">
-              <div class="discount-input-wrapper">
-                <input type="text" id="discountCode" placeholder="Discount code">
-                <button type="button" id="applyDiscountBtn">Apply</button>
-              </div>
             </div>
           </div>
 

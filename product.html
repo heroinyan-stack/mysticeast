@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="MysticEast crystal bracelets and feng shui items - authentic Eastern spiritual jewelry for protection, wealth, love, and wisdom.">
+  <title>Product | MysticEast</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Montserrat:wght@400;500;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✦</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="index.html" class="logo">
+        <div class="logo-icon">✦</div>
+        <span class="logo-text">MysticEast</span>
+      </a>
+      
+      <nav class="nav">
+        <a href="index.html#products" class="nav-link">Shop</a>
+        <a href="index.html#collections" class="nav-link">Collections</a>
+        <a href="index.html#about" class="nav-link">About</a>
+      </nav>
+      
+      <div class="header-actions">
+        <button class="header-action-btn cart-btn" aria-label="Cart">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/>
+            <line x1="3" y1="6" x2="21" y2="6"/>
+            <path d="M16 10a4 4 0 01-8 0"/>
+          </svg>
+          <span class="cart-count" style="display: none;">0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <div class="cart-overlay"></div>
+  <aside class="cart-sidebar">
+    <div class="cart-header">
+      <h3>Your Cart</h3>
+      <button class="cart-close-btn">&times;</button>
+    </div>
+    <div class="cart-empty">
+      <p>Your cart is empty</p>
+      <a href="index.html#products" class="btn btn-secondary">Start Shopping</a>
+    </div>
+    <div class="cart-items"></div>
+    <div class="cart-summary"></div>
+    <button class="btn btn-primary cart-checkout-btn">Proceed to Checkout</button>
+  </aside>
+
+  <main id="productPage" class="product-detail">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="index.html">Home</a>
+        <span>/</span>
+        <a href="index.html#products">Shop</a>
+        <span>/</span>
+        <span id="breadcrumbProduct">Loading...</span>
+      </nav>
+
+      <div id="productContent" class="product-detail-grid">
+        <div class="loading-state">
+          <div class="loading-spinner"></div>
+          <p>Loading product...</p>
+        </div>
+      </div>
+
+      <div id="relatedSection" class="related-products" style="display: none;">
+        <h2 class="related-title">You May Also Like</h2>
+        <div id="relatedProducts" class="product-grid-4"></div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-col">
+          <div class="footer-logo">
+            <div class="logo-icon">✦</div>
+            <span class="logo-text">MysticEast</span>
+          </div>
+          <p class="footer-tagline">Authentic crystals for your spiritual journey</p>
+        </div>
+        <div class="footer-col">
+          <h4>Shop</h4>
+          <ul>
+            <li><a href="index.html#products">All Products</a></li>
+            <li><a href="index.html#collections">Crystal Bracelets</a></li>
+            <li><a href="index.html#collections">Feng Shui</a></li>
+            <li><a href="index.html#collections">Talismans</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Support</h4>
+          <ul>
+            <li><a href="#">FAQ</a></li>
+            <li><a href="#">Shipping Info</a></li>
+            <li><a href="#">Returns</a></li>
+            <li><a href="#">Contact Us</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 MysticEast. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/products.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/product-detail.js"></script>
+</body>
+</html>
