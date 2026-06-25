@@ -853,6 +853,461 @@ const products = [
       care: 'Hand wash recommended',
       origin: 'Handcrafted'
     }
+  },
+
+  // ========== 风水吉祥摆件类 ==========
+  {
+    id: 'brass-pixiu',
+    name: 'Brass Pixiu Wealth Figurine',
+    shortName: 'Pixiu Figurine',
+    category: 'Feng Shui',
+    subcategory: 'Wealth',
+    sku: 'ME-PIX-001',
+    price: 59.99,
+    originalPrice: 89.99,
+    cost: 8.00,
+    shippingCost: 6.00,
+    rating: 4.9,
+    reviews: 127,
+    tags: ['fengshui', 'bestseller', 'wealth', 'chinese'],
+    images: [
+      'https://images.unsplash.com/photo-1594488518160-8d596e86cb88?w=600&q=80',
+      'https://images.unsplash.com/photo-1612698093158-e07ac200d44e?w=600&q=80',
+      'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80'
+    ],
+    description: {
+      short: 'Handcrafted brass Pixiu (Pi Yao) figurine for wealth attraction. The most powerful feng shui wealth symbol.',
+      long: 'This exquisite Brass Pixiu Figurine is carefully handcrafted from solid brass, capturing every detail of this mythical Chinese creature. Pixiu (also known as Pi Yao) is one of the most powerful feng shui symbols for attracting and preserving wealth. With its dragon head, lion body, and wings, this celestial creature is believed to seek out gold and treasures, bringing prosperity to its owner. This figurine makes a stunning addition to any home, office, or business space.',
+      meaning: 'Pixiu is a mythical Chinese creature known as the "Ninth Son of the Dragon King." Legend says it has a voracious appetite for gold, silver, and jewels, and because it has no anus, wealth only comes in and never goes out. It is widely revered in Chinese culture as the ultimate symbol of wealth attraction, protection, and good fortune.',
+      usage: 'Place facing the main entrance of your home or business to invite wealth and prosperity. For maximum effect, position in the wealth corner (southeast area). Never place in the bedroom or bathroom. Wipe regularly with a soft cloth to keep bright and shiny. Traditionally, placing a pair (one male, one female) offers the strongest protection.'
+    },
+    variants: [
+      { size: 'Small (8cm)', price: 39.99 },
+      { size: 'Medium (12cm)', price: 59.99 },
+      { size: 'Large (18cm) - Pair', price: 89.99 }
+    ],
+    benefits: [
+      'Powerful wealth attraction',
+      'Protection from negative energy',
+      'Business prosperity',
+      'Beautiful decorative piece'
+    ],
+    specifications: {
+      material: 'Solid Brass',
+      height: '8-18cm (selectable)',
+      weight: '200-800g',
+      finish: 'Polished Brass',
+      origin: 'Handcrafted in China'
+    }
+  },
+  {
+    id: 'five-emperor-coins',
+    name: 'Five Emperor Coins Lucky Tassel',
+    shortName: 'Five Emperor Coins',
+    category: 'Feng Shui',
+    subcategory: 'Protection',
+    sku: 'ME-FEC-001',
+    price: 19.99,
+    originalPrice: 29.99,
+    cost: 2.00,
+    shippingCost: 1.50,
+    rating: 4.7,
+    reviews: 198,
+    tags: ['fengshui', 'popular', 'chinese', 'protection'],
+    images: [
+      'https://images.unsplash.com/photo-1578899952107-9c342f9bf006?w=600&q=80',
+      'https://images.unsplash.com/photo-1582711010-7b2f5cbd6c42?w=600&q=80',
+      'https://images.unsplash.com/photo-1545241047-6083a3684587?w=600&q=80'
+    ],
+    description: {
+      short: 'Traditional five emperor coins with red tassel. Brings good luck, protection, and wealth energy.',
+      long: 'This Five Emperor Coins Lucky Tassel features five bronze coins connected by a traditional red braided cord with an elegant Chinese knot and tassel. Each coin represents one of the five most prosperous emperors of the Qing Dynasty: Shunzhi, Kangxi, Yongzheng, Qianlong, and Jiaqing. Together they symbolize the power and prosperity of one of Chinas greatest golden ages.',
+      meaning: 'In Chinese feng shui, five emperor coins are one of the most versatile and powerful protective charms. They combine the energy of heaven, earth, and mankind. The round shape represents heaven, the square hole represents earth, and the emperors name represents mankind. Hanging them is believed to attract wealth, ward off evil, and bring good fortune.',
+      usage: 'Hang near the front door to protect your home from negative energy. Place in your wallet or purse to attract wealth. Hang in your car for safe travels. Hang near your cash register or work desk for business prosperity. The red cord and tassel amplify the protective and lucky energy.'
+    },
+    variants: [
+      { type: 'Classic Red', price: 19.99 },
+      { type: 'Gold & Red Deluxe', price: 24.99 },
+      { type: 'Set of 3', price: 29.99 }
+    ],
+    benefits: [
+      'Wealth and prosperity',
+      'Negative energy protection',
+      'Safe travels',
+      'Business success'
+    ],
+    specifications: {
+      material: 'Bronze Alloy Coins + Red Cord',
+      coins: '5 coins (Qing Dynasty)',
+      totalLength: '28-35cm',
+      coinDiameter: '2.4cm',
+      origin: 'China'
+    }
+  },
+  {
+    id: 'money-frog-statue',
+    name: 'Three-Legged Money Frog Feng Shui',
+    shortName: 'Money Frog',
+    category: 'Feng Shui',
+    subcategory: 'Wealth',
+    sku: 'ME-MFR-001',
+    price: 44.99,
+    originalPrice: 64.99,
+    cost: 6.00,
+    shippingCost: 4.00,
+    rating: 4.8,
+    reviews: 156,
+    tags: ['fengshui', 'wealth', 'popular', 'chinese'],
+    images: [
+      'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80',
+      'https://images.unsplash.com/photo-1594488518160-8d596e86cb88?w=600&q=80',
+      'https://images.unsplash.com/photo-1612698093158-e07ac200d44e?w=600&q=80'
+    ],
+    description: {
+      short: 'Classic three-legged money frog with coin in mouth. The legendary feng shui wealth charm for abundance.',
+      long: 'This Three-Legged Money Frog (Chan Chu) figurine is a beloved feng shui symbol of wealth and prosperity. Depicted sitting on a bed of coins and ingots with a gold coin in its mouth, this golden frog is said to appear during the full moon near homes or businesses that will receive good fortune and monetary gain. The three legs represent heaven, earth, and humanity.',
+      meaning: 'The Money Frog (or Three-Legged Toad) is a legendary creature in Chinese folklore. It is said that this mythical frog would appear in front of houses where great fortune was about to arrive. The coin in its mouth represents wealth being delivered to the household. In feng shui, it is one of the most powerful symbols for attracting money and financial abundance.',
+      usage: 'Place near the front entrance, facing inward (not facing out the door), to invite wealth into your home. Position on your desk or near your cash register for business prosperity. Ideal placement is in the southeast (wealth) corner or the front left corner (the money corner) when standing at the front door facing inward.'
+    },
+    variants: [
+      { size: 'Small (7cm)', price: 29.99 },
+      { size: 'Medium (10cm)', price: 44.99 },
+      { size: 'Large (15cm)', price: 59.99 }
+    ],
+    benefits: [
+      'Attracts wealth and money',
+      'Business prosperity',
+      'Good fortune',
+      'Decorative conversation piece'
+    ],
+    specifications: {
+      material: 'Resin with Gold Finish',
+      height: '7-15cm',
+      width: '8-16cm',
+      coinInMouth: 'Yes',
+      origin: 'China'
+    }
+  },
+  {
+    id: 'bagua-mirror',
+    name: 'Bagua Protection Mirror Convex',
+    shortName: 'Bagua Mirror',
+    category: 'Feng Shui',
+    subcategory: 'Protection',
+    sku: 'ME-BGM-001',
+    price: 29.99,
+    originalPrice: 44.99,
+    cost: 4.00,
+    shippingCost: 3.00,
+    rating: 4.6,
+    reviews: 89,
+    tags: ['fengshui', 'protection', 'chinese', 'bagua'],
+    images: [
+      'https://images.unsplash.com/photo-1519692933481-e162a57d6721?w=600&q=80',
+      'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80',
+      'https://images.unsplash.com/photo-1594488518160-8d596e86cb88?w=600&q=80'
+    ],
+    description: {
+      short: 'Traditional bagua convex mirror for protection. Repels negative energy and protects your space.',
+      long: 'This Bagua Convex Mirror features the classic eight trigrams (bagua) symbol surrounding a convex mirror, all set in a beautifully carved wooden frame. The bagua is the fundamental concept of Chinese cosmology, representing the eight fundamental principles of reality. The convex mirror shape disperses and deflects negative energy (Sha Qi) away from your home or workplace.',
+      meaning: 'The bagua (eight trigrams) is an ancient Chinese symbol from the I Ching (Book of Changes). Each trigram represents a different aspect of life: heaven, earth, thunder, wind, water, fire, mountain, and lake. Together they represent the totality of the universe. When combined with a mirror, it creates a powerful protective amulet that reflects and disperses negative influences.',
+      usage: 'Hang above or beside entrances, windows, or doors that face sharp corners, T-junctions, or other sources of negative energy. Convex mirrors disperse energy outward. Note: Always hang convex mirrors OUTSIDE facing outward to deflect negative energy. Do not hang inside the home facing inward. Wipe the mirror surface regularly for maximum effectiveness.'
+    },
+    variants: [
+      { type: 'Convex (Protection)', price: 29.99 },
+      { type: 'Concave (Focus/Attract)', price: 29.99 },
+      { type: 'Set of 2 (Both Types)', price: 49.99 }
+    ],
+    benefits: [
+      'Negative energy protection',
+      'Space clearing',
+      'Feng shui remedy',
+      'Traditional chinese symbolism'
+    ],
+    specifications: {
+      material: 'Wood Frame + Glass Mirror',
+      diameter: '12-15cm',
+      design: 'Bagua Eight Trigrams',
+      mirrorType: 'Convex / Concave',
+      origin: 'China'
+    }
+  },
+
+  // ========== 佛珠/佛教用品类 ==========
+  {
+    id: '108-mala-beads',
+    name: 'Tibetan 108 Mala Prayer Beads',
+    shortName: '108 Mala Beads',
+    category: 'Buddhist',
+    subcategory: 'Meditation',
+    sku: 'ME-MAL-001',
+    price: 34.99,
+    originalPrice: 54.99,
+    cost: 5.00,
+    shippingCost: 2.50,
+    rating: 4.9,
+    reviews: 234,
+    tags: ['bestseller', 'buddhist', 'meditation', 'mala'],
+    images: [
+      'https://images.unsplash.com/photo-1602751584552-8ba73aad10e1?w=600&q=80',
+      'https://images.unsplash.com/photo-1599643477877-530eb83abc8e?w=600&q=80',
+      'https://images.unsplash.com/photo-1612198188060-c7c2a3b66eae?w=600&q=80'
+    ],
+    description: {
+      short: 'Traditional 108-bead Tibetan mala for meditation and mindfulness. Hand-knotted with guru bead and tassel.',
+      long: 'This traditional 108-bead Mala is handcrafted using ancient techniques passed down through Tibetan Buddhist lineages. Each bead is separated by a hand-tied knot, creating a tactile and spiritual tool for meditation, mantra recitation, and mindfulness practice. The mala includes a traditional guru bead (3-holed bead representing the Buddha, Dharma, and Sangha) and a beautiful silk tassel symbolizing compassion and the connection to all sentient beings.',
+      meaning: '108 beads is the sacred number in many Eastern spiritual traditions, representing the 108 defilements (kleshas) that must be overcome to attain enlightenment. Other interpretations include the 108 sacred sites in India, 108 marma points in Ayurveda, and 108 nadis (energy channels) in the body.',
+      usage: 'Hold the mala in your right hand, draping it over your middle finger. Use your thumb to count beads, pulling each one toward you as you recite your mantra (Om Mani Padme Hum or any sacred phrase). Start at the guru bead, move through all 108 beads, then reverse direction to return. Never pass over the guru bead. Can also be worn as a necklace or bracelet for continuous spiritual benefit.'
+    },
+    variants: [
+      { material: 'Bodhi Seed', price: 34.99 },
+      { material: 'Sandalwood', price: 39.99 },
+      { material: 'Black Obsidian', price: 34.99 },
+      { material: 'Rosewood', price: 29.99 }
+    ],
+    benefits: [
+      'Meditation focus tool',
+      'Stress and anxiety relief',
+      'Spiritual connection',
+      'Wearable mindfulness reminder'
+    ],
+    specifications: {
+      material: 'Selectable (see variants)',
+      beadCount: '108 beads + guru bead',
+      beadSize: '8mm',
+      totalLength: '80-90cm',
+      includes: 'Guru bead + Silk tassel',
+      origin: 'Handcrafted in Nepal / Tibet'
+    }
+  },
+  {
+    id: 'cinnabar-bracelet',
+    name: 'Cinnabar Protection Bracelet',
+    shortName: 'Cinnabar Bracelet',
+    category: 'Taoist',
+    subcategory: 'Protection',
+    sku: 'ME-CIN-001',
+    price: 39.99,
+    originalPrice: 59.99,
+    cost: 6.00,
+    shippingCost: 2.50,
+    rating: 4.8,
+    reviews: 167,
+    tags: ['taoist', 'protection', 'chinese', 'cinnabar'],
+    images: [
+      'https://images.unsplash.com/photo-1611652022419-a9419f74343d?w=600&q=80',
+      'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=600&q=80',
+      'https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?w=600&q=80'
+    ],
+    description: {
+      short: 'Genuine cinnabar (vermilion) bracelet for powerful protection. The most sacred stone in Taoism.',
+      long: 'This Cinnabar Protection Bracelet features genuine cinnabar (also known as vermilion or zhu sha) beads carefully hand-strung on a durable elastic cord. Cinnabar has been revered in Chinese culture for over 5,000 years as the most powerful protective stone. Its distinctive deep red color is associated with life force, vitality, and the power to ward off evil spirits and negative energies.',
+      meaning: 'In Taoism, cinnabar is considered the stone of immortality and spiritual transformation. It was used by Taoist alchemists in their quest for longevity and enlightenment. Cinnabar is also strongly associated with protection, good fortune, and prosperity. The rich red color symbolizes fire, yang energy, and the power to transform negativity into positive energy.',
+      usage: 'Wear on your left hand (receiving hand) to absorb the protective energy. Can also be worn on the right hand to project protective energy outward. Cinnabar is naturally warming and increases circulation. Do not ingest cinnabar. Avoid prolonged contact with skin if you have mercury sensitivities. Clean with a soft cloth, do not use harsh chemicals.'
+    },
+    variants: [
+      { size: '6mm beads', price: 34.99 },
+      { size: '8mm beads', price: 39.99 },
+      { size: '10mm beads', price: 49.99 },
+      { style: 'With Pixiu Charm', price: 49.99 }
+    ],
+    benefits: [
+      'Powerful negative energy protection',
+      'Good fortune and prosperity',
+      'Vitality and life force',
+      'Sacred taoist talisman'
+    ],
+    specifications: {
+      material: 'Genuine Cinnabar',
+      beadSize: '6mm / 8mm / 10mm',
+      braceletSize: 'Adjustable elastic',
+      color: 'Deep Vermilion Red',
+      origin: 'Hunan, China'
+    }
+  },
+  {
+    id: 'peach-wood-sword',
+    name: 'Taoist Peach Wood Sword',
+    shortName: 'Peach Wood Sword',
+    category: 'Taoist',
+    subcategory: 'Protection',
+    sku: 'ME-PWS-001',
+    price: 29.99,
+    originalPrice: 44.99,
+    cost: 4.00,
+    shippingCost: 3.00,
+    rating: 4.7,
+    reviews: 112,
+    tags: ['taoist', 'protection', 'chinese', 'peachwood'],
+    images: [
+      'https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?w=600&q=80',
+      'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80',
+      'https://images.unsplash.com/photo-1519692933481-e162a57d6721?w=600&q=80'
+    ],
+    description: {
+      short: 'Traditional Taoist peach wood sword for home protection. Wards off evil spirits and negative energy.',
+      long: 'This Taoist Peach Wood Sword is hand-carved from genuine peach wood, the most revered protective wood in Chinese Taoism. The sword features intricate carvings of Taoist symbols including the bagua (eight trigrams) and the Taijitu (yin-yang symbol). Since ancient times, peach wood has been considered one of the most powerful materials for exorcising evil and protecting against negative supernatural influences.',
+      meaning: 'In Chinese folklore and Taoism, the peach tree is considered the "Tree of Immortals" and its wood has powerful demon-repelling properties. The legendary Taoist master Zhang Daoling is said to have used a peach wood sword to subdue demons and evil spirits. Peach wood swords remain one of the most iconic tools of Taoist ritual practice.',
+      usage: 'Hang above your front door or main entrance to protect your home from negative energy and evil spirits. Can be hung in bedrooms to prevent nightmares. Hang in the hallway facing the entrance. Does not need to be displayed openly - it works even when placed behind a door or in a closet. Replace or re-energize if it cracks or breaks (it has absorbed negative energy on your behalf).'
+    },
+    variants: [
+      { size: 'Small (15cm) - Keychain', price: 14.99 },
+      { size: 'Medium (25cm) - Wall Hang', price: 29.99 },
+      { size: 'Large (40cm) - Display', price: 49.99 }
+    ],
+    benefits: [
+      'Evil spirit protection',
+      'Home blessing',
+      'Nightmare prevention',
+      'Traditional taoist protection'
+    ],
+    specifications: {
+      material: 'Genuine Peach Wood',
+      length: '15-40cm (selectable)',
+      design: 'Bagua + Taiji carvings',
+      includes: 'Red cord for hanging',
+      origin: 'Hand-carved in China'
+    }
+  },
+
+  // ========== 易经占卜类 ==========
+  {
+    id: 'i-ching-coins-set',
+    name: 'I Ching Divination Coin Set',
+    shortName: 'I Ching Coins',
+    category: 'Divination',
+    subcategory: 'I Ching',
+    sku: 'ME-ICH-001',
+    price: 34.99,
+    originalPrice: 49.99,
+    cost: 5.00,
+    shippingCost: 2.50,
+    rating: 4.8,
+    reviews: 145,
+    tags: ['divination', 'iching', 'chinese', 'oracle'],
+    images: [
+      'https://images.unsplash.com/photo-1509813682913-3e3b1f2af3f3?w=600&q=80',
+      'https://images.unsplash.com/photo-1573455494055-c703f7b7fb59?w=600&q=80',
+      'https://images.unsplash.com/photo-1606092195730-5d7b9af1efc5?w=600&q=80'
+    ],
+    description: {
+      short: 'Complete I Ching divination set with 3 coins, cloth, and English guide book. The ancient Chinese oracle.',
+      long: 'This complete I Ching (Book of Changes) Divination Set includes three authentic Chinese bronze coins, a beautiful silk divination cloth, and a comprehensive English guidebook explaining the 64 hexagrams and how to perform readings. The I Ching is one of the oldest books in the world, dating back over 3,000 years to ancient China. It offers profound wisdom and guidance for lifes questions and decisions.',
+      meaning: 'The I Ching (Yijing), or Book of Changes, is an ancient Chinese divination text and philosophical treatise. It is based on the concept that everything in the universe is in a state of flux, and that by understanding the patterns of change, we can make better decisions and align ourselves with the natural flow of the Tao. The 64 hexagrams represent all possible states of change.',
+      usage: 'Place the three coins in your palm, focus on your question, shake, and toss them. Heads (dragon side) = 3, tails (character side) = 2. Sum the total. Odd = Yang (solid line), Even = Yin (broken line). Build your hexagram from bottom to top with six throws. Look up the hexagram in the guidebook for your answer. The included cloth creates a sacred space for your readings.'
+    },
+    variants: [
+      { type: 'Basic Set (3 coins + guide)', price: 24.99 },
+      { type: 'Deluxe Set (coins + cloth + book)', price: 34.99 },
+      { type: 'Premium Set (wood box + everything)', price: 49.99 }
+    ],
+    benefits: [
+      'Ancient wisdom and guidance',
+      'Decision-making tool',
+      'Spiritual insight',
+      'Beautiful keepsake set'
+    ],
+    specifications: {
+      includes: '3 Bronze Coins + Cloth + English Guidebook',
+      coinDiameter: '2.4cm',
+      clothSize: '30 x 30cm (deluxe)',
+      guidebook: '64 hexagrams explained in English',
+      origin: 'China'
+    }
+  },
+
+  // ========== 香道/养生类 ==========
+  {
+    id: 'agarwood-incense-sticks',
+    name: 'Premium Agarwood Incense Sticks',
+    shortName: 'Agarwood Incense',
+    category: 'Incense',
+    subcategory: 'Meditation',
+    sku: 'ME-AGR-001',
+    price: 24.99,
+    originalPrice: 34.99,
+    cost: 3.50,
+    shippingCost: 2.00,
+    rating: 4.9,
+    reviews: 201,
+    tags: ['incense', 'meditation', 'agarwood', 'bestseller'],
+    images: [
+      'https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?w=600&q=80',
+      'https://images.unsplash.com/photo-1602751584552-8ba73aad10e1?w=600&q=80',
+      'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80'
+    ],
+    description: {
+      short: 'Premium natural agarwood (oud) incense sticks. Hand-rolled for meditation, relaxation, and space cleansing.',
+      long: 'Our Premium Agarwood Incense Sticks are hand-rolled using genuine agarwood (also known as oud or aloeswood), one of the most precious and aromatic woods in the world. The rich, deep, woody fragrance has been prized in Eastern cultures for thousands of years for its calming, grounding, and spiritually uplifting properties. Each stick burns for approximately 45 minutes, filling your space with a warm, earthy aroma that promotes deep relaxation and inner peace.',
+      meaning: 'Agarwood (chen xiang) is known as the "King of Incense" and has been used in sacred ceremonies across Buddhist, Hindu, and Islamic traditions for millennia. In Chinese medicine, it is used to move qi, calm the spirit, and open the heart. The fragrance is said to help quiet the mind, deepen meditation, and create an atmosphere of serenity and sacredness.',
+      usage: 'Light the tip of the incense stick, let the flame catch for a few seconds, then gently blow out. Place in an incense holder on a heatproof surface. For meditation, light 1-2 sticks before beginning your practice. For space cleansing, walk around your space carrying the burning stick, moving clockwise. Always use in a well-ventilated area. Never leave burning incense unattended.'
+    },
+    variants: [
+      { type: 'Agarwood (Classic)', price: 24.99 },
+      { type: 'Sandalwood', price: 22.99 },
+      { type: 'Mixed Pack (6 Scents)', price: 29.99 },
+      { size: 'Box of 50 sticks', price: 24.99 }
+    ],
+    benefits: [
+      'Deep relaxation and calm',
+      'Meditation enhancement',
+      'Space purification',
+      'Stress and anxiety relief'
+    ],
+    specifications: {
+      material: 'Natural Agarwood Powder + Bamboo Stick',
+      quantity: '50 sticks per box',
+      burnTime: '45 min per stick',
+      length: '21cm',
+      note: '100% natural, no synthetic fragrances',
+      origin: 'Vietnam / Southeast Asia'
+    }
+  },
+
+  // ========== 颂钵/声疗类 ==========
+  {
+    id: 'tibetan-singing-bowl',
+    name: 'Himalayan Tibetan Singing Bowl',
+    shortName: 'Singing Bowl',
+    category: 'Sound Healing',
+    subcategory: 'Meditation',
+    sku: 'ME-SBW-001',
+    price: 79.99,
+    originalPrice: 119.99,
+    cost: 18.00,
+    shippingCost: 8.00,
+    rating: 4.9,
+    reviews: 178,
+    tags: ['bestseller', 'meditation', 'soundhealing', 'premium'],
+    images: [
+      'https://images.unsplash.com/photo-1602751584552-8ba73aad10e1?w=600&q=80',
+      'https://images.unsplash.com/photo-1599643477877-530eb83abc8e?w=600&q=80',
+      'https://images.unsplash.com/photo-1612198188060-c7c2a3b66eae?w=600&q=80'
+    ],
+    description: {
+      short: 'Authentic hand-hammered Tibetan singing bowl for sound healing and meditation. Produces deeply resonant tones.',
+      long: 'This authentic Himalayan Singing Bowl is handcrafted in the traditional manner by Tibetan artisans using a secret alloy of seven metals, each corresponding to one of the seven chakras or planets. The bowl produces a deeply resonant, harmonic tone when struck or rubbed with the included wooden mallet. Singing bowls have been used for thousands of years in Tibetan Buddhism for meditation, ritual, and sound healing therapy.',
+      meaning: 'Singing bowls (also known as Himalayan bowls or singing bowls) are believed to have originated in the Himalayan regions of Tibet, Nepal, and Bhutan over 2,500 years ago. The sound they produce is said to affect brainwave patterns, inducing deep meditative states. Many believe the vibrations can balance the chakras, clear negative energy, and promote physical, emotional, and spiritual healing.',
+      usage: 'Place the bowl on the cushion in the palm of your hand. Gently tap the side of the bowl with the mallet to start the sound. For the "singing" effect, run the mallet slowly and evenly around the outside rim with consistent pressure. Experiment with speed and pressure to find the sweet spot. For meditation, simply listen to the sound and let your mind follow it into stillness. Can also be used for chakra balancing by placing on or near the body.'
+    },
+    variants: [
+      { size: 'Small (10cm) - Beginner', price: 59.99 },
+      { size: 'Medium (12cm) - Popular', price: 79.99 },
+      { size: 'Large (15cm) - Premium', price: 99.99 }
+    ],
+    benefits: [
+      'Deep meditation states',
+      'Stress and anxiety relief',
+      'Chakra balancing',
+      'Beautiful ambient sound'
+    ],
+    specifications: {
+      material: '7-Metal Alloy (Copper, Tin, etc.)',
+      diameter: '10-15cm (selectable)',
+      includes: 'Singing Bowl + Malet + Cushion',
+      weight: '300-600g',
+      origin: 'Handmade in Nepal / Tibet'
+    }
   }
 ];
 
