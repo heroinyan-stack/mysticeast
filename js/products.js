@@ -1321,10 +1321,12 @@ function getProductsByCategory(category) {
 }
 
 function getRelatedProducts(product, limit = 4) {
+  if (!product || !product.id) return [];
+  
   return products
     .filter(p => p.id !== product.id && (
       p.category === product.category || 
-      p.tags.some(tag => product.tags.includes(tag))
+      (product.tags && p.tags && p.tags.some(tag => product.tags.includes(tag)))
     ))
     .slice(0, limit);
 }

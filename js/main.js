@@ -63,7 +63,7 @@ function renderProducts() {
 
 function createProductCard(product) {
   const discountPercent = calculateDiscount(product.originalPrice, product.price);
-  const isBestseller = product.tags.includes('bestseller');
+  const isBestseller = product.tags && product.tags.includes('bestseller');
   
   return `
     <a href="product.html?id=${product.id}" class="product-card" data-product-id="${product.id}">

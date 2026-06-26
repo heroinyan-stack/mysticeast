@@ -150,7 +150,7 @@ function renderProductDetail(product) {
 }
 
 function renderRelatedProducts(product) {
-  const related = getRelatedProducts(product.id, 4);
+  const related = getRelatedProducts(product, 4);
   if (related.length === 0) return;
 
   const section = document.getElementById('relatedSection');
