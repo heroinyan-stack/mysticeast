@@ -1,41 +1,6 @@
 // MysticEast - Product Data (Updated with Diverse Categories)
 // Last Updated: 2026-06-24
 
-// ===== Helper Functions =====
-function getProductById(id) {
-  return products.find(p => p.id === id);
-}
-
-function getProductsByCategory(category) {
-  return products.filter(p => p.category.toLowerCase() === category.toLowerCase());
-}
-
-function getRelatedProducts(product, limit = 4) {
-  return products
-    .filter(p => p.id !== product.id && (
-      p.category === product.category || 
-      p.tags.some(tag => product.tags.includes(tag))
-    ))
-    .slice(0, limit);
-}
-
-function formatPrice(price) {
-  return '$' + price.toFixed(2);
-}
-
-function calculateDiscount(original, current) {
-  if (!original || original <= current) return 0;
-  return Math.round((1 - current / original) * 100);
-}
-
-// Make products and functions globally available
-window.products = products;
-window.getProductById = getProductById;
-window.getProductsByCategory = getProductsByCategory;
-window.getRelatedProducts = getRelatedProducts;
-window.formatPrice = formatPrice;
-window.calculateDiscount = calculateDiscount;
-
 const products = [
   // ========== 水晶手链类 ==========
   {
@@ -1346,10 +1311,42 @@ const products = [
   }
 ];
 
+// ===== Helper Functions =====
+function getProductById(id) {
+  return products.find(p => p.id === id);
+}
+
+function getProductsByCategory(category) {
+  return products.filter(p => p.category.toLowerCase() === category.toLowerCase());
+}
+
+function getRelatedProducts(product, limit = 4) {
+  return products
+    .filter(p => p.id !== product.id && (
+      p.category === product.category || 
+      p.tags.some(tag => product.tags.includes(tag))
+    ))
+    .slice(0, limit);
+}
+
+function formatPrice(price) {
+  return '$' + price.toFixed(2);
+}
+
+function calculateDiscount(original, current) {
+  if (!original || original <= current) return 0;
+  return Math.round((1 - current / original) * 100);
+}
+
+// Make products and functions globally available
+window.products = products;
+window.getProductById = getProductById;
+window.getProductsByCategory = getProductsByCategory;
+window.getRelatedProducts = getRelatedProducts;
+window.formatPrice = formatPrice;
+window.calculateDiscount = calculateDiscount;
+
 // Export for use
 if (typeof module !== 'undefined' && module.exports) {
   module.exports = products;
 }
-
-// Make products globally available
-window.products = products;
