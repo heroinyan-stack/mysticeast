@@ -17,11 +17,7 @@ const products = [
     rating: 4.8,
     reviews: 234,
     tags: ['bestseller', 'protection'],
-    images: [
-      'https://images.unsplash.com/photo-1611652022419-a9419f74343d?w=600&q=80',
-      'https://images.unsplash.com/photo-1602751584552-8ba73aad10e1?w=600&q=80',
-      'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=600&q=80'
-    ],
+    images: ['images/products/obsidian-bracelet.jpg'],
     description: {
       short: 'Powerful black obsidian bracelet for protection against negative energy. Handcrafted with genuine volcanic glass beads.',
       long: 'This Black Obsidian Protection Bracelet is carefully handcrafted with 8mm genuine volcanic black obsidian beads. Black obsidian has been used for centuries as a powerful protective stone, believed to shield its wearer from negativity, absorb harmful energies, and promote emotional grounding. Each bracelet features an adjustable cord that fits most wrist sizes, making it perfect for both men and women. The natural glossy finish of each bead makes this piece as visually striking as it is spiritually meaningful.',
@@ -61,11 +57,7 @@ const products = [
     rating: 4.9,
     reviews: 189,
     tags: ['bestseller', 'wisdom'],
-    images: [
-      'https://images.unsplash.com/photo-1596484552834-6a58f850e0a1?w=600&q=80',
-      'https://images.unsplash.com/photo-1612198188060-c7c2a3b66eae?w=600&q=80',
-      'https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?w=600&q=80'
-    ],
+    images: ['images/products/amethyst-bracelet.jpg'],
     description: {
       short: 'Beautiful amethyst bracelet for spiritual growth and inner peace. Known as the stone of transmutation.',
       long: 'Our Amethyst Wisdom Bracelet features genuine 8mm amethyst beads, prized for their stunning purple hues ranging from light lavender to deep violet. Amethyst has been revered since ancient times as a stone of wisdom, spiritual protection, and calm. This bracelet is perfect for meditation practitioners, healers, or anyone seeking to enhance their intuition and connect with higher consciousness.',
@@ -105,11 +97,7 @@ const products = [
     rating: 4.7,
     reviews: 156,
     tags: ['love', 'popular'],
-    images: [
-      'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=600&q=80',
-      'https://images.unsplash.com/photo-1600080972464-8e5f35f63d08?w=600&q=80',
-      'https://images.unsplash.com/photo-1611652022419-a9419f74343d?w=600&q=80'
-    ],
+    images: ['images/products/rose-quartz-bracelet.jpg'],
     description: {
       short: 'Delicate rose quartz bracelet to attract love and open the heart. The ultimate stone of unconditional love.',
       long: 'This Rose Quartz Love Bracelet showcases the soft, feminine beauty of genuine rose quartz, the stone universally associated with love, compassion, and emotional healing. The pale pink beads are carefully selected for their uniform color and gentle translucency. Whether worn as a personal reminder of self-love or given as a meaningful gift to someone special, this bracelet carries the essence of unconditional affection.',
@@ -149,11 +137,7 @@ const products = [
     rating: 4.6,
     reviews: 98,
     tags: ['wealth', 'success'],
-    images: [
-      'https://images.unsplash.com/photo-1596484552834-6a58f850e0a1?w=600&q=80',
-      'https://images.unsplash.com/photo-1612198188060-c7c2a3b66eae?w=600&q=80',
-      'https://images.unsplash.com/photo-1602751584552-8ba73aad10e1?w=600&q=80'
-    ],
+    images: ['images/products/citrine-bracelet.jpg'],
     description: {
       short: 'Sunny citrine bracelet for prosperity and success. Known as the merchants stone for attracting wealth.',
       long: 'Our Citrine Abundance Bracelet features vibrant, golden-yellow citrine beads that capture the warmth and energy of the sun. Citrine is one of the few stones that never needs cleansing as it does not hold negative energies. This solar-powered crystal is prized for its ability to attract abundance, manifest goals, and infuse life with joy and optimism.',
@@ -193,11 +177,7 @@ const products = [
     rating: 4.5,
     reviews: 87,
     tags: ['courage', 'strength'],
-    images: [
-      'https://images.unsplash.com/photo-1611652022419-a9419f74343d?w=600&q=80',
-      'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=600&q=80',
-      'https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?w=600&q=80'
-    ],
+    images: ['images/products/tiger-eye-bracelet.jpg'],
     description: {
       short: 'Bold tiger eye bracelet for strength and protection. The chatoyant bands bring focus and determination.',
       long: 'This Tiger Eye Courage Bracelet showcases the remarkable chatoyant effect of genuine tiger eye gemstone, with golden-brown bands that shimmer like a cats eye. Tiger eye is treasured for its grounding properties and ability to balance emotions while promoting mental clarity and practical decision-making.',
@@ -239,11 +219,7 @@ const products = [
     rating: 4.8,
     reviews: 145,
     tags: ['bestseller', 'chakra', 'balance'],
-    images: [
-      'https://images.unsplash.com/photo-1599643477877-530eb83abc8e?w=600&q=80',
-      'https://images.unsplash.com/photo-1612198188060-c7c2a3b66eae?w=600&q=80',
-      'https://images.unsplash.com/photo-1602751584552-8ba73aad10e1?w=600&q=80'
-    ],
+    images: ['images/products/seven-chakra-necklace.jpg'],
     description: {
       short: '7 chakra healing necklace with genuine raw crystals. Perfect for energy balancing and spiritual practice.',
       long: 'This stunning 7 Chakra Raw Crystal Necklace features seven genuine semi-precious stones corresponding to each of the bodys main energy centers: Root (Red Jasper), Sacral (Carnelian), Solar Plexus (Tiger Eye), Heart (Rose Quartz), Throat (Sodalite), Third Eye (Amethyst), and Crown (Clear Quartz). Each crystal is hand-selected for its natural beauty and energy properties, creating a powerful tool for spiritual practitioners and energy healing.',
@@ -283,11 +259,7 @@ const products = [
     rating: 4.7,
     reviews: 112,
     tags: ['popular', 'clarity'],
-    images: [
-      'https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?w=600&q=80',
-      'https://images.unsplash.com/photo-1612198188060-c7c2a3b66eae?w=600&q=80',
-      'https://images.unsplash.com/photo-1596484552834-6a58f850e0a1?w=600&q=80'
-    ],
+    images: ['images/products/crystal-point-necklace.jpg'],
     description: {
       short: 'Elegant raw crystal point pendant necklace. Natural terminator crystal for energy direction.',
       long: 'This Raw Crystal Point Pendant Necklace features a genuine faceted crystal point suspended on an adjustable silver-tone chain. Crystal points are natural energy conductors that can draw in, store, or direct energy depending on intention. The points single termination makes it especially powerful for sending healing energy outward or into other crystals.',
@@ -330,11 +302,7 @@ const products = [
     rating: 4.6,
     reviews: 89,
     tags: ['fengshui', 'wealth', 'home'],
-    images: [
-      'https://images.unsplash.com/photo-1594488518160-8d596e86cb88?w=600&q=80',
-      'https://images.unsplash.com/photo-1612698093158-e07ac200d44e?w=600&q=80',
-      'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80'
-    ],
+    images: ['images/products/crystal-tree.jpg'],
     description: {
       short: 'Handcrafted 7-color crystal wealth tree for abundance. Brings positive energy and prosperity to any space.',
       long: 'This magnificent 7 Color Crystal Wealth Tree features hundreds of tiny crystal beads in seven auspicious colors representing all the major chakras and energy meridians. Each tree is carefully handcrafted with genuine crystal chips mounted on a wooden trunk. According to Feng Shui principles, the crystal wealth tree activates the wealth corner of your space while attracting positive chi and neutralizing negative energy.',
@@ -374,11 +342,7 @@ const products = [
     rating: 4.8,
     reviews: 167,
     tags: ['fengshui', 'popular', 'home'],
-    images: [
-      'https://images.unsplash.com/photo-1578899952107-9c342f9bf006?w=600&q=80',
-      'https://images.unsplash.com/photo-1582711010-7b2f5cbd6c42?w=600&q=80',
-      'https://images.unsplash.com/photo-1545241047-6083a3684587?w=600&q=80'
-    ],
+    images: ['images/products/lucky-cat.jpg'],
     description: {
       short: 'Adorable solar-powered Maneki Neko that waves continuously. Brings good fortune, customers, and positive energy.',
       long: 'This charming Solar-Powered Lucky Cat (Maneki Neko) features an adorable cat in traditional Japanese style, perpetually waving its paw to invite good fortune and customers. The built-in solar panel powers a small motor that keeps the paw waving all day without batteries. Made from high-quality resin with gold and white coloring, its both a powerful Feng Shui symbol and a delightful decorative piece.',
@@ -418,11 +382,7 @@ const products = [
     rating: 4.5,
     reviews: 76,
     tags: ['fengshui', 'harmony', 'outdoor'],
-    images: [
-      'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80',
-      'https://images.unsplash.com/photo-1519692933481-e162a57d6721?w=600&q=80',
-      'https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=600&q=80'
-    ],
+    images: ['images/products/wind-chime.jpg'],
     description: {
       short: 'Traditional 7-tube metal wind chime for positive energy. Perfect for outdoor spaces and garden decoration.',
       long: 'This Traditional 7-Tube Wind Chime combines ancient Feng Shui wisdom with beautiful craftsmanship. The seven tubes represent the seven notes of the musical scale and the seven stars of the Big Dipper constellation. When the wind blows, the gentle tones are believed to attract positive chi, disperse negative energy, and bring peace and harmony to your environment.',
@@ -464,11 +424,7 @@ const products = [
     rating: 4.9,
     reviews: 203,
     tags: ['bestseller', 'tarot', 'spiritual'],
-    images: [
-      'https://images.unsplash.com/photo-1509813682913-3e3b1f2af3f3?w=600&q=80',
-      'https://images.unsplash.com/photo-1573455494055-c703f7b7fb59?w=600&q=80',
-      'https://images.unsplash.com/photo-1606092195730-5d7b9af1efc5?w=600&q=80'
-    ],
+    images: ['images/products/tarot-cards.jpg'],
     description: {
       short: 'The classic Rider-Waite-Smith tarot deck. 78 cards with comprehensive guide booklet for beginners.',
       long: 'This is the iconic Rider-Waite Tarot Deck, created by Pamela Colman Smith under the direction of Arthur Edward Waite in 1909. Widely regarded as the most influential tarot deck in history, it features vivid symbolic imagery on every card that has inspired millions of readers worldwide. This high-quality replica includes all 78 cards plus an English instruction guide explaining the meanings and reading techniques.',
@@ -508,11 +464,7 @@ const products = [
     rating: 4.7,
     reviews: 94,
     tags: ['divination', 'spiritual', 'meditation'],
-    images: [
-      'https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?w=600&q=80',
-      'https://images.unsplash.com/photo-1612198188060-c7c2a3b66eae?w=600&q=80',
-      'https://images.unsplash.com/photo-1599643477877-530eb83abc8e?w=600&q=80'
-    ],
+    images: ['images/products/crystal-ball.jpg'],
     description: {
       short: 'Beautiful amethyst crystal ball on wooden stand. Perfect for scrying, meditation, and energy work.',
       long: 'This stunning Amethyst Crystal Ball Set includes a handcrafted natural amethyst sphere mounted on an elegant wooden stand. Amethyst has been used for scrying and spiritual work since ancient times, believed to enhance intuitive abilities and connect users to higher realms of consciousness. The smooth, perfectly round ball is ideal for meditation, crystal gazing, and creating a focal point for energy work.',
@@ -554,11 +506,7 @@ const products = [
     rating: 4.8,
     reviews: 312,
     tags: ['cleansing', 'spiritual', 'bestseller'],
-    images: [
-      'https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?w=600&q=80',
-      'https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?w=600&q=80',
-      'https://images.unsplash.com/photo-1602751584552-8ba73aad10e1?w=600&q=80'
-    ],
+    images: ['images/products/sage-smudge.jpg'],
     description: {
       short: 'Authentic California white sage bundle for energy cleansing. Includes abalone shell and feather for traditional smudging.',
       long: 'This White Sage Smudge Kit contains three premium California White Sage bundles, an abalone shell (traditional smudge vessel), and a sage hen feather for fanning the smoke. White sage has been used by indigenous cultures for thousands of years as a sacred cleansing tool, believed to purify spaces, objects, and people of negative energies. The included guide explains traditional smudging practices.',
@@ -598,11 +546,7 @@ const products = [
     rating: 4.6,
     reviews: 128,
     tags: ['candle', 'love', 'gift'],
-    images: [
-      'https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?w=600&q=80',
-      'https://images.unsplash.com/photo-1602751584552-8ba73aad10e1?w=600&q=80',
-      'https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?w=600&q=80'
-    ],
+    images: ['images/products/crystal-candle.jpg'],
     description: {
       short: 'Hand-poured soy crystal candle with real rose quartz. Burns for 45+ hours with natural lavender scent.',
       long: 'This Hand-Poured Rose Quartz Crystal Candle combines the beauty of genuine rose quartz with the aromatherapy benefits of natural soy wax. Each candle is crafted with sustainable soy wax, infused with calming lavender essential oil, and topped with authentic rose quartz chips that float beautifully as the wax melts. The warm, soft glow creates the perfect ambiance for meditation, relaxation, and romantic evenings.',
@@ -644,11 +588,7 @@ const products = [
     rating: 4.9,
     reviews: 67,
     tags: ['crystals', 'rare', 'home'],
-    images: [
-      'https://images.unsplash.com/photo-1599643477877-530eb83abc8e?w=600&q=80',
-      'https://images.unsplash.com/photo-1612198188060-c7c2a3b66eae?w=600&q=80',
-      'https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?w=600&q=80'
-    ],
+    images: ['images/products/amethyst-cluster.jpg'],
     description: {
       short: 'Stunning natural amethyst cluster with deep purple points. Each piece is unique - a true collector piece.',
       long: 'This Natural Amethyst Cluster features beautiful deep purple crystal points growing from a natural matrix. Each cluster is completely unique, formed over millions of years in volcanic rock. The rich purple color and perfect crystal terminations make this a stunning display piece for any space. Clusters of this quality are highly prized by crystal collectors and energy practitioners alike.',
@@ -688,11 +628,7 @@ const products = [
     rating: 4.7,
     reviews: 156,
     tags: ['healing', 'beginners', 'gift'],
-    images: [
-      'https://images.unsplash.com/photo-1602751584552-8ba73aad10e1?w=600&q=80',
-      'https://images.unsplash.com/photo-1596484552834-6a58f850e0a1?w=600&q=80',
-      'https://images.unsplash.com/photo-1612198188060-c7c2a3b66eae?w=600&q=80'
-    ],
+    images: ['images/products/raw-crystal-set.jpg'],
     description: {
       short: 'Complete 7 chakra healing crystal set. Perfect for beginners, crystal grids, or meaningful gift.',
       long: 'This Complete 7 Chakra Healing Set includes seven genuine raw crystal points, one for each energy center of the body. Each stone is hand-selected for its color and energy properties, corresponding to the seven main chakras: Root (Red Jasper), Sacral (Orange Carnelian), Solar Plexus (Golden Tiger Eye), Heart (Pink Rose Quartz), Throat (Blue Sodalite), Third Eye (Purple Amethyst), and Crown (White Clear Quartz). Comes in a velvet pouch with chakra guide.',
@@ -734,11 +670,7 @@ const products = [
     rating: 4.8,
     reviews: 245,
     tags: ['protection', 'popular', 'gift'],
-    images: [
-      'https://images.unsplash.com/photo-1611652022419-a9419f74343d?w=600&q=80',
-      'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=600&q=80',
-      'https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?w=600&q=80'
-    ],
+    images: ['images/products/evil-eye.jpg'],
     description: {
       short: 'Traditional Turkish evil eye bracelet for protection. Recognized worldwide as a powerful protective amulet.',
       long: 'This Turkish Evil Eye Protection Bracelet features the iconic nazar (evil eye) charm - a blue and white concentric circle that has served as a powerful protective amulet across Mediterranean and Middle Eastern cultures for over 5,000 years. The charm is crafted from glass using traditional techniques, creating that distinctive swirling pattern. The adjustable cord fits most wrist sizes and can also be worn as an anklet.',
@@ -777,11 +709,7 @@ const products = [
     rating: 4.5,
     reviews: 78,
     tags: ['altar', 'spiritual', 'decor'],
-    images: [
-      'https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?w=600&q=80',
-      'https://images.unsplash.com/photo-1519692933481-e162a57d6721?w=600&q=80',
-      'https://images.unsplash.com/photo-1509813682913-3e3b1f2af3f3?w=600&q=80'
-    ],
+    images: ['images/products/altar-cloth.jpg'],
     description: {
       short: 'Black velvet altar cloth with silver pentagram. Essential for spiritual practitioners and altar setup.',
       long: 'This Black Velvet Altar Cloth features an elegant silver-thread pentagram embroidered in the center, surrounded by a delicate moon and star border. Made from premium soft velvet, it drapes beautifully and protects your altar surface while creating a sacred space for ritual and meditation work. The 50x50cm size is perfect for most home altars and meditation spaces.',
@@ -823,11 +751,7 @@ const products = [
     rating: 4.6,
     reviews: 92,
     tags: ['tarot', 'gift', 'accessories'],
-    images: [
-      'https://images.unsplash.com/photo-1509813682913-3e3b1f2af3f3?w=600&q=80',
-      'https://images.unsplash.com/photo-1573455494055-c703f7b7fb59?w=600&q=80',
-      'https://images.unsplash.com/photo-1606092195730-5d7b9af1efc5?w=600&q=80'
-    ],
+    images: ['images/products/tarot-cloth-set.jpg'],
     description: {
       short: 'Mystical tarot reading cloth with matching storage bag. Features celestial design with moon and stars.',
       long: 'This Mystical Tarot Reading Cloth set includes a beautifully designed reading cloth and matching drawstring bag for storing your deck. The cloth features a deep purple background with an elegant mandala center design, surrounded by moons, stars, and mystical symbols. Made from satin-finish polyester, it drapes beautifully and protects your cards during readings. The matching bag keeps your tarot deck safe and adds a touch of magic to your practice.',
@@ -870,11 +794,7 @@ const products = [
     rating: 4.9,
     reviews: 127,
     tags: ['fengshui', 'bestseller', 'wealth', 'chinese'],
-    images: [
-      'https://images.unsplash.com/photo-1594488518160-8d596e86cb88?w=600&q=80',
-      'https://images.unsplash.com/photo-1612698093158-e07ac200d44e?w=600&q=80',
-      'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80'
-    ],
+    images: ['images/products/pixiu.jpg'],
     description: {
       short: 'Handcrafted brass Pixiu (Pi Yao) figurine for wealth attraction. The most powerful feng shui wealth symbol.',
       long: 'This exquisite Brass Pixiu Figurine is carefully handcrafted from solid brass, capturing every detail of this mythical Chinese creature. Pixiu (also known as Pi Yao) is one of the most powerful feng shui symbols for attracting and preserving wealth. With its dragon head, lion body, and wings, this celestial creature is believed to seek out gold and treasures, bringing prosperity to its owner. This figurine makes a stunning addition to any home, office, or business space.',
@@ -914,11 +834,7 @@ const products = [
     rating: 4.7,
     reviews: 198,
     tags: ['fengshui', 'popular', 'chinese', 'protection'],
-    images: [
-      'https://images.unsplash.com/photo-1578899952107-9c342f9bf006?w=600&q=80',
-      'https://images.unsplash.com/photo-1582711010-7b2f5cbd6c42?w=600&q=80',
-      'https://images.unsplash.com/photo-1545241047-6083a3684587?w=600&q=80'
-    ],
+    images: ['images/products/five-emperor-coins.jpg'],
     description: {
       short: 'Traditional five emperor coins with red tassel. Brings good luck, protection, and wealth energy.',
       long: 'This Five Emperor Coins Lucky Tassel features five bronze coins connected by a traditional red braided cord with an elegant Chinese knot and tassel. Each coin represents one of the five most prosperous emperors of the Qing Dynasty: Shunzhi, Kangxi, Yongzheng, Qianlong, and Jiaqing. Together they symbolize the power and prosperity of one of Chinas greatest golden ages.',
@@ -958,11 +874,7 @@ const products = [
     rating: 4.8,
     reviews: 156,
     tags: ['fengshui', 'wealth', 'popular', 'chinese'],
-    images: [
-      'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80',
-      'https://images.unsplash.com/photo-1594488518160-8d596e86cb88?w=600&q=80',
-      'https://images.unsplash.com/photo-1612698093158-e07ac200d44e?w=600&q=80'
-    ],
+    images: ['images/products/money-frog.jpg'],
     description: {
       short: 'Classic three-legged money frog with coin in mouth. The legendary feng shui wealth charm for abundance.',
       long: 'This Three-Legged Money Frog (Chan Chu) figurine is a beloved feng shui symbol of wealth and prosperity. Depicted sitting on a bed of coins and ingots with a gold coin in its mouth, this golden frog is said to appear during the full moon near homes or businesses that will receive good fortune and monetary gain. The three legs represent heaven, earth, and humanity.',
@@ -1002,11 +914,7 @@ const products = [
     rating: 4.6,
     reviews: 89,
     tags: ['fengshui', 'protection', 'chinese', 'bagua'],
-    images: [
-      'https://images.unsplash.com/photo-1519692933481-e162a57d6721?w=600&q=80',
-      'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80',
-      'https://images.unsplash.com/photo-1594488518160-8d596e86cb88?w=600&q=80'
-    ],
+    images: ['images/products/bagua-mirror.jpg'],
     description: {
       short: 'Traditional bagua convex mirror for protection. Repels negative energy and protects your space.',
       long: 'This Bagua Convex Mirror features the classic eight trigrams (bagua) symbol surrounding a convex mirror, all set in a beautifully carved wooden frame. The bagua is the fundamental concept of Chinese cosmology, representing the eight fundamental principles of reality. The convex mirror shape disperses and deflects negative energy (Sha Qi) away from your home or workplace.',
@@ -1048,11 +956,7 @@ const products = [
     rating: 4.9,
     reviews: 234,
     tags: ['bestseller', 'buddhist', 'meditation', 'mala'],
-    images: [
-      'https://images.unsplash.com/photo-1602751584552-8ba73aad10e1?w=600&q=80',
-      'https://images.unsplash.com/photo-1599643477877-530eb83abc8e?w=600&q=80',
-      'https://images.unsplash.com/photo-1612198188060-c7c2a3b66eae?w=600&q=80'
-    ],
+    images: ['images/products/mala-beads.jpg'],
     description: {
       short: 'Traditional 108-bead Tibetan mala for meditation and mindfulness. Hand-knotted with guru bead and tassel.',
       long: 'This traditional 108-bead Mala is handcrafted using ancient techniques passed down through Tibetan Buddhist lineages. Each bead is separated by a hand-tied knot, creating a tactile and spiritual tool for meditation, mantra recitation, and mindfulness practice. The mala includes a traditional guru bead (3-holed bead representing the Buddha, Dharma, and Sangha) and a beautiful silk tassel symbolizing compassion and the connection to all sentient beings.',
@@ -1094,11 +998,7 @@ const products = [
     rating: 4.8,
     reviews: 167,
     tags: ['taoist', 'protection', 'chinese', 'cinnabar'],
-    images: [
-      'https://images.unsplash.com/photo-1611652022419-a9419f74343d?w=600&q=80',
-      'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=600&q=80',
-      'https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?w=600&q=80'
-    ],
+    images: ['images/products/cinnabar-bracelet.jpg'],
     description: {
       short: 'Genuine cinnabar (vermilion) bracelet for powerful protection. The most sacred stone in Taoism.',
       long: 'This Cinnabar Protection Bracelet features genuine cinnabar (also known as vermilion or zhu sha) beads carefully hand-strung on a durable elastic cord. Cinnabar has been revered in Chinese culture for over 5,000 years as the most powerful protective stone. Its distinctive deep red color is associated with life force, vitality, and the power to ward off evil spirits and negative energies.',
@@ -1139,11 +1039,7 @@ const products = [
     rating: 4.7,
     reviews: 112,
     tags: ['taoist', 'protection', 'chinese', 'peachwood'],
-    images: [
-      'https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?w=600&q=80',
-      'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80',
-      'https://images.unsplash.com/photo-1519692933481-e162a57d6721?w=600&q=80'
-    ],
+    images: ['images/products/peach-wood-sword.jpg'],
     description: {
       short: 'Traditional Taoist peach wood sword for home protection. Wards off evil spirits and negative energy.',
       long: 'This Taoist Peach Wood Sword is hand-carved from genuine peach wood, the most revered protective wood in Chinese Taoism. The sword features intricate carvings of Taoist symbols including the bagua (eight trigrams) and the Taijitu (yin-yang symbol). Since ancient times, peach wood has been considered one of the most powerful materials for exorcising evil and protecting against negative supernatural influences.',
@@ -1185,11 +1081,7 @@ const products = [
     rating: 4.8,
     reviews: 145,
     tags: ['divination', 'iching', 'chinese', 'oracle'],
-    images: [
-      'https://images.unsplash.com/photo-1509813682913-3e3b1f2af3f3?w=600&q=80',
-      'https://images.unsplash.com/photo-1573455494055-c703f7b7fb59?w=600&q=80',
-      'https://images.unsplash.com/photo-1606092195730-5d7b9af1efc5?w=600&q=80'
-    ],
+    images: ['images/products/i-ching-coins.jpg'],
     description: {
       short: 'Complete I Ching divination set with 3 coins, cloth, and English guide book. The ancient Chinese oracle.',
       long: 'This complete I Ching (Book of Changes) Divination Set includes three authentic Chinese bronze coins, a beautiful silk divination cloth, and a comprehensive English guidebook explaining the 64 hexagrams and how to perform readings. The I Ching is one of the oldest books in the world, dating back over 3,000 years to ancient China. It offers profound wisdom and guidance for lifes questions and decisions.',
@@ -1231,11 +1123,7 @@ const products = [
     rating: 4.9,
     reviews: 201,
     tags: ['incense', 'meditation', 'agarwood', 'bestseller'],
-    images: [
-      'https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?w=600&q=80',
-      'https://images.unsplash.com/photo-1602751584552-8ba73aad10e1?w=600&q=80',
-      'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80'
-    ],
+    images: ['images/products/agarwood-incense.jpg'],
     description: {
       short: 'Premium natural agarwood (oud) incense sticks. Hand-rolled for meditation, relaxation, and space cleansing.',
       long: 'Our Premium Agarwood Incense Sticks are hand-rolled using genuine agarwood (also known as oud or aloeswood), one of the most precious and aromatic woods in the world. The rich, deep, woody fragrance has been prized in Eastern cultures for thousands of years for its calming, grounding, and spiritually uplifting properties. Each stick burns for approximately 45 minutes, filling your space with a warm, earthy aroma that promotes deep relaxation and inner peace.',
@@ -1279,11 +1167,7 @@ const products = [
     rating: 4.9,
     reviews: 178,
     tags: ['bestseller', 'meditation', 'soundhealing', 'premium'],
-    images: [
-      'https://images.unsplash.com/photo-1602751584552-8ba73aad10e1?w=600&q=80',
-      'https://images.unsplash.com/photo-1599643477877-530eb83abc8e?w=600&q=80',
-      'https://images.unsplash.com/photo-1612198188060-c7c2a3b66eae?w=600&q=80'
-    ],
+    images: ['images/products/singing-bowl.jpg'],
     description: {
       short: 'Authentic hand-hammered Tibetan singing bowl for sound healing and meditation. Produces deeply resonant tones.',
       long: 'This authentic Himalayan Singing Bowl is handcrafted in the traditional manner by Tibetan artisans using a secret alloy of seven metals, each corresponding to one of the seven chakras or planets. The bowl produces a deeply resonant, harmonic tone when struck or rubbed with the included wooden mallet. Singing bowls have been used for thousands of years in Tibetan Buddhism for meditation, ritual, and sound healing therapy.',
