@@ -145,6 +145,37 @@ function renderProductDetail(product) {
           </table>
         </div>
       </div>
+
+      ${product.reviewsData ? `
+      <div class="reviews-section">
+        <div class="reviews-header">
+          <h3 class="reviews-title">Customer Reviews</h3>
+          <div class="reviews-summary">
+            <div class="reviews-rating">
+              <span class="stars">${'★'.repeat(Math.floor(product.rating))}${product.rating % 1 >= 0.5 ? '☆' : ''}</span>
+              <span>${product.rating}</span>
+            </div>
+            <span class="reviews-count">Based on ${product.reviews} reviews</span>
+          </div>
+        </div>
+        <div class="reviews-list">
+          ${product.reviewsData.slice(0, 3).map(review => `
+            <div class="review-card">
+              <div class="review-header">
+                <div class="review-avatar">${review.author.charAt(0)}</div>
+                <div class="review-meta">
+                  <div class="review-author">${review.author} <span style="color: var(--color-text-muted); font-weight: normal;">from ${review.location}</span></div>
+                  <div class="review-date">${formatDate(review.date)}</div>
+                </div>
+                <div class="review-stars">${'★'.repeat(review.rating)}</div>
+              </div>
+              <p class="review-text">${review.text}</p>
+              ${review.verified ? '<div class="review-verified">Verified Purchase</div>' : ''}
+            </div>
+          `).join('')}
+        </div>
+      </div>
+      ` : ''}
     </div>
   `;
 }
@@ -245,6 +276,12 @@ function formatSpecLabel(key) {
     feature: 'Feature'
   };
   return labels[key] || key.charAt(0).toUpperCase() + key.slice(1);
+}
+
+function formatDate(dateStr) {
+  const date = new Date(dateStr);
+  const options = { year: 'numeric', month: 'long', day: 'numeric' };
+  return date.toLocaleDateString('en-US', options);
 }
 
 function showProductNotFound() {

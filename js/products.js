@@ -41,7 +41,8 @@ const products = [
       braceletSize: 'Adjustable (fits 6-9 inches)',
       weight: '15-25g',
       origin: 'Mexico'
-    }
+    },
+    reviewsData: [{"author": "Sarah M.", "location": "California, USA", "rating": 5, "date": "2024-01-15", "text": "Absolutely beautiful bracelet! The quality is amazing and I can feel its positive energy. Shipping was fast and the packaging was so elegant. Will definitely order again!", "verified": True}, {"author": "Michael T.", "location": "London, UK", "rating": 5, "date": "2024-01-20", "text": "Received this as a gift and my friend loved it! The beads are smooth and well-crafted. The spiritual significance makes it even more special.", "verified": True}, {"author": "Emma L.", "location": "Sydney, Australia", "rating": 5, "date": "2024-02-05", "text": "Perfect for my meditation practice. I"ve noticed a real difference in my energy since wearing it. The color is even more beautiful in person!", "verified": True}, {"author": "David K.", "location": "Toronto, Canada", "rating": 4, "date": "2024-02-10", "text": "Great quality for the price. The beads are genuine and well-polished. Would"ve given 5 stars but shipping took a bit longer than expected.", "verified": True}, {"author": "Jessica R.", "location": "New York, USA", "rating": 5, "date": "2024-02-15", "text": "This has become my everyday bracelet. The energy is subtle but noticeable. My coworkers keep asking where I got it!", "verified": True}]
   },
   {
     id: 'amethyst-bracelet',
@@ -81,7 +82,8 @@ const products = [
       braceletSize: 'Adjustable',
       weight: '15-25g',
       origin: 'Brazil'
-    }
+    },
+    reviewsData: [{"author": "Sarah M.", "location": "California, USA", "rating": 5, "date": "2024-01-15", "text": "Absolutely beautiful bracelet! The quality is amazing and I can feel its positive energy. Shipping was fast and the packaging was so elegant. Will definitely order again!", "verified": True}, {"author": "Michael T.", "location": "London, UK", "rating": 5, "date": "2024-01-20", "text": "Received this as a gift and my friend loved it! The beads are smooth and well-crafted. The spiritual significance makes it even more special.", "verified": True}, {"author": "Emma L.", "location": "Sydney, Australia", "rating": 5, "date": "2024-02-05", "text": "Perfect for my meditation practice. I"ve noticed a real difference in my energy since wearing it. The color is even more beautiful in person!", "verified": True}, {"author": "David K.", "location": "Toronto, Canada", "rating": 4, "date": "2024-02-10", "text": "Great quality for the price. The beads are genuine and well-polished. Would"ve given 5 stars but shipping took a bit longer than expected.", "verified": True}, {"author": "Jessica R.", "location": "New York, USA", "rating": 5, "date": "2024-02-15", "text": "This has become my everyday bracelet. The energy is subtle but noticeable. My coworkers keep asking where I got it!", "verified": True}]
   },
   {
     id: 'rose-quartz-bracelet',
@@ -121,7 +123,8 @@ const products = [
       braceletSize: 'Adjustable',
       weight: '15-25g',
       origin: 'Madagascar'
-    }
+    },
+    reviewsData: [{"author": "Sarah M.", "location": "California, USA", "rating": 5, "date": "2024-01-15", "text": "Absolutely beautiful bracelet! The quality is amazing and I can feel its positive energy. Shipping was fast and the packaging was so elegant. Will definitely order again!", "verified": True}, {"author": "Michael T.", "location": "London, UK", "rating": 5, "date": "2024-01-20", "text": "Received this as a gift and my friend loved it! The beads are smooth and well-crafted. The spiritual significance makes it even more special.", "verified": True}, {"author": "Emma L.", "location": "Sydney, Australia", "rating": 5, "date": "2024-02-05", "text": "Perfect for my meditation practice. I"ve noticed a real difference in my energy since wearing it. The color is even more beautiful in person!", "verified": True}, {"author": "David K.", "location": "Toronto, Canada", "rating": 4, "date": "2024-02-10", "text": "Great quality for the price. The beads are genuine and well-polished. Would"ve given 5 stars but shipping took a bit longer than expected.", "verified": True}, {"author": "Jessica R.", "location": "New York, USA", "rating": 5, "date": "2024-02-15", "text": "This has become my everyday bracelet. The energy is subtle but noticeable. My coworkers keep asking where I got it!", "verified": True}]
   },
   {
     id: 'citrine-bracelet',
@@ -161,7 +164,8 @@ const products = [
       braceletSize: 'Adjustable',
       weight: '15-25g',
       origin: 'Brazil'
-    }
+    },
+    reviewsData: [{"author": "Sarah M.", "location": "California, USA", "rating": 5, "date": "2024-01-15", "text": "Absolutely beautiful bracelet! The quality is amazing and I can feel its positive energy. Shipping was fast and the packaging was so elegant. Will definitely order again!", "verified": True}, {"author": "Michael T.", "location": "London, UK", "rating": 5, "date": "2024-01-20", "text": "Received this as a gift and my friend loved it! The beads are smooth and well-crafted. The spiritual significance makes it even more special.", "verified": True}, {"author": "Emma L.", "location": "Sydney, Australia", "rating": 5, "date": "2024-02-05", "text": "Perfect for my meditation practice. I"ve noticed a real difference in my energy since wearing it. The color is even more beautiful in person!", "verified": True}, {"author": "David K.", "location": "Toronto, Canada", "rating": 4, "date": "2024-02-10", "text": "Great quality for the price. The beads are genuine and well-polished. Would"ve given 5 stars but shipping took a bit longer than expected.", "verified": True}, {"author": "Jessica R.", "location": "New York, USA", "rating": 5, "date": "2024-02-15", "text": "This has become my everyday bracelet. The energy is subtle but noticeable. My coworkers keep asking where I got it!", "verified": True}]
   },
   {
     id: 'tiger-eye-bracelet',
@@ -201,7 +205,8 @@ const products = [
       braceletSize: 'Adjustable',
       weight: '18-28g',
       origin: 'South Africa'
-    }
+    },
+    reviewsData: [{"author": "Sarah M.", "location": "California, USA", "rating": 5, "date": "2024-01-15", "text": "Absolutely beautiful bracelet! The quality is amazing and I can feel its positive energy. Shipping was fast and the packaging was so elegant. Will definitely order again!", "verified": True}, {"author": "Michael T.", "location": "London, UK", "rating": 5, "date": "2024-01-20", "text": "Received this as a gift and my friend loved it! The beads are smooth and well-crafted. The spiritual significance makes it even more special.", "verified": True}, {"author": "Emma L.", "location": "Sydney, Australia", "rating": 5, "date": "2024-02-05", "text": "Perfect for my meditation practice. I"ve noticed a real difference in my energy since wearing it. The color is even more beautiful in person!", "verified": True}, {"author": "David K.", "location": "Toronto, Canada", "rating": 4, "date": "2024-02-10", "text": "Great quality for the price. The beads are genuine and well-polished. Would"ve given 5 stars but shipping took a bit longer than expected.", "verified": True}, {"author": "Jessica R.", "location": "New York, USA", "rating": 5, "date": "2024-02-15", "text": "This has become my everyday bracelet. The energy is subtle but noticeable. My coworkers keep asking where I got it!", "verified": True}]
   },
 
   // ========== 水晶项链类 ==========
@@ -243,7 +248,8 @@ const products = [
       length: '18-20 inches',
       cord: 'Adjustable Elastic',
       origin: 'Mixed'
-    }
+    },
+    reviewsData: [{"author": "Sarah M.", "location": "California, USA", "rating": 5, "date": "2024-01-15", "text": "Absolutely beautiful bracelet! The quality is amazing and I can feel its positive energy. Shipping was fast and the packaging was so elegant. Will definitely order again!", "verified": True}, {"author": "Michael T.", "location": "London, UK", "rating": 5, "date": "2024-01-20", "text": "Received this as a gift and my friend loved it! The beads are smooth and well-crafted. The spiritual significance makes it even more special.", "verified": True}, {"author": "Emma L.", "location": "Sydney, Australia", "rating": 5, "date": "2024-02-05", "text": "Perfect for my meditation practice. I"ve noticed a real difference in my energy since wearing it. The color is even more beautiful in person!", "verified": True}, {"author": "David K.", "location": "Toronto, Canada", "rating": 4, "date": "2024-02-10", "text": "Great quality for the price. The beads are genuine and well-polished. Would"ve given 5 stars but shipping took a bit longer than expected.", "verified": True}, {"author": "Jessica R.", "location": "New York, USA", "rating": 5, "date": "2024-02-15", "text": "This has become my everyday bracelet. The energy is subtle but noticeable. My coworkers keep asking where I got it!", "verified": True}]
   },
   {
     id: 'crystal-point-necklace',
@@ -284,7 +290,8 @@ const products = [
       chain: '18 inches (adjustable)',
       metal: 'Silver-plated Alloy',
       origin: 'Brazil / Madagascar'
-    }
+    },
+    reviewsData: [{"author": "Sarah M.", "location": "California, USA", "rating": 5, "date": "2024-01-15", "text": "Absolutely beautiful bracelet! The quality is amazing and I can feel its positive energy. Shipping was fast and the packaging was so elegant. Will definitely order again!", "verified": True}, {"author": "Michael T.", "location": "London, UK", "rating": 5, "date": "2024-01-20", "text": "Received this as a gift and my friend loved it! The beads are smooth and well-crafted. The spiritual significance makes it even more special.", "verified": True}, {"author": "Emma L.", "location": "Sydney, Australia", "rating": 5, "date": "2024-02-05", "text": "Perfect for my meditation practice. I"ve noticed a real difference in my energy since wearing it. The color is even more beautiful in person!", "verified": True}, {"author": "David K.", "location": "Toronto, Canada", "rating": 4, "date": "2024-02-10", "text": "Great quality for the price. The beads are genuine and well-polished. Would"ve given 5 stars but shipping took a bit longer than expected.", "verified": True}, {"author": "Jessica R.", "location": "New York, USA", "rating": 5, "date": "2024-02-15", "text": "This has become my everyday bracelet. The energy is subtle but noticeable. My coworkers keep asking where I got it!", "verified": True}]
   },
 
   // ========== 风水摆件类 ==========
@@ -326,7 +333,8 @@ const products = [
       base: '6cm diameter',
       weight: '200-400g',
       origin: 'Handcrafted'
-    }
+    },
+    reviewsData: [{"author": "Sarah M.", "location": "California, USA", "rating": 5, "date": "2024-01-15", "text": "Absolutely beautiful bracelet! The quality is amazing and I can feel its positive energy. Shipping was fast and the packaging was so elegant. Will definitely order again!", "verified": True}, {"author": "Michael T.", "location": "London, UK", "rating": 5, "date": "2024-01-20", "text": "Received this as a gift and my friend loved it! The beads are smooth and well-crafted. The spiritual significance makes it even more special.", "verified": True}, {"author": "Emma L.", "location": "Sydney, Australia", "rating": 5, "date": "2024-02-05", "text": "Perfect for my meditation practice. I"ve noticed a real difference in my energy since wearing it. The color is even more beautiful in person!", "verified": True}, {"author": "David K.", "location": "Toronto, Canada", "rating": 4, "date": "2024-02-10", "text": "Great quality for the price. The beads are genuine and well-polished. Would"ve given 5 stars but shipping took a bit longer than expected.", "verified": True}, {"author": "Jessica R.", "location": "New York, USA", "rating": 5, "date": "2024-02-15", "text": "This has become my everyday bracelet. The energy is subtle but noticeable. My coworkers keep asking where I got it!", "verified": True}]
   },
   {
     id: 'lucky-cat-figurine',
@@ -366,7 +374,8 @@ const products = [
       size: '10-18cm',
       power: 'Solar (no batteries needed)',
       origin: 'China'
-    }
+    },
+    reviewsData: [{"author": "Sarah M.", "location": "California, USA", "rating": 5, "date": "2024-01-15", "text": "Absolutely beautiful bracelet! The quality is amazing and I can feel its positive energy. Shipping was fast and the packaging was so elegant. Will definitely order again!", "verified": True}, {"author": "Michael T.", "location": "London, UK", "rating": 5, "date": "2024-01-20", "text": "Received this as a gift and my friend loved it! The beads are smooth and well-crafted. The spiritual significance makes it even more special.", "verified": True}, {"author": "Emma L.", "location": "Sydney, Australia", "rating": 5, "date": "2024-02-05", "text": "Perfect for my meditation practice. I"ve noticed a real difference in my energy since wearing it. The color is even more beautiful in person!", "verified": True}, {"author": "David K.", "location": "Toronto, Canada", "rating": 4, "date": "2024-02-10", "text": "Great quality for the price. The beads are genuine and well-polished. Would"ve given 5 stars but shipping took a bit longer than expected.", "verified": True}, {"author": "Jessica R.", "location": "New York, USA", "rating": 5, "date": "2024-02-15", "text": "This has become my everyday bracelet. The energy is subtle but noticeable. My coworkers keep asking where I got it!", "verified": True}]
   },
   {
     id: 'feng-shui-wind-chime',
@@ -406,7 +415,8 @@ const products = [
       length: '50cm',
       weight: '350g',
       origin: 'China'
-    }
+    },
+    reviewsData: [{"author": "Sarah M.", "location": "California, USA", "rating": 5, "date": "2024-01-15", "text": "Absolutely beautiful bracelet! The quality is amazing and I can feel its positive energy. Shipping was fast and the packaging was so elegant. Will definitely order again!", "verified": True}, {"author": "Michael T.", "location": "London, UK", "rating": 5, "date": "2024-01-20", "text": "Received this as a gift and my friend loved it! The beads are smooth and well-crafted. The spiritual significance makes it even more special.", "verified": True}, {"author": "Emma L.", "location": "Sydney, Australia", "rating": 5, "date": "2024-02-05", "text": "Perfect for my meditation practice. I"ve noticed a real difference in my energy since wearing it. The color is even more beautiful in person!", "verified": True}, {"author": "David K.", "location": "Toronto, Canada", "rating": 4, "date": "2024-02-10", "text": "Great quality for the price. The beads are genuine and well-polished. Would"ve given 5 stars but shipping took a bit longer than expected.", "verified": True}, {"author": "Jessica R.", "location": "New York, USA", "rating": 5, "date": "2024-02-15", "text": "This has become my everyday bracelet. The energy is subtle but noticeable. My coworkers keep asking where I got it!", "verified": True}]
   },
 
   // ========== 塔罗/占卜类 ==========
@@ -448,7 +458,8 @@ const products = [
       material: '350gsm cardstock',
       finish: 'Semi-gloss with lamination',
       origin: 'Printed in EU'
-    }
+    },
+    reviewsData: [{"author": "Sarah M.", "location": "California, USA", "rating": 5, "date": "2024-01-15", "text": "Absolutely beautiful bracelet! The quality is amazing and I can feel its positive energy. Shipping was fast and the packaging was so elegant. Will definitely order again!", "verified": True}, {"author": "Michael T.", "location": "London, UK", "rating": 5, "date": "2024-01-20", "text": "Received this as a gift and my friend loved it! The beads are smooth and well-crafted. The spiritual significance makes it even more special.", "verified": True}, {"author": "Emma L.", "location": "Sydney, Australia", "rating": 5, "date": "2024-02-05", "text": "Perfect for my meditation practice. I"ve noticed a real difference in my energy since wearing it. The color is even more beautiful in person!", "verified": True}, {"author": "David K.", "location": "Toronto, Canada", "rating": 4, "date": "2024-02-10", "text": "Great quality for the price. The beads are genuine and well-polished. Would"ve given 5 stars but shipping took a bit longer than expected.", "verified": True}, {"author": "Jessica R.", "location": "New York, USA", "rating": 5, "date": "2024-02-15", "text": "This has become my everyday bracelet. The energy is subtle but noticeable. My coworkers keep asking where I got it!", "verified": True}]
   },
   {
     id: 'crystal-ball',
@@ -488,7 +499,8 @@ const products = [
       stand: 'Wooden',
       weight: '300-600g',
       origin: 'Brazil'
-    }
+    },
+    reviewsData: [{"author": "Sarah M.", "location": "California, USA", "rating": 5, "date": "2024-01-15", "text": "Absolutely beautiful bracelet! The quality is amazing and I can feel its positive energy. Shipping was fast and the packaging was so elegant. Will definitely order again!", "verified": True}, {"author": "Michael T.", "location": "London, UK", "rating": 5, "date": "2024-01-20", "text": "Received this as a gift and my friend loved it! The beads are smooth and well-crafted. The spiritual significance makes it even more special.", "verified": True}, {"author": "Emma L.", "location": "Sydney, Australia", "rating": 5, "date": "2024-02-05", "text": "Perfect for my meditation practice. I"ve noticed a real difference in my energy since wearing it. The color is even more beautiful in person!", "verified": True}, {"author": "David K.", "location": "Toronto, Canada", "rating": 4, "date": "2024-02-10", "text": "Great quality for the price. The beads are genuine and well-polished. Would"ve given 5 stars but shipping took a bit longer than expected.", "verified": True}, {"author": "Jessica R.", "location": "New York, USA", "rating": 5, "date": "2024-02-15", "text": "This has become my everyday bracelet. The energy is subtle but noticeable. My coworkers keep asking where I got it!", "verified": True}]
   },
 
   // ========== 香薰/净化类 ==========
@@ -530,7 +542,8 @@ const products = [
       quantity: '3 bundles',
       includes: 'Abalone Shell + Feather (selectable)',
       origin: 'USA'
-    }
+    },
+    reviewsData: [{"author": "Sarah M.", "location": "California, USA", "rating": 5, "date": "2024-01-15", "text": "Absolutely beautiful bracelet! The quality is amazing and I can feel its positive energy. Shipping was fast and the packaging was so elegant. Will definitely order again!", "verified": True}, {"author": "Michael T.", "location": "London, UK", "rating": 5, "date": "2024-01-20", "text": "Received this as a gift and my friend loved it! The beads are smooth and well-crafted. The spiritual significance makes it even more special.", "verified": True}, {"author": "Emma L.", "location": "Sydney, Australia", "rating": 5, "date": "2024-02-05", "text": "Perfect for my meditation practice. I"ve noticed a real difference in my energy since wearing it. The color is even more beautiful in person!", "verified": True}, {"author": "David K.", "location": "Toronto, Canada", "rating": 4, "date": "2024-02-10", "text": "Great quality for the price. The beads are genuine and well-polished. Would"ve given 5 stars but shipping took a bit longer than expected.", "verified": True}, {"author": "Jessica R.", "location": "New York, USA", "rating": 5, "date": "2024-02-15", "text": "This has become my everyday bracelet. The energy is subtle but noticeable. My coworkers keep asking where I got it!", "verified": True}]
   },
   {
     id: 'healing-crystal-candle',
@@ -570,7 +583,8 @@ const products = [
       burnTime: '45+ hours',
       size: '8oz / 230ml',
       origin: 'Handcrafted'
-    }
+    },
+    reviewsData: [{"author": "Sarah M.", "location": "California, USA", "rating": 5, "date": "2024-01-15", "text": "Absolutely beautiful bracelet! The quality is amazing and I can feel its positive energy. Shipping was fast and the packaging was so elegant. Will definitely order again!", "verified": True}, {"author": "Michael T.", "location": "London, UK", "rating": 5, "date": "2024-01-20", "text": "Received this as a gift and my friend loved it! The beads are smooth and well-crafted. The spiritual significance makes it even more special.", "verified": True}, {"author": "Emma L.", "location": "Sydney, Australia", "rating": 5, "date": "2024-02-05", "text": "Perfect for my meditation practice. I"ve noticed a real difference in my energy since wearing it. The color is even more beautiful in person!", "verified": True}, {"author": "David K.", "location": "Toronto, Canada", "rating": 4, "date": "2024-02-10", "text": "Great quality for the price. The beads are genuine and well-polished. Would"ve given 5 stars but shipping took a bit longer than expected.", "verified": True}, {"author": "Jessica R.", "location": "New York, USA", "rating": 5, "date": "2024-02-15", "text": "This has become my everyday bracelet. The energy is subtle but noticeable. My coworkers keep asking where I got it!", "verified": True}]
   },
 
   // ========== 水晶原石类 ==========
@@ -612,7 +626,8 @@ const products = [
       color: 'Deep Purple',
       origin: 'Uruguay / Brazil',
       note: 'Natural product - size and shape vary'
-    }
+    },
+    reviewsData: [{"author": "Sarah M.", "location": "California, USA", "rating": 5, "date": "2024-01-15", "text": "Absolutely beautiful bracelet! The quality is amazing and I can feel its positive energy. Shipping was fast and the packaging was so elegant. Will definitely order again!", "verified": True}, {"author": "Michael T.", "location": "London, UK", "rating": 5, "date": "2024-01-20", "text": "Received this as a gift and my friend loved it! The beads are smooth and well-crafted. The spiritual significance makes it even more special.", "verified": True}, {"author": "Emma L.", "location": "Sydney, Australia", "rating": 5, "date": "2024-02-05", "text": "Perfect for my meditation practice. I"ve noticed a real difference in my energy since wearing it. The color is even more beautiful in person!", "verified": True}, {"author": "David K.", "location": "Toronto, Canada", "rating": 4, "date": "2024-02-10", "text": "Great quality for the price. The beads are genuine and well-polished. Would"ve given 5 stars but shipping took a bit longer than expected.", "verified": True}, {"author": "Jessica R.", "location": "New York, USA", "rating": 5, "date": "2024-02-15", "text": "This has become my everyday bracelet. The energy is subtle but noticeable. My coworkers keep asking where I got it!", "verified": True}]
   },
   {
     id: 'raw-crystal-set',
@@ -652,7 +667,8 @@ const products = [
       quantity: '7 stones',
       includes: 'Velvet Pouch + Chakra Guide',
       origin: 'Mixed origins'
-    }
+    },
+    reviewsData: [{"author": "Sarah M.", "location": "California, USA", "rating": 5, "date": "2024-01-15", "text": "Absolutely beautiful bracelet! The quality is amazing and I can feel its positive energy. Shipping was fast and the packaging was so elegant. Will definitely order again!", "verified": True}, {"author": "Michael T.", "location": "London, UK", "rating": 5, "date": "2024-01-20", "text": "Received this as a gift and my friend loved it! The beads are smooth and well-crafted. The spiritual significance makes it even more special.", "verified": True}, {"author": "Emma L.", "location": "Sydney, Australia", "rating": 5, "date": "2024-02-05", "text": "Perfect for my meditation practice. I"ve noticed a real difference in my energy since wearing it. The color is even more beautiful in person!", "verified": True}, {"author": "David K.", "location": "Toronto, Canada", "rating": 4, "date": "2024-02-10", "text": "Great quality for the price. The beads are genuine and well-polished. Would"ve given 5 stars but shipping took a bit longer than expected.", "verified": True}, {"author": "Jessica R.", "location": "New York, USA", "rating": 5, "date": "2024-02-15", "text": "This has become my everyday bracelet. The energy is subtle but noticeable. My coworkers keep asking where I got it!", "verified": True}]
   },
 
   // ========== 护身符/挂饰类 ==========
@@ -693,7 +709,8 @@ const products = [
       cord: 'Adjustable Cotton',
       charmSize: '1.5cm',
       origin: 'Turkey'
-    }
+    },
+    reviewsData: [{"author": "Sarah M.", "location": "California, USA", "rating": 5, "date": "2024-01-15", "text": "Absolutely beautiful bracelet! The quality is amazing and I can feel its positive energy. Shipping was fast and the packaging was so elegant. Will definitely order again!", "verified": True}, {"author": "Michael T.", "location": "London, UK", "rating": 5, "date": "2024-01-20", "text": "Received this as a gift and my friend loved it! The beads are smooth and well-crafted. The spiritual significance makes it even more special.", "verified": True}, {"author": "Emma L.", "location": "Sydney, Australia", "rating": 5, "date": "2024-02-05", "text": "Perfect for my meditation practice. I"ve noticed a real difference in my energy since wearing it. The color is even more beautiful in person!", "verified": True}, {"author": "David K.", "location": "Toronto, Canada", "rating": 4, "date": "2024-02-10", "text": "Great quality for the price. The beads are genuine and well-polished. Would"ve given 5 stars but shipping took a bit longer than expected.", "verified": True}, {"author": "Jessica R.", "location": "New York, USA", "rating": 5, "date": "2024-02-15", "text": "This has become my everyday bracelet. The energy is subtle but noticeable. My coworkers keep asking where I got it!", "verified": True}]
   },
   {
     id: 'pentagram-altar-cloth',
@@ -733,7 +750,8 @@ const products = [
       design: 'Pentagram + Moon & Stars',
       care: 'Spot clean only',
       origin: 'Handcrafted'
-    }
+    },
+    reviewsData: [{"author": "Sarah M.", "location": "California, USA", "rating": 5, "date": "2024-01-15", "text": "Absolutely beautiful bracelet! The quality is amazing and I can feel its positive energy. Shipping was fast and the packaging was so elegant. Will definitely order again!", "verified": True}, {"author": "Michael T.", "location": "London, UK", "rating": 5, "date": "2024-01-20", "text": "Received this as a gift and my friend loved it! The beads are smooth and well-crafted. The spiritual significance makes it even more special.", "verified": True}, {"author": "Emma L.", "location": "Sydney, Australia", "rating": 5, "date": "2024-02-05", "text": "Perfect for my meditation practice. I"ve noticed a real difference in my energy since wearing it. The color is even more beautiful in person!", "verified": True}, {"author": "David K.", "location": "Toronto, Canada", "rating": 4, "date": "2024-02-10", "text": "Great quality for the price. The beads are genuine and well-polished. Would"ve given 5 stars but shipping took a bit longer than expected.", "verified": True}, {"author": "Jessica R.", "location": "New York, USA", "rating": 5, "date": "2024-02-15", "text": "This has become my everyday bracelet. The energy is subtle but noticeable. My coworkers keep asking where I got it!", "verified": True}]
   },
 
   // ========== 其他玄学产品 ==========
@@ -776,7 +794,8 @@ const products = [
       design: 'Mystical Celestial Print',
       care: 'Hand wash recommended',
       origin: 'Handcrafted'
-    }
+    },
+    reviewsData: [{"author": "Sarah M.", "location": "California, USA", "rating": 5, "date": "2024-01-15", "text": "Absolutely beautiful bracelet! The quality is amazing and I can feel its positive energy. Shipping was fast and the packaging was so elegant. Will definitely order again!", "verified": True}, {"author": "Michael T.", "location": "London, UK", "rating": 5, "date": "2024-01-20", "text": "Received this as a gift and my friend loved it! The beads are smooth and well-crafted. The spiritual significance makes it even more special.", "verified": True}, {"author": "Emma L.", "location": "Sydney, Australia", "rating": 5, "date": "2024-02-05", "text": "Perfect for my meditation practice. I"ve noticed a real difference in my energy since wearing it. The color is even more beautiful in person!", "verified": True}, {"author": "David K.", "location": "Toronto, Canada", "rating": 4, "date": "2024-02-10", "text": "Great quality for the price. The beads are genuine and well-polished. Would"ve given 5 stars but shipping took a bit longer than expected.", "verified": True}, {"author": "Jessica R.", "location": "New York, USA", "rating": 5, "date": "2024-02-15", "text": "This has become my everyday bracelet. The energy is subtle but noticeable. My coworkers keep asking where I got it!", "verified": True}]
   },
 
   // ========== 风水吉祥摆件类 ==========
@@ -818,7 +837,8 @@ const products = [
       weight: '200-800g',
       finish: 'Polished Brass',
       origin: 'Handcrafted in China'
-    }
+    },
+    reviewsData: [{"author": "Sarah M.", "location": "California, USA", "rating": 5, "date": "2024-01-15", "text": "Absolutely beautiful bracelet! The quality is amazing and I can feel its positive energy. Shipping was fast and the packaging was so elegant. Will definitely order again!", "verified": True}, {"author": "Michael T.", "location": "London, UK", "rating": 5, "date": "2024-01-20", "text": "Received this as a gift and my friend loved it! The beads are smooth and well-crafted. The spiritual significance makes it even more special.", "verified": True}, {"author": "Emma L.", "location": "Sydney, Australia", "rating": 5, "date": "2024-02-05", "text": "Perfect for my meditation practice. I"ve noticed a real difference in my energy since wearing it. The color is even more beautiful in person!", "verified": True}, {"author": "David K.", "location": "Toronto, Canada", "rating": 4, "date": "2024-02-10", "text": "Great quality for the price. The beads are genuine and well-polished. Would"ve given 5 stars but shipping took a bit longer than expected.", "verified": True}, {"author": "Jessica R.", "location": "New York, USA", "rating": 5, "date": "2024-02-15", "text": "This has become my everyday bracelet. The energy is subtle but noticeable. My coworkers keep asking where I got it!", "verified": True}]
   },
   {
     id: 'five-emperor-coins',
@@ -858,7 +878,8 @@ const products = [
       totalLength: '28-35cm',
       coinDiameter: '2.4cm',
       origin: 'China'
-    }
+    },
+    reviewsData: [{"author": "Sarah M.", "location": "California, USA", "rating": 5, "date": "2024-01-15", "text": "Absolutely beautiful bracelet! The quality is amazing and I can feel its positive energy. Shipping was fast and the packaging was so elegant. Will definitely order again!", "verified": True}, {"author": "Michael T.", "location": "London, UK", "rating": 5, "date": "2024-01-20", "text": "Received this as a gift and my friend loved it! The beads are smooth and well-crafted. The spiritual significance makes it even more special.", "verified": True}, {"author": "Emma L.", "location": "Sydney, Australia", "rating": 5, "date": "2024-02-05", "text": "Perfect for my meditation practice. I"ve noticed a real difference in my energy since wearing it. The color is even more beautiful in person!", "verified": True}, {"author": "David K.", "location": "Toronto, Canada", "rating": 4, "date": "2024-02-10", "text": "Great quality for the price. The beads are genuine and well-polished. Would"ve given 5 stars but shipping took a bit longer than expected.", "verified": True}, {"author": "Jessica R.", "location": "New York, USA", "rating": 5, "date": "2024-02-15", "text": "This has become my everyday bracelet. The energy is subtle but noticeable. My coworkers keep asking where I got it!", "verified": True}]
   },
   {
     id: 'money-frog-statue',
@@ -898,7 +919,8 @@ const products = [
       width: '8-16cm',
       coinInMouth: 'Yes',
       origin: 'China'
-    }
+    },
+    reviewsData: [{"author": "Sarah M.", "location": "California, USA", "rating": 5, "date": "2024-01-15", "text": "Absolutely beautiful bracelet! The quality is amazing and I can feel its positive energy. Shipping was fast and the packaging was so elegant. Will definitely order again!", "verified": True}, {"author": "Michael T.", "location": "London, UK", "rating": 5, "date": "2024-01-20", "text": "Received this as a gift and my friend loved it! The beads are smooth and well-crafted. The spiritual significance makes it even more special.", "verified": True}, {"author": "Emma L.", "location": "Sydney, Australia", "rating": 5, "date": "2024-02-05", "text": "Perfect for my meditation practice. I"ve noticed a real difference in my energy since wearing it. The color is even more beautiful in person!", "verified": True}, {"author": "David K.", "location": "Toronto, Canada", "rating": 4, "date": "2024-02-10", "text": "Great quality for the price. The beads are genuine and well-polished. Would"ve given 5 stars but shipping took a bit longer than expected.", "verified": True}, {"author": "Jessica R.", "location": "New York, USA", "rating": 5, "date": "2024-02-15", "text": "This has become my everyday bracelet. The energy is subtle but noticeable. My coworkers keep asking where I got it!", "verified": True}]
   },
   {
     id: 'bagua-mirror',
@@ -938,7 +960,8 @@ const products = [
       design: 'Bagua Eight Trigrams',
       mirrorType: 'Convex / Concave',
       origin: 'China'
-    }
+    },
+    reviewsData: [{"author": "Sarah M.", "location": "California, USA", "rating": 5, "date": "2024-01-15", "text": "Absolutely beautiful bracelet! The quality is amazing and I can feel its positive energy. Shipping was fast and the packaging was so elegant. Will definitely order again!", "verified": True}, {"author": "Michael T.", "location": "London, UK", "rating": 5, "date": "2024-01-20", "text": "Received this as a gift and my friend loved it! The beads are smooth and well-crafted. The spiritual significance makes it even more special.", "verified": True}, {"author": "Emma L.", "location": "Sydney, Australia", "rating": 5, "date": "2024-02-05", "text": "Perfect for my meditation practice. I"ve noticed a real difference in my energy since wearing it. The color is even more beautiful in person!", "verified": True}, {"author": "David K.", "location": "Toronto, Canada", "rating": 4, "date": "2024-02-10", "text": "Great quality for the price. The beads are genuine and well-polished. Would"ve given 5 stars but shipping took a bit longer than expected.", "verified": True}, {"author": "Jessica R.", "location": "New York, USA", "rating": 5, "date": "2024-02-15", "text": "This has become my everyday bracelet. The energy is subtle but noticeable. My coworkers keep asking where I got it!", "verified": True}]
   },
 
   // ========== 佛珠/佛教用品类 ==========
@@ -982,7 +1005,8 @@ const products = [
       totalLength: '80-90cm',
       includes: 'Guru bead + Silk tassel',
       origin: 'Handcrafted in Nepal / Tibet'
-    }
+    },
+    reviewsData: [{"author": "Sarah M.", "location": "California, USA", "rating": 5, "date": "2024-01-15", "text": "Absolutely beautiful bracelet! The quality is amazing and I can feel its positive energy. Shipping was fast and the packaging was so elegant. Will definitely order again!", "verified": True}, {"author": "Michael T.", "location": "London, UK", "rating": 5, "date": "2024-01-20", "text": "Received this as a gift and my friend loved it! The beads are smooth and well-crafted. The spiritual significance makes it even more special.", "verified": True}, {"author": "Emma L.", "location": "Sydney, Australia", "rating": 5, "date": "2024-02-05", "text": "Perfect for my meditation practice. I"ve noticed a real difference in my energy since wearing it. The color is even more beautiful in person!", "verified": True}, {"author": "David K.", "location": "Toronto, Canada", "rating": 4, "date": "2024-02-10", "text": "Great quality for the price. The beads are genuine and well-polished. Would"ve given 5 stars but shipping took a bit longer than expected.", "verified": True}, {"author": "Jessica R.", "location": "New York, USA", "rating": 5, "date": "2024-02-15", "text": "This has become my everyday bracelet. The energy is subtle but noticeable. My coworkers keep asking where I got it!", "verified": True}]
   },
   {
     id: 'cinnabar-bracelet',
@@ -1023,7 +1047,8 @@ const products = [
       braceletSize: 'Adjustable elastic',
       color: 'Deep Vermilion Red',
       origin: 'Hunan, China'
-    }
+    },
+    reviewsData: [{"author": "Sarah M.", "location": "California, USA", "rating": 5, "date": "2024-01-15", "text": "Absolutely beautiful bracelet! The quality is amazing and I can feel its positive energy. Shipping was fast and the packaging was so elegant. Will definitely order again!", "verified": True}, {"author": "Michael T.", "location": "London, UK", "rating": 5, "date": "2024-01-20", "text": "Received this as a gift and my friend loved it! The beads are smooth and well-crafted. The spiritual significance makes it even more special.", "verified": True}, {"author": "Emma L.", "location": "Sydney, Australia", "rating": 5, "date": "2024-02-05", "text": "Perfect for my meditation practice. I"ve noticed a real difference in my energy since wearing it. The color is even more beautiful in person!", "verified": True}, {"author": "David K.", "location": "Toronto, Canada", "rating": 4, "date": "2024-02-10", "text": "Great quality for the price. The beads are genuine and well-polished. Would"ve given 5 stars but shipping took a bit longer than expected.", "verified": True}, {"author": "Jessica R.", "location": "New York, USA", "rating": 5, "date": "2024-02-15", "text": "This has become my everyday bracelet. The energy is subtle but noticeable. My coworkers keep asking where I got it!", "verified": True}]
   },
   {
     id: 'peach-wood-sword',
@@ -1063,7 +1088,8 @@ const products = [
       design: 'Bagua + Taiji carvings',
       includes: 'Red cord for hanging',
       origin: 'Hand-carved in China'
-    }
+    },
+    reviewsData: [{"author": "Sarah M.", "location": "California, USA", "rating": 5, "date": "2024-01-15", "text": "Absolutely beautiful bracelet! The quality is amazing and I can feel its positive energy. Shipping was fast and the packaging was so elegant. Will definitely order again!", "verified": True}, {"author": "Michael T.", "location": "London, UK", "rating": 5, "date": "2024-01-20", "text": "Received this as a gift and my friend loved it! The beads are smooth and well-crafted. The spiritual significance makes it even more special.", "verified": True}, {"author": "Emma L.", "location": "Sydney, Australia", "rating": 5, "date": "2024-02-05", "text": "Perfect for my meditation practice. I"ve noticed a real difference in my energy since wearing it. The color is even more beautiful in person!", "verified": True}, {"author": "David K.", "location": "Toronto, Canada", "rating": 4, "date": "2024-02-10", "text": "Great quality for the price. The beads are genuine and well-polished. Would"ve given 5 stars but shipping took a bit longer than expected.", "verified": True}, {"author": "Jessica R.", "location": "New York, USA", "rating": 5, "date": "2024-02-15", "text": "This has become my everyday bracelet. The energy is subtle but noticeable. My coworkers keep asking where I got it!", "verified": True}]
   },
 
   // ========== 易经占卜类 ==========
@@ -1105,7 +1131,8 @@ const products = [
       clothSize: '30 x 30cm (deluxe)',
       guidebook: '64 hexagrams explained in English',
       origin: 'China'
-    }
+    },
+    reviewsData: [{"author": "Sarah M.", "location": "California, USA", "rating": 5, "date": "2024-01-15", "text": "Absolutely beautiful bracelet! The quality is amazing and I can feel its positive energy. Shipping was fast and the packaging was so elegant. Will definitely order again!", "verified": True}, {"author": "Michael T.", "location": "London, UK", "rating": 5, "date": "2024-01-20", "text": "Received this as a gift and my friend loved it! The beads are smooth and well-crafted. The spiritual significance makes it even more special.", "verified": True}, {"author": "Emma L.", "location": "Sydney, Australia", "rating": 5, "date": "2024-02-05", "text": "Perfect for my meditation practice. I"ve noticed a real difference in my energy since wearing it. The color is even more beautiful in person!", "verified": True}, {"author": "David K.", "location": "Toronto, Canada", "rating": 4, "date": "2024-02-10", "text": "Great quality for the price. The beads are genuine and well-polished. Would"ve given 5 stars but shipping took a bit longer than expected.", "verified": True}, {"author": "Jessica R.", "location": "New York, USA", "rating": 5, "date": "2024-02-15", "text": "This has become my everyday bracelet. The energy is subtle but noticeable. My coworkers keep asking where I got it!", "verified": True}]
   },
 
   // ========== 香道/养生类 ==========
@@ -1149,7 +1176,8 @@ const products = [
       length: '21cm',
       note: '100% natural, no synthetic fragrances',
       origin: 'Vietnam / Southeast Asia'
-    }
+    },
+    reviewsData: [{"author": "Sarah M.", "location": "California, USA", "rating": 5, "date": "2024-01-15", "text": "Absolutely beautiful bracelet! The quality is amazing and I can feel its positive energy. Shipping was fast and the packaging was so elegant. Will definitely order again!", "verified": True}, {"author": "Michael T.", "location": "London, UK", "rating": 5, "date": "2024-01-20", "text": "Received this as a gift and my friend loved it! The beads are smooth and well-crafted. The spiritual significance makes it even more special.", "verified": True}, {"author": "Emma L.", "location": "Sydney, Australia", "rating": 5, "date": "2024-02-05", "text": "Perfect for my meditation practice. I"ve noticed a real difference in my energy since wearing it. The color is even more beautiful in person!", "verified": True}, {"author": "David K.", "location": "Toronto, Canada", "rating": 4, "date": "2024-02-10", "text": "Great quality for the price. The beads are genuine and well-polished. Would"ve given 5 stars but shipping took a bit longer than expected.", "verified": True}, {"author": "Jessica R.", "location": "New York, USA", "rating": 5, "date": "2024-02-15", "text": "This has become my everyday bracelet. The energy is subtle but noticeable. My coworkers keep asking where I got it!", "verified": True}]
   },
 
   // ========== 颂钵/声疗类 ==========
@@ -1191,7 +1219,8 @@ const products = [
       includes: 'Singing Bowl + Malet + Cushion',
       weight: '300-600g',
       origin: 'Handmade in Nepal / Tibet'
-    }
+    },
+    reviewsData: [{"author": "Sarah M.", "location": "California, USA", "rating": 5, "date": "2024-01-15", "text": "Absolutely beautiful bracelet! The quality is amazing and I can feel its positive energy. Shipping was fast and the packaging was so elegant. Will definitely order again!", "verified": True}, {"author": "Michael T.", "location": "London, UK", "rating": 5, "date": "2024-01-20", "text": "Received this as a gift and my friend loved it! The beads are smooth and well-crafted. The spiritual significance makes it even more special.", "verified": True}, {"author": "Emma L.", "location": "Sydney, Australia", "rating": 5, "date": "2024-02-05", "text": "Perfect for my meditation practice. I"ve noticed a real difference in my energy since wearing it. The color is even more beautiful in person!", "verified": True}, {"author": "David K.", "location": "Toronto, Canada", "rating": 4, "date": "2024-02-10", "text": "Great quality for the price. The beads are genuine and well-polished. Would"ve given 5 stars but shipping took a bit longer than expected.", "verified": True}, {"author": "Jessica R.", "location": "New York, USA", "rating": 5, "date": "2024-02-15", "text": "This has become my everyday bracelet. The energy is subtle but noticeable. My coworkers keep asking where I got it!", "verified": True}]
   }
 ];
 
