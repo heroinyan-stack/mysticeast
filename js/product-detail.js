@@ -146,7 +146,7 @@ function renderProductDetail(product) {
         </div>
       </div>
 
-      ${product.reviewsData ? `
+      ${getReviewsForProduct(product.id).length > 0 ? `
       <div class="reviews-section">
         <div class="reviews-header">
           <h3 class="reviews-title">Customer Reviews</h3>
@@ -159,7 +159,7 @@ function renderProductDetail(product) {
           </div>
         </div>
         <div class="reviews-list">
-          ${product.reviewsData.slice(0, 3).map(review => `
+          ${getReviewsForProduct(product.id).slice(0, 3).map(review => `
             <div class="review-card">
               <div class="review-header">
                 <div class="review-avatar">${review.author.charAt(0)}</div>
