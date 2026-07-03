@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Order Successful | MysticEast</title>
+  <meta name="description" content="Thank you for your order! Your crystal bracelets and feng shui items are on their way.">
+  <link rel="canonical" href="https://mysticeast.shop/success.html">
+  
+  <script>
+    if (window.location.hostname === 'www.mysticeast.shop') {
+      window.location.replace('https://mysticeast.shop' + window.location.pathname + window.location.search);
+    }
+  </script>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Montserrat:wght@400;500;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✦</text></svg>">
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="index.html" class="logo">✦ MysticEast</a>
+      <nav class="nav">
+        <a href="category.html?category=crystal-bracelets">BRACELETS</a>
+        <a href="category.html?category=feng-shui-home">FENG SHUI</a>
+        <a href="category.html?category=talismans-charms">TALISMANS</a>
+        <a href="category.html?category=all">ALL PRODUCTS</a>
+        <a href="about.html">OUR STORY</a>
+      </nav>
+      <div class="header-actions">
+        <button class="cart-btn" onclick="openCart()">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="9" cy="21" r="1"></circle>
+            <circle cx="20" cy="21" r="1"></circle>
+            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+          </svg>
+          <span class="cart-count">0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="success-main">
+    <div class="container">
+      <div class="success-content">
+        <div class="success-icon">✓</div>
+        <h1 class="success-title">Thank You!</h1>
+        <p class="success-message">Your order has been confirmed and is being processed.</p>
+        
+        <div class="success-info">
+          <div class="info-item">
+            <h3>Order Number</h3>
+            <p>ORD-<span id="orderNumber">...</span></p>
+          </div>
+          <div class="info-item">
+            <h3>Shipping Confirmation</h3>
+            <p>You will receive an email with tracking information once your order ships.</p>
+          </div>
+          <div class="info-item">
+            <h3>Estimated Delivery</h3>
+            <p>5-7 business days</p>
+          </div>
+        </div>
+
+        <div class="success-actions">
+          <button class="success-btn primary" onclick="goHome()">Continue Shopping</button>
+          <button class="success-btn" onclick="goToStory()">Learn About Our Story</button>
+        </div>
+
+        <div class="success-benefits">
+          <div class="benefit-item">
+            <span>🚚</span>
+            <span>Free shipping on orders over $49</span>
+          </div>
+          <div class="benefit-item">
+            <span>✦</span>
+            <span>100% natural crystals</span>
+          </div>
+          <div class="benefit-item">
+            <span>↩️</span>
+            <span>30-day easy returns</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <div class="logo">MysticEast</div>
+        <p>Authentic crystal bracelets and feng shui items handcrafted with intention.</p>
+        <div class="social-links">
+          <a href="#" class="social-link">Instagram</a>
+          <a href="#" class="social-link">TikTok</a>
+          <a href="#" class="social-link">Pinterest</a>
+        </div>
+      </div>
+      <div class="footer-section">
+        <h4>SHOP</h4>
+        <a href="category.html?category=crystal-bracelets">Crystal Bracelets</a>
+        <a href="category.html?category=feng-shui-home">Feng Shui Home</a>
+        <a href="category.html?category=talismans-charms">Talismans</a>
+        <a href="category.html?category=all">All Products</a>
+        <a href="category.html?category=best-sellers">Best Sellers</a>
+      </div>
+      <div class="footer-section">
+        <h4>SUPPORT</h4>
+        <a href="about.html">Our Story</a>
+        <a href="#">Shipping Info</a>
+        <a href="#">Returns</a>
+        <a href="#">Contact Us</a>
+      </div>
+      <div class="footer-section">
+        <h4>COMPANY</h4>
+        <a href="about.html">Our Story</a>
+        <a href="#">Crystal Guide</a>
+        <a href="#">Blog</a>
+        <a href="#">Press</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2024 MysticEast. All rights reserved.</p>
+      <div class="payment-icons">
+        <span>PayPal</span>
+        <span>Visa</span>
+        <span>MC</span>
+        <span>Amex</span>
+        <span>Apple</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function goHome() {
+      window.location.href = 'index.html';
+    }
+
+    function goToStory() {
+      window.location.href = 'about.html';
+    }
+
+    document.getElementById('orderNumber').textContent = Date.now().toString().slice(-8);
+    
+    localStorage.removeItem('cart');
+  </script>
+</body>
+</html>
