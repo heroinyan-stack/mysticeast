@@ -3357,6 +3357,42 @@ p {
   background: rgba(201, 169, 97, 0.05);
 }
 
+.paypal-option {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  padding: var(--spacing-lg);
+  background: var(--color-bg-primary);
+  border: 2px solid rgba(201, 169, 97, 0.1);
+  border-radius: var(--border-radius-sm);
+  cursor: pointer;
+  transition: border-color 0.3s ease, background-color 0.3s ease;
+  margin-bottom: var(--spacing-lg);
+}
+
+.paypal-option:hover {
+  border-color: rgba(201, 169, 97, 0.3);
+}
+
+.paypal-option.active {
+  border-color: var(--color-accent-primary);
+  background: rgba(201, 169, 97, 0.05);
+}
+
+.paypal-brand {
+  font-size: var(--font-size-xl);
+  font-weight: 700;
+  font-family: var(--font-heading);
+}
+
+.paypal-blue {
+  color: #003087;
+}
+
+.paypal-gold {
+  color: #009cde;
+}
+
 .payment-icon {
   width: 40px;
   height: 25px;
