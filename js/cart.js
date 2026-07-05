@@ -45,15 +45,17 @@ class Cart {
 
     if (product.variants && product.variants.length > 0) {
       if (!selectedVariant) {
-        selectedVariant = product.variants[0];
+        // Use first variant's size/type as default, keep price from product
+        selectedVariant = product.variants[0].size || product.variants[0].type || null;
       }
-      const variantData = product.variants.find(v => 
+      // Find matching variant by size or type (string comparison)
+      const variantData = product.variants.find(v =>
         v.size === selectedVariant || v.type === selectedVariant || v.sku === selectedVariant
       );
       if (variantData) {
         price = variantData.price;
-        sku = variantData.sku;
-        selectedVariant = variantData.size || variantData.type;
+        sku = variantData.sku || sku;
+        selectedVariant = variantData.size || variantData.type || null;
       }
     }
 
@@ -132,7 +134,7 @@ class Cart {
     if (subtotal >= freeThreshold) {
       return 0;
     }
-    return 4.99; // Standard shipping
+    return 5.99; // Standard shipping
   }
 
   // Calculate discount

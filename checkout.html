@@ -25,9 +25,9 @@
     <div class="header-inner">
       <a href="index.html" class="logo">✦ MysticEast</a>
       <nav class="nav">
-        <a href="category.html?category=crystal-bracelets">BRACELETS</a>
-        <a href="category.html?category=feng-shui-home">FENG SHUI</a>
-        <a href="category.html?category=talismans-charms">TALISMANS</a>
+        <a href="category.html?category=Bracelet">BRACELETS</a>
+        <a href="category.html?category=Feng Shui">FENG SHUI</a>
+        <a href="category.html?category=Talisman">TALISMANS</a>
         <a href="category.html?category=all">ALL PRODUCTS</a>
         <a href="about.html">OUR STORY</a>
       </nav>
@@ -278,9 +278,57 @@
       subtotalEl.textContent = '$' + subtotal.toFixed(2);
       shippingEl.textContent = shipping === 0 ? 'Free' : '$' + shipping.toFixed(2);
       totalEl.textContent = '$' + total.toFixed(2);
-      cartCount.textContent = cart.items ? cart.items.length : 0;
+      cartCount.textContent = cart.items ? cart.items.reduce((sum, item) => sum + (item.quantity || 1), 0) : 0;
 
-      return { subtotal, shipping, total, items: cart.items };
+      return { subtotal, shipping, discount, total, items: cart.items };
+    }
+
+    function openCart() {
+      const modal = document.getElementById('cartModal');
+      if (modal) modal.style.display = 'block';
+      renderModalCart();
+    }
+
+    function closeCart() {
+      const modal = document.getElementById('cartModal');
+      if (modal) modal.style.display = 'none';
+    }
+
+    function goToCheckout() {
+      closeCart();
+    }
+
+    function renderModalCart() {
+      const cart = getCart();
+      const container = document.getElementById('cartItemsModal');
+      const totalEl = document.getElementById('cartTotal');
+      if (!container) return;
+
+      if (!cart.items || cart.items.length === 0) {
+        container.innerHTML = '<p class="empty-cart">Your cart is empty</p>';
+        if (totalEl) totalEl.textContent = '$0.00';
+        return;
+      }
+
+      let total = 0;
+      container.innerHTML = cart.items.map(item => {
+        const itemTotal = (item.price || 0) * (item.quantity || 1);
+        total += itemTotal;
+        const imgSrc = item.productImage || '';
+        const name = item.productName || item.name || 'Product';
+        return `
+          <div class="cart-item">
+            <img src="${imgSrc}" alt="${name}" class="cart-item-image" style="width:50px;height:50px;object-fit:cover;border-radius:4px;">
+            <div class="cart-item-info" style="flex:1;padding:0 10px;">
+              <div class="cart-item-name" style="font-size:14px;">${name}</div>
+              <div style="font-size:12px;color:var(--color-text-muted);">$${(item.price || 0).toFixed(2)} × ${item.quantity || 1}</div>
+            </div>
+            <div style="font-weight:600;">$${itemTotal.toFixed(2)}</div>
+          </div>
+        `;
+      }).join('');
+
+      if (totalEl) totalEl.textContent = '$' + total.toFixed(2);
     }
 
     function validateForm() {
@@ -356,22 +404,31 @@
             };
           });
 
+          const breakdown = {
+            item_total: {
+              currency_code: 'USD',
+              value: totals.subtotal.toFixed(2)
+            },
+            shipping: {
+              currency_code: 'USD',
+              value: totals.shipping.toFixed(2)
+            }
+          };
+
+          if (totals.discount && totals.discount > 0) {
+            breakdown.discount = {
+              currency_code: 'USD',
+              value: totals.discount.toFixed(2)
+            };
+          }
+
           const orderData = {
             intent: 'CAPTURE',
             purchase_units: [{
               amount: {
                 currency_code: 'USD',
                 value: totals.total.toFixed(2),
-                breakdown: {
-                  item_total: {
-                    currency_code: 'USD',
-                    value: totals.subtotal.toFixed(2)
-                  },
-                  shipping: {
-                    currency_code: 'USD',
-                    value: totals.shipping.toFixed(2)
-                  }
-                }
+                breakdown: breakdown
               },
               items: orderItems
             }]

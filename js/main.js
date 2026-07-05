@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initProductCards();
   initNewsletterForm();
   initScrollAnimations();
+  initMobileMenu();
 });
 
 // ===== Header Scroll Effect =====
@@ -56,7 +57,10 @@ function renderProducts() {
   const productsGrid = document.querySelector('.products-grid');
   if (!productsGrid) return;
 
-  const featuredProducts = products.slice(0, 8);
+  const featuredProducts = products
+    .filter(p => p.tags && p.tags.includes('bestseller'))
+    .concat(products.filter(p => !p.tags || !p.tags.includes('bestseller')))
+    .slice(0, 8);
 
   productsGrid.innerHTML = featuredProducts.map(product => createProductCard(product)).join('');
 }
