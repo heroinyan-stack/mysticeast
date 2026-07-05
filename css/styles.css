@@ -2480,6 +2480,14 @@ p {
 
 #paypal-button-container {
   min-height: 48px;
+  position: relative;
+  z-index: 10;
+  clear: both;
+}
+
+#paypal-button-container iframe {
+  position: relative !important;
+  z-index: 10 !important;
 }
 
 .creem-checkout-info {
