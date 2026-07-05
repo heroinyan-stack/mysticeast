@@ -213,7 +213,6 @@
   <script src="js/products.js"></script>
   <script src="js/cart.js"></script>
   <script>
-    const BACKEND_URL = 'https://mysticeast-api.mysticeast.shop';
     const PAYPAL_CLIENT_ID = 'AXaDcIl8uRgoDKtNBWzZ2qYIVT5jFz-CmoV86azeiqP8OpOvzuwkcmDOg0vRWUdUILZ8mSGQ2kcBjRN9';
 
     function updateCheckoutDisplay() {
@@ -271,6 +270,8 @@
       shippingEl.textContent = shipping === 0 ? 'Free' : '$' + shipping.toFixed(2);
       totalEl.textContent = '$' + total.toFixed(2);
       cartCount.textContent = cart.items ? cart.items.length : 0;
+
+      return { subtotal, shipping, total };
     }
 
     function validateForm() {
@@ -289,76 +290,6 @@
         return false;
       }
       return true;
-    }
-
-    function getShippingAddress() {
-      return {
-        firstName: document.getElementById('firstName').value,
-        lastName: document.getElementById('lastName').value,
-        address: document.getElementById('address').value,
-        apartment: document.getElementById('apartment').value,
-        city: document.getElementById('city').value,
-        state: document.getElementById('state').value,
-        zip: document.getElementById('zip').value,
-        country: document.getElementById('country').value,
-        phone: document.getElementById('phone').value
-      };
-    }
-
-    async function createPayPalOrder() {
-      const cart = getCart();
-      const email = document.getElementById('email').value;
-      const shippingAddress = getShippingAddress();
-
-      try {
-        const response = await fetch(`${BACKEND_URL}/api/paypal/create-order`, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({
-            items: cart.items,
-            email: email,
-            shippingAddress: shippingAddress
-          })
-        });
-
-        const data = await response.json();
-        if (data.success) {
-          return data.orderId;
-        } else {
-          throw new Error(data.error || 'Failed to create order');
-        }
-      } catch (error) {
-        console.error('Create order error:', error);
-        throw error;
-      }
-    }
-
-    async function onApprove(data) {
-      try {
-        const response = await fetch(`${BACKEND_URL}/api/paypal/capture-order`, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({
-            orderId: data.orderID
-          })
-        });
-
-        const result = await response.json();
-
-        if (result.success) {
-          localStorage.removeItem('cart');
-          window.location.href = 'success.html';
-        } else {
-          alert('Payment failed: ' + result.error);
-        }
-      } catch (error) {
-        console.error('Capture error:', error);
-        alert('Payment failed. Please try again.');
-      }
     }
 
     function initPayPalButton() {
@@ -382,11 +313,61 @@
           if (!validateForm()) {
             return Promise.reject(new Error('Please fill in all required fields.'));
           }
-          return createPayPalOrder();
+
+          const cart = getCart();
+          const totals = updateCheckoutDisplay();
+
+          const purchaseUnits = cart.items.map(item => ({
+            name: item.name,
+            unit_amount: {
+              currency_code: 'USD',
+              value: item.price.toFixed(2)
+            },
+            quantity: item.quantity
+          }));
+
+          return actions.order.create({
+            intent: 'CAPTURE',
+            purchase_units: [{
+              amount: {
+                currency_code: 'USD',
+                value: totals.total.toFixed(2),
+                breakdown: {
+                  item_total: {
+                    currency_code: 'USD',
+                    value: totals.subtotal.toFixed(2)
+                  },
+                  shipping: {
+                    currency_code: 'USD',
+                    value: totals.shipping.toFixed(2)
+                  }
+                }
+              },
+              items: cart.items.map(item => ({
+                name: item.name,
+                unit_amount: {
+                  currency_code: 'USD',
+                  value: item.price.toFixed(2)
+                },
+                quantity: item.quantity.toString(),
+                sku: item.id
+              }))
+            }],
+            application_context: {
+              return_url: 'https://mysticeast.shop/success.html',
+              cancel_url: 'https://mysticeast.shop/cart.html',
+              shipping_preference: 'NO_SHIPPING',
+              user_action: 'PAY_NOW',
+              brand_name: 'MysticEast'
+            }
+          });
         },
 
         onApprove: function(data, actions) {
-          return onApprove(data);
+          return actions.order.capture().then(function(details) {
+            localStorage.removeItem('cart');
+            window.location.href = 'success.html?orderId=' + data.orderID;
+          });
         },
 
         onError: function(err) {
