@@ -1,5 +1,5 @@
 // MysticEast - Product Data (Updated with Diverse Categories)
-// Last Updated: 2026-06-24
+// Last Updated: 2026-07-05
 
 const products = [
   // ========== 水晶手链类 ==========
@@ -11,8 +11,8 @@ const products = [
     subcategory: 'Protection',
     sku: 'ME-OBS-001',
     price: 29.99,
-    originalPrice: 45.99,
-    cost: 3.00,
+    originalPrice: 42.99,
+    cost: 4.00,
     shippingCost: 2.50,
     rating: 4.8,
     reviews: 234,
@@ -51,8 +51,8 @@ const products = [
     subcategory: 'Wisdom',
     sku: 'ME-AMT-001',
     price: 32.99,
-    originalPrice: 48.99,
-    cost: 3.50,
+    originalPrice: 46.99,
+    cost: 4.50,
     shippingCost: 2.50,
     rating: 4.9,
     reviews: 189,
@@ -92,7 +92,7 @@ const products = [
     sku: 'ME-RSQ-001',
     price: 27.99,
     originalPrice: 39.99,
-    cost: 2.80,
+    cost: 3.50,
     shippingCost: 2.50,
     rating: 4.7,
     reviews: 156,
@@ -124,46 +124,6 @@ const products = [
     }
   },
   {
-    id: 'citrine-bracelet',
-    name: 'Citrine Abundance Bracelet',
-    shortName: 'Citrine',
-    category: 'Bracelet',
-    subcategory: 'Wealth',
-    sku: 'ME-CTR-001',
-    price: 32.99,
-    originalPrice: 49.99,
-    cost: 3.20,
-    shippingCost: 2.50,
-    rating: 4.6,
-    reviews: 98,
-    tags: ['wealth', 'success'],
-    images: ['images/products/citrine-bracelet.jpg'],
-    description: {
-      short: 'Sunny citrine bracelet for prosperity and success. Known as the merchants stone for attracting wealth.',
-      long: 'Our Citrine Abundance Bracelet features vibrant, golden-yellow citrine beads that capture the warmth and energy of the sun. Citrine is one of the few stones that never needs cleansing as it does not hold negative energies. This solar-powered crystal is prized for its ability to attract abundance, manifest goals, and infuse life with joy and optimism.',
-      meaning: 'Citrine is known as the "Stone of Abundance" and "Merchant Stone." It radiates the energy of personal power, success, and prosperity. Many believe it helps attract wealth, improves motivation, and activates the solar plexus chakra for greater self-confidence.',
-      usage: 'Wear on your dominant hand (giving hand) to manifest your intentions into reality. Place in your wealth corner (southeast) of your home or office. Ideal for business owners and entrepreneurs.'
-    },
-    variants: [
-      { size: '6mm', price: 28.99 },
-      { size: '8mm', price: 32.99 },
-      { size: '10mm', price: 39.99 }
-    ],
-    benefits: [
-      'Attracting prosperity',
-      'Manifestation power',
-      'Positive energy',
-      'Self-confidence boost'
-    ],
-    specifications: {
-      material: 'Natural Citrine',
-      beadSize: '6mm / 8mm / 10mm',
-      braceletSize: 'Adjustable',
-      weight: '15-25g',
-      origin: 'Brazil'
-    }
-  },
-  {
     id: 'tiger-eye-bracelet',
     name: 'Tiger Eye Courage Bracelet',
     shortName: 'Tiger Eye',
@@ -171,8 +131,8 @@ const products = [
     subcategory: 'Strength',
     sku: 'ME-TIE-001',
     price: 29.99,
-    originalPrice: 44.99,
-    cost: 2.90,
+    originalPrice: 42.99,
+    cost: 3.80,
     shippingCost: 2.50,
     rating: 4.5,
     reviews: 87,
@@ -203,8 +163,47 @@ const products = [
       origin: 'South Africa'
     }
   },
+  {
+    id: 'red-string-bracelet',
+    name: 'Kabbalah Red String Protection Bracelet',
+    shortName: 'Red String Bracelet',
+    category: 'Bracelet',
+    subcategory: 'Protection',
+    sku: 'ME-RSB-001',
+    price: 11.49,
+    originalPrice: 15.99,
+    cost: 1.49,
+    shippingCost: 1.50,
+    rating: 4.8,
+    reviews: 287,
+    tags: ['protection', 'popular', 'bestseller'],
+    images: ['images/products/tibetan-bracelet.jpg'],
+    description: {
+      short: 'Authentic Kabbalah red string bracelet for protection. Worn by millions worldwide to ward off the evil eye.',
+      long: 'This Authentic Kabbalah Red String Bracelet is tied from a continuous red thread blessed for protection. The red string tradition dates back thousands of years, rooted in Kabbalistic wisdom and embraced by cultures across the Mediterranean, Middle East, and Latin America. The bracelet is believed to ward off the evil eye and protect the wearer from envy and negative energy. Adjustable and lightweight, it is suitable for all ages and can be worn alone or stacked with other bracelets.',
+      meaning: 'The red string tradition originates from Kabbalah, the ancient mystical tradition of Judaism. According to legend, the red string is wound seven times around Rachels Tomb in the Holy Land before being cut into individual bracelets. Rachel represents protection against negative forces. Worn on the left wrist (the receiving side in Kabbalah), the red string intercepts negative energy directed at the wearer.',
+      usage: 'Have someone you love tie the red string on your left wrist. Make a wish or set an intention as it is tied. When the string naturally falls off, your wish is said to be heard. Replace with a new one to continue protection. Can be worn by adults and children alike.'
+    },
+    variants: [
+      { type: 'Single Bracelet', price: 11.49 },
+      { type: 'Set of 3', price: 24.99 },
+      { type: 'Set of 5 (Family Pack)', price: 34.99 }
+    ],
+    benefits: [
+      'Protection from evil eye',
+      'Ward off negative energy',
+      'Lightweight and comfortable',
+      'Suitable for all ages'
+    ],
+    specifications: {
+      material: 'Blessed Red Cotton Thread',
+      braceletSize: 'Adjustable (fits all wrist sizes)',
+      color: 'Crimson Red',
+      origin: 'Tradition from Israel'
+    }
+  },
 
-  // ========== 水晶项链类 ==========
+  // ========== 项链类 ==========
   {
     id: 'seven-chakra-necklace',
     name: '7 Chakra Raw Crystal Necklace',
@@ -213,7 +212,7 @@ const products = [
     subcategory: 'Balance',
     sku: 'ME-7CH-001',
     price: 34.99,
-    originalPrice: 54.99,
+    originalPrice: 49.99,
     cost: 4.50,
     shippingCost: 2.50,
     rating: 4.8,
@@ -246,540 +245,48 @@ const products = [
     }
   },
   {
-    id: 'crystal-point-necklace',
-    name: 'Raw Crystal Point Pendant Necklace',
-    shortName: 'Crystal Point Necklace',
+    id: 'tarot-pendant-necklace',
+    name: 'Tarot Card Pendant Necklace',
+    shortName: 'Tarot Pendant',
     category: 'Necklace',
-    subcategory: 'Clarity',
-    sku: 'ME-CPN-001',
-    price: 29.99,
-    originalPrice: 45.99,
+    subcategory: 'Divination',
+    sku: 'ME-TPN-001',
+    price: 24.99,
+    originalPrice: 34.99,
     cost: 3.50,
-    shippingCost: 2.50,
+    shippingCost: 2.00,
     rating: 4.7,
-    reviews: 112,
-    tags: ['popular', 'clarity'],
+    reviews: 134,
+    tags: ['tarot', 'necklace', 'popular', 'gift'],
     images: ['images/products/crystal-point-necklace.jpg'],
     description: {
-      short: 'Elegant raw crystal point pendant necklace. Natural terminator crystal for energy direction.',
-      long: 'This Raw Crystal Point Pendant Necklace features a genuine faceted crystal point suspended on an adjustable silver-tone chain. Crystal points are natural energy conductors that can draw in, store, or direct energy depending on intention. The points single termination makes it especially powerful for sending healing energy outward or into other crystals.',
-      meaning: 'Crystal points are considered master healers in the crystal kingdom. They amplify energy and intention, making them perfect for meditation, crystal grids, or as a personal power amulet. Points directed upward channel energy from above; points directed downward draw energy from the earth.',
-      usage: 'Point directed DOWN = draws grounding energy. Point directed UP = channels spiritual energy. Choose based on your intention. Cleanse regularly by smudging or using sound (singing bowl).'
+      short: 'Mystical tarot card pendant necklace. Wear your favorite Major Arcana card as a personal amulet.',
+      long: 'This Mystical Tarot Card Pendant Necklace features a delicately engraved tarot card from the Major Arcana, suspended on an adjustable silver-tone chain. Each card carries profound symbolic meaning drawn from centuries of esoteric wisdom. Whether you choose The Sun for joy, The Star for hope, The Moon for intuition, or The Lovers for connection, this necklace lets you carry the energy of your chosen card close to your heart. A perfect gift for tarot enthusiasts and spiritual seekers.',
+      meaning: 'The Major Arcana of the tarot represent the major life themes and spiritual lessons we encounter on our journey. Wearing a specific card as a pendant serves as a daily reminder of its energy and wisdom. The Sun represents joy and vitality, The Star brings hope and inspiration, The Moon enhances intuition, The Lovers symbolize love and choice, The Empress embodies abundance and creativity, and The World signifies completion and wholeness.',
+      usage: 'Choose the card that resonates with your current intention or life situation. Wear daily as a personal talisman. Cleanse the pendant by placing it on a selenite charging plate or under moonlight. The adjustable chain allows you to position it at heart chakra level for maximum energetic connection.'
     },
     variants: [
-      { type: 'Clear Quartz', price: 27.99 },
-      { type: 'Amethyst', price: 29.99 },
-      { type: 'Rose Quartz', price: 29.99 },
-      { type: 'Black Obsidian', price: 29.99 }
+      { type: 'The Sun (Joy)', price: 24.99 },
+      { type: 'The Star (Hope)', price: 24.99 },
+      { type: 'The Moon (Intuition)', price: 24.99 },
+      { type: 'The Lovers (Love)', price: 24.99 }
     ],
     benefits: [
-      'Energy amplification',
-      'Clarity of thought',
-      'Manifestation boost',
-      'Meditation enhancement'
+      'Personal spiritual talisman',
+      'Daily intention reminder',
+      'Beautiful symbolic jewelry',
+      'Meaningful gift for tarot lovers'
     ],
     specifications: {
-      material: 'Natural Crystal Point',
-      pointSize: '2-3cm',
-      chain: '18 inches (adjustable)',
-      metal: 'Silver-plated Alloy',
-      origin: 'Brazil / Madagascar'
+      material: 'Stainless Steel + Silver-tone Chain',
+      pendantSize: '3 x 4cm',
+      chain: '20 inches (adjustable)',
+      design: 'Major Arcana Tarot Card',
+      origin: 'Designed in USA'
     }
   },
 
   // ========== 风水摆件类 ==========
-  {
-    id: 'feng-shui-crystal-tree',
-    name: '7 Color Crystal Wealth Tree',
-    shortName: 'Crystal Wealth Tree',
-    category: 'Feng Shui',
-    subcategory: 'Wealth',
-    sku: 'ME-FCT-001',
-    price: 54.99,
-    originalPrice: 79.99,
-    cost: 6.50,
-    shippingCost: 4.00,
-    rating: 4.6,
-    reviews: 89,
-    tags: ['fengshui', 'wealth', 'home'],
-    images: ['images/products/crystal-tree.jpg'],
-    description: {
-      short: 'Handcrafted 7-color crystal wealth tree for abundance. Brings positive energy and prosperity to any space.',
-      long: 'This magnificent 7 Color Crystal Wealth Tree features hundreds of tiny crystal beads in seven auspicious colors representing all the major chakras and energy meridians. Each tree is carefully handcrafted with genuine crystal chips mounted on a wooden trunk. According to Feng Shui principles, the crystal wealth tree activates the wealth corner of your space while attracting positive chi and neutralizing negative energy.',
-      meaning: 'In Feng Shui, Crystal Wealth Trees symbolize growth, vitality, and prosperity. Placing one in the southeast corner of your home or office is believed to activate the wealth and abundance sector. The 7 colors correspond to different types of luck: health, love, career, creativity, wisdom, spirituality, and finances.',
-      usage: 'Place in the southeast corner of your living room, office, or shop for maximum wealth-attracting power. Position on a surface at waist level or higher. Keep healthy by dusting weekly. Does not require cleansing as it continuously generates positive energy.'
-    },
-    variants: [
-      { size: 'Small (15cm)', price: 44.99 },
-      { size: 'Medium (20cm)', price: 54.99 },
-      { size: 'Large (28cm)', price: 69.99 }
-    ],
-    benefits: [
-      'Wealth attraction',
-      'Positive energy flow',
-      'Space harmonization',
-      'Decorative beauty'
-    ],
-    specifications: {
-      material: 'Crystal Beads + Wooden Base',
-      height: '15-28cm (selectable)',
-      base: '6cm diameter',
-      weight: '200-400g',
-      origin: 'Handcrafted'
-    }
-  },
-  {
-    id: 'lucky-cat-figurine',
-    name: 'Solar-Powered Lucky Cat',
-    shortName: 'Lucky Cat',
-    category: 'Feng Shui',
-    subcategory: 'Prosperity',
-    sku: 'ME-LCF-001',
-    price: 34.99,
-    originalPrice: 49.99,
-    cost: 4.50,
-    shippingCost: 3.00,
-    rating: 4.8,
-    reviews: 167,
-    tags: ['fengshui', 'popular', 'home'],
-    images: ['images/products/lucky-cat.jpg'],
-    description: {
-      short: 'Adorable solar-powered Maneki Neko that waves continuously. Brings good fortune, customers, and positive energy.',
-      long: 'This charming Solar-Powered Lucky Cat (Maneki Neko) features an adorable cat in traditional Japanese style, perpetually waving its paw to invite good fortune and customers. The built-in solar panel powers a small motor that keeps the paw waving all day without batteries. Made from high-quality resin with gold and white coloring, its both a powerful Feng Shui symbol and a delightful decorative piece.',
-      meaning: 'Maneki Neko (Beckoning Cat) has been a staple of Japanese and Chinese business culture for over 400 years. The left paw beckons customers and good luck; the right paw invites wealth and money. Having one in your shop, restaurant, or home is believed to attract prosperity, protection, and success.',
-      usage: 'Place in the front of your business or home, facing toward the entrance. The white and gold combination symbolizes purity and wealth. Best positioned at the height of your cash register or main entrance table. Place on your left side (wealth side) for maximum effect.'
-    },
-    variants: [
-      { type: 'White/Gold (Small)', price: 24.99 },
-      { type: 'White/Gold (Medium)', price: 34.99 },
-      { type: 'White/Gold (Large)', price: 44.99 }
-    ],
-    benefits: [
-      'Customer attraction',
-      'Wealth activation',
-      'Good fortune',
-      'Space beautification'
-    ],
-    specifications: {
-      material: 'Resin + Solar Panel',
-      color: 'White + Gold',
-      size: '10-18cm',
-      power: 'Solar (no batteries needed)',
-      origin: 'China'
-    }
-  },
-  {
-    id: 'feng-shui-wind-chime',
-    name: 'Metal 7-Tube Wind Chime',
-    shortName: 'Wind Chime',
-    category: 'Feng Shui',
-    subcategory: 'Harmony',
-    sku: 'ME-FWC-001',
-    price: 39.99,
-    originalPrice: 59.99,
-    cost: 5.00,
-    shippingCost: 4.00,
-    rating: 4.5,
-    reviews: 76,
-    tags: ['fengshui', 'harmony', 'outdoor'],
-    images: ['images/products/wind-chime.jpg'],
-    description: {
-      short: 'Traditional 7-tube metal wind chime for positive energy. Perfect for outdoor spaces and garden decoration.',
-      long: 'This Traditional 7-Tube Wind Chime combines ancient Feng Shui wisdom with beautiful craftsmanship. The seven tubes represent the seven notes of the musical scale and the seven stars of the Big Dipper constellation. When the wind blows, the gentle tones are believed to attract positive chi, disperse negative energy, and bring peace and harmony to your environment.',
-      meaning: 'Wind chimes have been used in Eastern cultures for thousands of years as tools for energy cultivation. The gentle sounds they produce are thought to activate stagnant energy, making it flow more freely. In Feng Shui, they are used to remedy Sha Qi (killing energy) and to enhance the flow of beneficial chi.',
-      usage: 'Hang near entrances, in gardens, on porches, or in any area where energy feels stagnant. Best positioned where gentle breezes can activate the tubes. Avoid hanging directly over beds as the sounds may disturb sleep. Place in the center or corners of your space for energy circulation.'
-    },
-    variants: [
-      { type: 'Silver', price: 39.99 },
-      { type: 'Gold', price: 44.99 },
-      { type: 'Bronze', price: 44.99 }
-    ],
-    benefits: [
-      'Energy circulation',
-      'Negative energy dispersion',
-      'Peace and tranquility',
-      'Sound healing'
-    ],
-    specifications: {
-      material: 'Iron + Copper Tubes',
-      tubes: '7 tubes',
-      length: '50cm',
-      weight: '350g',
-      origin: 'China'
-    }
-  },
-
-  // ========== 塔罗/占卜类 ==========
-  {
-    id: 'tarot-cards-deck',
-    name: 'Rider-Waite Tarot Deck',
-    shortName: 'Tarot Deck',
-    category: 'Tarot',
-    subcategory: 'Divination',
-    sku: 'ME-TTD-001',
-    price: 24.99,
-    originalPrice: 39.99,
-    cost: 3.00,
-    shippingCost: 2.00,
-    rating: 4.9,
-    reviews: 203,
-    tags: ['bestseller', 'tarot', 'spiritual'],
-    images: ['images/products/tarot-cards.jpg'],
-    description: {
-      short: 'The classic Rider-Waite-Smith tarot deck. 78 cards with comprehensive guide booklet for beginners.',
-      long: 'This is the iconic Rider-Waite Tarot Deck, created by Pamela Colman Smith under the direction of Arthur Edward Waite in 1909. Widely regarded as the most influential tarot deck in history, it features vivid symbolic imagery on every card that has inspired millions of readers worldwide. This high-quality replica includes all 78 cards plus an English instruction guide explaining the meanings and reading techniques.',
-      meaning: 'The Rider-Waite deck is the gold standard for tarot readers, offering clear, intuitive symbolism that works for both beginners and experienced readers. The Major Arcana (22 cards) represent major life themes and spiritual lessons, while the Minor Arcana (56 cards) reflect everyday situations and challenges.',
-      usage: 'Ideal for daily card draws, one-card meditations, or full 3-card past-present-future spreads. The included guide makes it perfect for beginners learning tarot. Shuffle daily and draw one card for the day ahead, or use for in-depth Celtic Cross readings as you advance.'
-    },
-    variants: [
-      { type: 'Standard Edition', price: 24.99 },
-      { type: 'Gold Border Edition', price: 29.99 },
-      { type: 'Luxe Box Set', price: 34.99 }
-    ],
-    benefits: [
-      'Beginner-friendly guide included',
-      'High-quality cardstock',
-      'Vibrant full-color imagery',
-      '78 cards (complete deck)'
-    ],
-    specifications: {
-      cards: '78 cards',
-      dimensions: '12 x 7cm (standard tarot size)',
-      material: '350gsm cardstock',
-      finish: 'Semi-gloss with lamination',
-      origin: 'Printed in EU'
-    }
-  },
-  {
-    id: 'crystal-ball',
-    name: 'Amethyst Crystal Ball Stand Set',
-    shortName: 'Crystal Ball',
-    category: 'Divination',
-    subcategory: 'Scrying',
-    sku: 'ME-CBL-001',
-    price: 49.99,
-    originalPrice: 79.99,
-    cost: 8.00,
-    shippingCost: 5.00,
-    rating: 4.7,
-    reviews: 94,
-    tags: ['divination', 'spiritual', 'meditation'],
-    images: ['images/products/crystal-ball.jpg'],
-    description: {
-      short: 'Beautiful amethyst crystal ball on wooden stand. Perfect for scrying, meditation, and energy work.',
-      long: 'This stunning Amethyst Crystal Ball Set includes a handcrafted natural amethyst sphere mounted on an elegant wooden stand. Amethyst has been used for scrying and spiritual work since ancient times, believed to enhance intuitive abilities and connect users to higher realms of consciousness. The smooth, perfectly round ball is ideal for meditation, crystal gazing, and creating a focal point for energy work.',
-      meaning: 'Crystal balls have been used for thousands of years as tools for divination and spiritual insight. Amethyst specifically is known as the stone of spiritual protection and wisdom, making it ideal for scrying and psychic work. Many believe that gazing into an amethyst sphere helps quiet the mind and opens pathways to intuitive knowledge.',
-      usage: 'Place in your meditation space, altar, or any area where you practice spiritual work. For scrying, dim the lights and gaze softly into the sphere, allowing images to form without forcing them. Cleanse monthly with sage smoke or by placing in direct moonlight. The amethyst color deepens over time with regular use.'
-    },
-    variants: [
-      { size: 'Small (5cm)', price: 39.99 },
-      { size: 'Medium (6cm)', price: 49.99 },
-      { size: 'Large (8cm)', price: 69.99 }
-    ],
-    benefits: [
-      'Enhanced intuition',
-      'Spiritual insight',
-      'Meditation focal point',
-      'Space energy enhancement'
-    ],
-    specifications: {
-      material: 'Natural Amethyst',
-      diameter: '5-8cm (selectable)',
-      stand: 'Wooden',
-      weight: '300-600g',
-      origin: 'Brazil'
-    }
-  },
-
-  // ========== 香薰/净化类 ==========
-  {
-    id: 'white-sage-smudge-kit',
-    name: 'California White Sage Smudge Kit',
-    shortName: 'White Sage',
-    category: 'Smudging',
-    subcategory: 'Cleansing',
-    sku: 'ME-WSK-001',
-    price: 14.99,
-    originalPrice: 24.99,
-    cost: 1.50,
-    shippingCost: 1.50,
-    rating: 4.8,
-    reviews: 312,
-    tags: ['cleansing', 'spiritual', 'bestseller'],
-    images: ['images/products/sage-smudge.jpg'],
-    description: {
-      short: 'Authentic California white sage bundle for energy cleansing. Includes abalone shell and feather for traditional smudging.',
-      long: 'This White Sage Smudge Kit contains three premium California White Sage bundles, an abalone shell (traditional smudge vessel), and a sage hen feather for fanning the smoke. White sage has been used by indigenous cultures for thousands of years as a sacred cleansing tool, believed to purify spaces, objects, and people of negative energies. The included guide explains traditional smudging practices.',
-      meaning: 'White sage is considered a sacred plant with powerful cleansing properties. Burning sage, known as smudging, is believed to release negative ions that neutralize harmful energies. Many use it to cleanse a new home, purify objects, prepare for rituals, or clear personal energy after difficult situations.',
-      usage: 'Light the tip of the sage bundle, let it flame briefly, then blow out to produce smoke. Fan the smoke around your space, over yourself, or over objects you wish to cleanse. Keep the abalone shell underneath to catch ashes. Allow the bundle to burn out safely in a fireproof dish. Never leave unattended.'
-    },
-    variants: [
-      { type: '3 Bundle Pack', price: 14.99 },
-      { type: 'Smudge Kit (with shell)', price: 19.99 },
-      { type: 'Large Bundle + Palo Santo', price: 24.99 }
-    ],
-    benefits: [
-      'Space purification',
-      'Negative energy removal',
-      'Spiritual preparation',
-      'Meditation enhancement'
-    ],
-    specifications: {
-      material: 'California White Sage',
-      bundleSize: '3-4 inches',
-      quantity: '3 bundles',
-      includes: 'Abalone Shell + Feather (selectable)',
-      origin: 'USA'
-    }
-  },
-  {
-    id: 'healing-crystal-candle',
-    name: 'Rose Quartz Crystal Candle',
-    shortName: 'Crystal Candle',
-    category: 'Candles',
-    subcategory: 'Meditation',
-    sku: 'ME-HCC-001',
-    price: 29.99,
-    originalPrice: 44.99,
-    cost: 4.50,
-    shippingCost: 3.00,
-    rating: 4.6,
-    reviews: 128,
-    tags: ['candle', 'love', 'gift'],
-    images: ['images/products/crystal-candle.jpg'],
-    description: {
-      short: 'Hand-poured soy crystal candle with real rose quartz. Burns for 45+ hours with natural lavender scent.',
-      long: 'This Hand-Poured Rose Quartz Crystal Candle combines the beauty of genuine rose quartz with the aromatherapy benefits of natural soy wax. Each candle is crafted with sustainable soy wax, infused with calming lavender essential oil, and topped with authentic rose quartz chips that float beautifully as the wax melts. The warm, soft glow creates the perfect ambiance for meditation, relaxation, and romantic evenings.',
-      meaning: 'Rose quartz symbolizes unconditional love and emotional healing. Combined with lavender for calm and peace, this candle creates an atmosphere of love, harmony, and spiritual connection. Light it during heart-opening meditations, love rituals, or whenever you need to create a nurturing space.',
-      usage: 'Trim wick to 1/4 inch before each use. Burn for at least 2 hours to prevent tunneling. Keep away from drafts. The rose quartz chips on top can be removed and used for meditation once the wax cools. The candle jar can be repurposed after use.'
-    },
-    variants: [
-      { type: 'Rose Quartz (Love)', price: 29.99 },
-      { type: 'Amethyst (Spiritual)', price: 29.99 },
-      { type: 'Clear Quartz (Clarity)', price: 29.99 }
-    ],
-    benefits: [
-      'Natural soy wax (non-toxic)',
-      'Real crystals embedded',
-      'Long 45+ hour burn time',
-      'Gift-ready packaging'
-    ],
-    specifications: {
-      material: 'Soy Wax + Real Rose Quartz',
-      scent: 'Lavender',
-      burnTime: '45+ hours',
-      size: '8oz / 230ml',
-      origin: 'Handcrafted'
-    }
-  },
-
-  // ========== 水晶原石类 ==========
-  {
-    id: 'amethyst-cluster',
-    name: 'Natural Amethyst Cluster',
-    shortName: 'Amethyst Cluster',
-    category: 'Crystals',
-    subcategory: 'Protection',
-    sku: 'ME-ACL-001',
-    price: 59.99,
-    originalPrice: 89.99,
-    cost: 10.00,
-    shippingCost: 6.00,
-    rating: 4.9,
-    reviews: 67,
-    tags: ['crystals', 'rare', 'home'],
-    images: ['images/products/amethyst-cluster.jpg'],
-    description: {
-      short: 'Stunning natural amethyst cluster with deep purple points. Each piece is unique - a true collector piece.',
-      long: 'This Natural Amethyst Cluster features beautiful deep purple crystal points growing from a natural matrix. Each cluster is completely unique, formed over millions of years in volcanic rock. The rich purple color and perfect crystal terminations make this a stunning display piece for any space. Clusters of this quality are highly prized by crystal collectors and energy practitioners alike.',
-      meaning: 'Amethyst clusters are considered among the most powerful forms of amethyst for energy work. Unlike points or tumbled stones, clusters generate and radiate energy continuously without needing to be directed. Place one in your home or workspace to create a protective field of high-vibration energy. Clusters can also be used to charge and cleanse other crystals.',
-      usage: 'Place in living spaces for continuous protective and calming energy. Position near computers and electronics to neutralize EMF radiation. Use as a charging station for other crystals by placing them on top overnight. Does not require cleansing - just dust occasionally.'
-    },
-    variants: [
-      { size: 'Small (100-150g)', price: 44.99 },
-      { size: 'Medium (200-300g)', price: 59.99 },
-      { size: 'Large (400-500g)', price: 89.99 }
-    ],
-    benefits: [
-      'Continuous energy generation',
-      'Space protection',
-      'Crystal charging station',
-      'Stunning home decor'
-    ],
-    specifications: {
-      material: 'Natural Amethyst',
-      weight: '100-500g (selectable)',
-      color: 'Deep Purple',
-      origin: 'Uruguay / Brazil',
-      note: 'Natural product - size and shape vary'
-    }
-  },
-  {
-    id: 'raw-crystal-set',
-    name: '7 Chakra Raw Crystal Healing Set',
-    shortName: 'Crystal Set',
-    category: 'Crystals',
-    subcategory: 'Healing',
-    sku: 'ME-RCS-001',
-    price: 29.99,
-    originalPrice: 45.99,
-    cost: 4.00,
-    shippingCost: 2.50,
-    rating: 4.7,
-    reviews: 156,
-    tags: ['healing', 'beginners', 'gift'],
-    images: ['images/products/raw-crystal-set.jpg'],
-    description: {
-      short: 'Complete 7 chakra healing crystal set. Perfect for beginners, crystal grids, or meaningful gift.',
-      long: 'This Complete 7 Chakra Healing Set includes seven genuine raw crystal points, one for each energy center of the body. Each stone is hand-selected for its color and energy properties, corresponding to the seven main chakras: Root (Red Jasper), Sacral (Orange Carnelian), Solar Plexus (Golden Tiger Eye), Heart (Pink Rose Quartz), Throat (Blue Sodalite), Third Eye (Purple Amethyst), and Crown (White Clear Quartz). Comes in a velvet pouch with chakra guide.',
-      meaning: 'This set provides everything you need to work with the chakra system. Place stones on corresponding body areas during meditation, arrange them in a grid pattern, or simply keep them nearby to maintain energetic balance. Each stone carries the unique vibration of its associated chakra.',
-      usage: 'Place stones on your body during meditation: Root at the base of spine, Sacral below navel, Solar Plexus above navel, Heart on chest, Throat at throat, Third Eye on forehead, Crown on top of head. Or arrange in a straight line from Root to Crown. Keep the pouch handy for travel or when you need quick chakra balancing.'
-    },
-    variants: [
-      { type: '7 Stones (Beginner)', price: 24.99 },
-      { type: '7 Stones + Pouch + Guide', price: 29.99 },
-      { type: '12 Stones (Zodiac Set)', price: 34.99 }
-    ],
-    benefits: [
-      'Complete chakra set',
-      'Travel-friendly pouch included',
-      'Hand-selected quality',
-      'Ideal gift for beginners'
-    ],
-    specifications: {
-      material: '7 Natural Crystals',
-      stoneSize: '2-3cm each',
-      quantity: '7 stones',
-      includes: 'Velvet Pouch + Chakra Guide',
-      origin: 'Mixed origins'
-    }
-  },
-
-  // ========== 护身符/挂饰类 ==========
-  {
-    id: 'evil-eye-bracelet',
-    name: 'Turkish Evil Eye Protection Bracelet',
-    shortName: 'Evil Eye',
-    category: 'Bracelet',
-    subcategory: 'Protection',
-    sku: 'ME-EEB-001',
-    price: 19.99,
-    originalPrice: 29.99,
-    cost: 1.50,
-    shippingCost: 1.50,
-    rating: 4.8,
-    reviews: 245,
-    tags: ['protection', 'popular', 'gift'],
-    images: ['images/products/evil-eye.jpg'],
-    description: {
-      short: 'Traditional Turkish evil eye bracelet for protection. Recognized worldwide as a powerful protective amulet.',
-      long: 'This Turkish Evil Eye Protection Bracelet features the iconic nazar (evil eye) charm - a blue and white concentric circle that has served as a powerful protective amulet across Mediterranean and Middle Eastern cultures for over 5,000 years. The charm is crafted from glass using traditional techniques, creating that distinctive swirling pattern. The adjustable cord fits most wrist sizes and can also be worn as an anklet.',
-      meaning: 'The evil eye (nazar) is one of the most universally recognized symbols of protection against malevolent gazes and negative energy. Believed to reflect harmful looks back to their source, this charm has been worn and displayed across Turkey, Greece, and the Middle East for millennia. Many believe it protects the wearer from curses, envious glances, and general misfortune.',
-      usage: 'Wear on your left wrist (receiving side) for personal protection. Can also be worn as an anklet or hung in homes, cars, and offices. Common placements include above doorways, near entrances, or facing outward from the home. Replace if the glass becomes cracked or chipped.'
-    },
-    variants: [
-      { type: 'Blue/White (Classic)', price: 19.99 },
-      { type: 'Gold/Blue (Premium)', price: 24.99 },
-      { type: 'Set of 3', price: 29.99 }
-    ],
-    benefits: [
-      'Universal protection symbol',
-      'Lightweight and comfortable',
-      'Adjustable fit',
-      'Suitable for all ages'
-    ],
-    specifications: {
-      material: 'Handcrafted Glass Nazar',
-      cord: 'Adjustable Cotton',
-      charmSize: '1.5cm',
-      origin: 'Turkey'
-    }
-  },
-  {
-    id: 'pentagram-altar-cloth',
-    name: 'Mystical Pentagram Altar Cloth',
-    shortName: 'Altar Cloth',
-    category: 'Altar',
-    subcategory: 'Decorations',
-    sku: 'ME-PAC-001',
-    price: 22.99,
-    originalPrice: 34.99,
-    cost: 3.00,
-    shippingCost: 2.00,
-    rating: 4.5,
-    reviews: 78,
-    tags: ['altar', 'spiritual', 'decor'],
-    images: ['images/products/altar-cloth.jpg'],
-    description: {
-      short: 'Black velvet altar cloth with silver pentagram. Essential for spiritual practitioners and altar setup.',
-      long: 'This Black Velvet Altar Cloth features an elegant silver-thread pentagram embroidered in the center, surrounded by a delicate moon and star border. Made from premium soft velvet, it drapes beautifully and protects your altar surface while creating a sacred space for ritual and meditation work. The 50x50cm size is perfect for most home altars and meditation spaces.',
-      meaning: 'The pentagram has been used as a symbol of protection and spiritual wholeness across many traditions for thousands of years. When enclosed in a circle, it represents the mastery of spirit over the elements. This altar cloth creates a defined sacred space that helps practitioners shift into a spiritual mindset during rituals and meditations.',
-      usage: 'Spread over your altar table or sacred space before any ritual or meditation. Place candles, crystals, and other ritual tools on top. Can also be used as a meditation cushion cover or wall hanging. Spot clean only to preserve the embroidery. Store folded in a sacred place when not in use.'
-    },
-    variants: [
-      { size: '40x40cm (Small)', price: 18.99 },
-      { size: '50x50cm (Medium)', price: 22.99 },
-      { size: '60x60cm (Large)', price: 27.99 }
-    ],
-    benefits: [
-      'Creates sacred space',
-      'Protects altar surface',
-      'High-quality embroidery',
-      'Machine washable velvet'
-    ],
-    specifications: {
-      material: 'Black Velvet + Silver Thread',
-      size: '40-60cm (selectable)',
-      design: 'Pentagram + Moon & Stars',
-      care: 'Spot clean only',
-      origin: 'Handcrafted'
-    }
-  },
-
-  // ========== 其他玄学产品 ==========
-  {
-    id: 'tarot-cloth-set',
-    name: 'Tarot Reading Cloth with Bag',
-    shortName: 'Tarot Cloth Set',
-    category: 'Tarot',
-    subcategory: 'Accessories',
-    sku: 'ME-TCS-001',
-    price: 24.99,
-    originalPrice: 39.99,
-    cost: 3.50,
-    shippingCost: 2.00,
-    rating: 4.6,
-    reviews: 92,
-    tags: ['tarot', 'gift', 'accessories'],
-    images: ['images/products/tarot-cloth-set.jpg'],
-    description: {
-      short: 'Mystical tarot reading cloth with matching storage bag. Features celestial design with moon and stars.',
-      long: 'This Mystical Tarot Reading Cloth set includes a beautifully designed reading cloth and matching drawstring bag for storing your deck. The cloth features a deep purple background with an elegant mandala center design, surrounded by moons, stars, and mystical symbols. Made from satin-finish polyester, it drapes beautifully and protects your cards during readings. The matching bag keeps your tarot deck safe and adds a touch of magic to your practice.',
-      meaning: 'Having a dedicated reading cloth creates a sacred, intentional space for tarot work. The act of laying out your cloth signals to your subconscious that you are entering a space of reflection and insight. Many practitioners believe this ritualistic preparation enhances the accuracy and depth of readings.',
-      usage: 'Spread the cloth on a flat surface before any tarot reading. Place your shuffled deck on the cloth, draw cards, and arrange them within the sacred space. Use the bag to store your deck between readings. The mystical design also works beautifully as a wall hanging or altar decoration.'
-    },
-    variants: [
-      { type: 'Purple Mandala', price: 24.99 },
-      { type: 'Black & Gold', price: 24.99 },
-      { type: 'Celestial Blue', price: 24.99 }
-    ],
-    benefits: [
-      'Complete reading set',
-      'Protects your cards',
-      'Enhances reading focus',
-      'Beautiful gift packaging'
-    ],
-    specifications: {
-      material: 'Satin Polyester',
-      clothSize: '50 x 50cm',
-      bagSize: '15 x 20cm',
-      design: 'Mystical Celestial Print',
-      care: 'Hand wash recommended',
-      origin: 'Handcrafted'
-    }
-  },
-
-  // ========== 风水吉祥摆件类 ==========
   {
     id: 'brass-pixiu',
     name: 'Brass Pixiu Wealth Figurine',
@@ -788,7 +295,7 @@ const products = [
     subcategory: 'Wealth',
     sku: 'ME-PIX-001',
     price: 59.99,
-    originalPrice: 89.99,
+    originalPrice: 84.99,
     cost: 8.00,
     shippingCost: 6.00,
     rating: 4.9,
@@ -818,46 +325,6 @@ const products = [
       weight: '200-800g',
       finish: 'Polished Brass',
       origin: 'Handcrafted in China'
-    }
-  },
-  {
-    id: 'five-emperor-coins',
-    name: 'Five Emperor Coins Lucky Tassel',
-    shortName: 'Five Emperor Coins',
-    category: 'Feng Shui',
-    subcategory: 'Protection',
-    sku: 'ME-FEC-001',
-    price: 19.99,
-    originalPrice: 29.99,
-    cost: 2.00,
-    shippingCost: 1.50,
-    rating: 4.7,
-    reviews: 198,
-    tags: ['fengshui', 'popular', 'chinese', 'protection'],
-    images: ['images/products/five-emperor-coins.jpg'],
-    description: {
-      short: 'Traditional five emperor coins with red tassel. Brings good luck, protection, and wealth energy.',
-      long: 'This Five Emperor Coins Lucky Tassel features five bronze coins connected by a traditional red braided cord with an elegant Chinese knot and tassel. Each coin represents one of the five most prosperous emperors of the Qing Dynasty: Shunzhi, Kangxi, Yongzheng, Qianlong, and Jiaqing. Together they symbolize the power and prosperity of one of Chinas greatest golden ages.',
-      meaning: 'In Chinese feng shui, five emperor coins are one of the most versatile and powerful protective charms. They combine the energy of heaven, earth, and mankind. The round shape represents heaven, the square hole represents earth, and the emperors name represents mankind. Hanging them is believed to attract wealth, ward off evil, and bring good fortune.',
-      usage: 'Hang near the front door to protect your home from negative energy. Place in your wallet or purse to attract wealth. Hang in your car for safe travels. Hang near your cash register or work desk for business prosperity. The red cord and tassel amplify the protective and lucky energy.'
-    },
-    variants: [
-      { type: 'Classic Red', price: 19.99 },
-      { type: 'Gold & Red Deluxe', price: 24.99 },
-      { type: 'Set of 3', price: 29.99 }
-    ],
-    benefits: [
-      'Wealth and prosperity',
-      'Negative energy protection',
-      'Safe travels',
-      'Business success'
-    ],
-    specifications: {
-      material: 'Bronze Alloy Coins + Red Cord',
-      coins: '5 coins (Qing Dynasty)',
-      totalLength: '28-35cm',
-      coinDiameter: '2.4cm',
-      origin: 'China'
     }
   },
   {
@@ -901,172 +368,249 @@ const products = [
     }
   },
   {
-    id: 'bagua-mirror',
-    name: 'Bagua Protection Mirror Convex',
-    shortName: 'Bagua Mirror',
+    id: 'lucky-cat-figurine',
+    name: 'Solar-Powered Lucky Cat',
+    shortName: 'Lucky Cat',
     category: 'Feng Shui',
-    subcategory: 'Protection',
-    sku: 'ME-BGM-001',
-    price: 29.99,
-    originalPrice: 44.99,
-    cost: 4.00,
+    subcategory: 'Prosperity',
+    sku: 'ME-LCF-001',
+    price: 34.99,
+    originalPrice: 49.99,
+    cost: 4.50,
     shippingCost: 3.00,
-    rating: 4.6,
-    reviews: 89,
-    tags: ['fengshui', 'protection', 'chinese', 'bagua'],
-    images: ['images/products/bagua-mirror.jpg'],
+    rating: 4.8,
+    reviews: 167,
+    tags: ['fengshui', 'popular', 'home'],
+    images: ['images/products/lucky-cat.jpg'],
     description: {
-      short: 'Traditional bagua convex mirror for protection. Repels negative energy and protects your space.',
-      long: 'This Bagua Convex Mirror features the classic eight trigrams (bagua) symbol surrounding a convex mirror, all set in a beautifully carved wooden frame. The bagua is the fundamental concept of Chinese cosmology, representing the eight fundamental principles of reality. The convex mirror shape disperses and deflects negative energy (Sha Qi) away from your home or workplace.',
-      meaning: 'The bagua (eight trigrams) is an ancient Chinese symbol from the I Ching (Book of Changes). Each trigram represents a different aspect of life: heaven, earth, thunder, wind, water, fire, mountain, and lake. Together they represent the totality of the universe. When combined with a mirror, it creates a powerful protective amulet that reflects and disperses negative influences.',
-      usage: 'Hang above or beside entrances, windows, or doors that face sharp corners, T-junctions, or other sources of negative energy. Convex mirrors disperse energy outward. Note: Always hang convex mirrors OUTSIDE facing outward to deflect negative energy. Do not hang inside the home facing inward. Wipe the mirror surface regularly for maximum effectiveness.'
+      short: 'Adorable solar-powered Maneki Neko that waves continuously. Brings good fortune, customers, and positive energy.',
+      long: 'This charming Solar-Powered Lucky Cat (Maneki Neko) features an adorable cat in traditional Japanese style, perpetually waving its paw to invite good fortune and customers. The built-in solar panel powers a small motor that keeps the paw waving all day without batteries. Made from high-quality resin with gold and white coloring, its both a powerful Feng Shui symbol and a delightful decorative piece.',
+      meaning: 'Maneki Neko (Beckoning Cat) has been a staple of Japanese and Chinese business culture for over 400 years. The left paw beckons customers and good luck; the right paw invites wealth and money. Having one in your shop, restaurant, or home is believed to attract prosperity, protection, and success.',
+      usage: 'Place in the front of your business or home, facing toward the entrance. The white and gold combination symbolizes purity and wealth. Best positioned at the height of your cash register or main entrance table. Place on your left side (wealth side) for maximum effect.'
     },
     variants: [
-      { type: 'Convex (Protection)', price: 29.99 },
-      { type: 'Concave (Focus/Attract)', price: 29.99 },
-      { type: 'Set of 2 (Both Types)', price: 49.99 }
+      { type: 'White/Gold (Small)', price: 24.99 },
+      { type: 'White/Gold (Medium)', price: 34.99 },
+      { type: 'White/Gold (Large)', price: 44.99 }
     ],
     benefits: [
-      'Negative energy protection',
-      'Space clearing',
-      'Feng shui remedy',
-      'Traditional chinese symbolism'
+      'Customer attraction',
+      'Wealth activation',
+      'Good fortune',
+      'Space beautification'
     ],
     specifications: {
-      material: 'Wood Frame + Glass Mirror',
-      diameter: '12-15cm',
-      design: 'Bagua Eight Trigrams',
-      mirrorType: 'Convex / Concave',
+      material: 'Resin + Solar Panel',
+      color: 'White + Gold',
+      size: '10-18cm',
+      power: 'Solar (no batteries needed)',
+      origin: 'China'
+    }
+  },
+  {
+    id: 'feng-shui-fountain',
+    name: 'Feng Shui Tabletop Water Fountain',
+    shortName: 'Feng Shui Fountain',
+    category: 'Feng Shui',
+    subcategory: 'Wealth',
+    sku: 'ME-FSF-001',
+    price: 89.99,
+    originalPrice: 129.99,
+    cost: 15.00,
+    shippingCost: 8.00,
+    rating: 4.7,
+    reviews: 89,
+    tags: ['fengshui', 'wealth', 'home', 'decor'],
+    images: ['images/products/wind-chime.jpg'],
+    description: {
+      short: 'Beautiful tabletop feng shui water fountain with rolling crystal ball. Attracts wealth and prosperity.',
+      long: 'This elegant Feng Shui Tabletop Water Fountain combines the ancient principles of water energy with modern design. In feng shui, flowing water represents the continuous flow of wealth and abundance. This fountain features a self-contained pump that circulates water gently, creating a soothing sound that masks background noise while activating positive chi. The design includes a rolling crystal ball that spins with the water flow, symbolizing the rolling in of fortune and prosperity.',
+      meaning: 'In feng shui philosophy, water is one of the most powerful elements for attracting wealth and abundance. The Chinese word for water (shui) sounds similar to the word for wealth. Moving water is especially auspicious as it symbolizes the active flow of prosperity into your life. The rolling crystal ball represents the constant turning of fortune in your favor, while the gentle sound of water promotes relaxation and mental clarity.',
+      usage: 'Place in the southeast corner of your home or office (the wealth sector) to activate prosperity energy. Alternatively, place near the entrance of your business to invite customers and money. Keep the water level topped up to ensure continuous flow. Add a few drops of essential oil for aromatherapy benefits. Clean the pump monthly for optimal performance.'
+    },
+    variants: [
+      { type: 'Bamboo Style (Small)', price: 69.99 },
+      { type: 'Crystal Ball Style (Medium)', price: 89.99 },
+      { type: 'Multi-Tier Style (Large)', price: 119.99 }
+    ],
+    benefits: [
+      'Wealth and prosperity activation',
+      'Relaxing water sounds',
+      'Air humidification',
+      'Beautiful home decor'
+    ],
+    specifications: {
+      material: 'Resin + Glass + Built-in Pump',
+      size: '25 x 20 x 30cm',
+      power: 'USB or AC Adapter',
+      waterCapacity: '500ml',
       origin: 'China'
     }
   },
 
-  // ========== 佛珠/佛教用品类 ==========
+  // ========== 水晶矿石类 ==========
   {
-    id: '108-mala-beads',
-    name: 'Tibetan 108 Mala Prayer Beads',
-    shortName: '108 Mala Beads',
-    category: 'Buddhist',
-    subcategory: 'Meditation',
-    sku: 'ME-MAL-001',
-    price: 34.99,
-    originalPrice: 54.99,
-    cost: 5.00,
-    shippingCost: 2.50,
+    id: 'amethyst-cluster',
+    name: 'Natural Amethyst Cluster',
+    shortName: 'Amethyst Cluster',
+    category: 'Crystals',
+    subcategory: 'Protection',
+    sku: 'ME-ACL-001',
+    price: 59.99,
+    originalPrice: 84.99,
+    cost: 10.00,
+    shippingCost: 6.00,
     rating: 4.9,
-    reviews: 234,
-    tags: ['bestseller', 'buddhist', 'meditation', 'mala'],
-    images: ['images/products/mala-beads.jpg'],
+    reviews: 67,
+    tags: ['crystals', 'rare', 'home'],
+    images: ['images/products/amethyst-cluster.jpg'],
     description: {
-      short: 'Traditional 108-bead Tibetan mala for meditation and mindfulness. Hand-knotted with guru bead and tassel.',
-      long: 'This traditional 108-bead Mala is handcrafted using ancient techniques passed down through Tibetan Buddhist lineages. Each bead is separated by a hand-tied knot, creating a tactile and spiritual tool for meditation, mantra recitation, and mindfulness practice. The mala includes a traditional guru bead (3-holed bead representing the Buddha, Dharma, and Sangha) and a beautiful silk tassel symbolizing compassion and the connection to all sentient beings.',
-      meaning: '108 beads is the sacred number in many Eastern spiritual traditions, representing the 108 defilements (kleshas) that must be overcome to attain enlightenment. Other interpretations include the 108 sacred sites in India, 108 marma points in Ayurveda, and 108 nadis (energy channels) in the body.',
-      usage: 'Hold the mala in your right hand, draping it over your middle finger. Use your thumb to count beads, pulling each one toward you as you recite your mantra (Om Mani Padme Hum or any sacred phrase). Start at the guru bead, move through all 108 beads, then reverse direction to return. Never pass over the guru bead. Can also be worn as a necklace or bracelet for continuous spiritual benefit.'
+      short: 'Stunning natural amethyst cluster with deep purple points. Each piece is unique - a true collector piece.',
+      long: 'This Natural Amethyst Cluster features beautiful deep purple crystal points growing from a natural matrix. Each cluster is completely unique, formed over millions of years in volcanic rock. The rich purple color and perfect crystal terminations make this a stunning display piece for any space. Clusters of this quality are highly prized by crystal collectors and energy practitioners alike.',
+      meaning: 'Amethyst clusters are considered among the most powerful forms of amethyst for energy work. Unlike points or tumbled stones, clusters generate and radiate energy continuously without needing to be directed. Place one in your home or workspace to create a protective field of high-vibration energy. Clusters can also be used to charge and cleanse other crystals.',
+      usage: 'Place in living spaces for continuous protective and calming energy. Position near computers and electronics to neutralize EMF radiation. Use as a charging station for other crystals by placing them on top overnight. Does not require cleansing - just dust occasionally.'
     },
     variants: [
-      { material: 'Bodhi Seed', price: 34.99 },
-      { material: 'Sandalwood', price: 39.99 },
-      { material: 'Black Obsidian', price: 34.99 },
-      { material: 'Rosewood', price: 29.99 }
+      { size: 'Small (100-150g)', price: 44.99 },
+      { size: 'Medium (200-300g)', price: 59.99 },
+      { size: 'Large (400-500g)', price: 89.99 }
     ],
     benefits: [
-      'Meditation focus tool',
-      'Stress and anxiety relief',
-      'Spiritual connection',
-      'Wearable mindfulness reminder'
+      'Continuous energy generation',
+      'Space protection',
+      'Crystal charging station',
+      'Stunning home decor'
     ],
     specifications: {
-      material: 'Selectable (see variants)',
-      beadCount: '108 beads + guru bead',
-      beadSize: '8mm',
-      totalLength: '80-90cm',
-      includes: 'Guru bead + Silk tassel',
-      origin: 'Handcrafted in Nepal / Tibet'
+      material: 'Natural Amethyst',
+      weight: '100-500g (selectable)',
+      color: 'Deep Purple',
+      origin: 'Uruguay / Brazil',
+      note: 'Natural product - size and shape vary'
     }
   },
   {
-    id: 'cinnabar-bracelet',
-    name: 'Cinnabar Protection Bracelet',
-    shortName: 'Cinnabar Bracelet',
-    category: 'Bracelet',
-    subcategory: 'Protection',
-    sku: 'ME-CIN-001',
-    price: 39.99,
-    originalPrice: 59.99,
-    cost: 6.00,
-    shippingCost: 2.50,
-    rating: 4.8,
-    reviews: 167,
-    tags: ['taoist', 'protection', 'chinese', 'cinnabar'],
-    images: ['images/products/cinnabar-bracelet.jpg'],
-    description: {
-      short: 'Genuine cinnabar (vermilion) bracelet for powerful protection. The most sacred stone in Taoism.',
-      long: 'This Cinnabar Protection Bracelet features genuine cinnabar (also known as vermilion or zhu sha) beads carefully hand-strung on a durable elastic cord. Cinnabar has been revered in Chinese culture for over 5,000 years as the most powerful protective stone. Its distinctive deep red color is associated with life force, vitality, and the power to ward off evil spirits and negative energies.',
-      meaning: 'In Taoism, cinnabar is considered the stone of immortality and spiritual transformation. It was used by Taoist alchemists in their quest for longevity and enlightenment. Cinnabar is also strongly associated with protection, good fortune, and prosperity. The rich red color symbolizes fire, yang energy, and the power to transform negativity into positive energy.',
-      usage: 'Wear on your left hand (receiving hand) to absorb the protective energy. Can also be worn on the right hand to project protective energy outward. Cinnabar is naturally warming and increases circulation. Do not ingest cinnabar. Avoid prolonged contact with skin if you have mercury sensitivities. Clean with a soft cloth, do not use harsh chemicals.'
-    },
-    variants: [
-      { size: '6mm beads', price: 34.99 },
-      { size: '8mm beads', price: 39.99 },
-      { size: '10mm beads', price: 49.99 },
-      { style: 'With Pixiu Charm', price: 49.99 }
-    ],
-    benefits: [
-      'Powerful negative energy protection',
-      'Good fortune and prosperity',
-      'Vitality and life force',
-      'Sacred taoist talisman'
-    ],
-    specifications: {
-      material: 'Genuine Cinnabar',
-      beadSize: '6mm / 8mm / 10mm',
-      braceletSize: 'Adjustable elastic',
-      color: 'Deep Vermilion Red',
-      origin: 'Hunan, China'
-    }
-  },
-  {
-    id: 'peach-wood-sword',
-    name: 'Taoist Peach Wood Sword',
-    shortName: 'Peach Wood Sword',
-    category: 'Taoist',
-    subcategory: 'Protection',
-    sku: 'ME-PWS-001',
-    price: 29.99,
-    originalPrice: 44.99,
-    cost: 4.00,
-    shippingCost: 3.00,
+    id: 'crystal-ball',
+    name: 'Amethyst Crystal Ball Stand Set',
+    shortName: 'Crystal Ball',
+    category: 'Divination',
+    subcategory: 'Scrying',
+    sku: 'ME-CBL-001',
+    price: 49.99,
+    originalPrice: 69.99,
+    cost: 7.50,
+    shippingCost: 5.00,
     rating: 4.7,
-    reviews: 112,
-    tags: ['taoist', 'protection', 'chinese', 'peachwood'],
-    images: ['images/products/peach-wood-sword.jpg'],
+    reviews: 94,
+    tags: ['divination', 'spiritual', 'meditation'],
+    images: ['images/products/crystal-ball.jpg'],
     description: {
-      short: 'Traditional Taoist peach wood sword for home protection. Wards off evil spirits and negative energy.',
-      long: 'This Taoist Peach Wood Sword is hand-carved from genuine peach wood, the most revered protective wood in Chinese Taoism. The sword features intricate carvings of Taoist symbols including the bagua (eight trigrams) and the Taijitu (yin-yang symbol). Since ancient times, peach wood has been considered one of the most powerful materials for exorcising evil and protecting against negative supernatural influences.',
-      meaning: 'In Chinese folklore and Taoism, the peach tree is considered the "Tree of Immortals" and its wood has powerful demon-repelling properties. The legendary Taoist master Zhang Daoling is said to have used a peach wood sword to subdue demons and evil spirits. Peach wood swords remain one of the most iconic tools of Taoist ritual practice.',
-      usage: 'Hang above your front door or main entrance to protect your home from negative energy and evil spirits. Can be hung in bedrooms to prevent nightmares. Hang in the hallway facing the entrance. Does not need to be displayed openly - it works even when placed behind a door or in a closet. Replace or re-energize if it cracks or breaks (it has absorbed negative energy on your behalf).'
+      short: 'Beautiful amethyst crystal ball on wooden stand. Perfect for scrying, meditation, and energy work.',
+      long: 'This stunning Amethyst Crystal Ball Set includes a handcrafted natural amethyst sphere mounted on an elegant wooden stand. Amethyst has been used for scrying and spiritual work since ancient times, believed to enhance intuitive abilities and connect users to higher realms of consciousness. The smooth, perfectly round ball is ideal for meditation, crystal gazing, and creating a focal point for energy work.',
+      meaning: 'Crystal balls have been used for thousands of years as tools for divination and spiritual insight. Amethyst specifically is known as the stone of spiritual protection and wisdom, making it ideal for scrying and psychic work. Many believe that gazing into an amethyst sphere helps quiet the mind and opens pathways to intuitive knowledge.',
+      usage: 'Place in your meditation space, altar, or any area where you practice spiritual work. For scrying, dim the lights and gaze softly into the sphere, allowing images to form without forcing them. Cleanse monthly with sage smoke or by placing in direct moonlight. The amethyst color deepens over time with regular use.'
     },
     variants: [
-      { size: 'Small (15cm) - Keychain', price: 14.99 },
-      { size: 'Medium (25cm) - Wall Hang', price: 29.99 },
-      { size: 'Large (40cm) - Display', price: 49.99 }
+      { size: 'Small (5cm)', price: 39.99 },
+      { size: 'Medium (6cm)', price: 49.99 },
+      { size: 'Large (8cm)', price: 69.99 }
     ],
     benefits: [
-      'Evil spirit protection',
-      'Home blessing',
-      'Nightmare prevention',
-      'Traditional taoist protection'
+      'Enhanced intuition',
+      'Spiritual insight',
+      'Meditation focal point',
+      'Space energy enhancement'
     ],
     specifications: {
-      material: 'Genuine Peach Wood',
-      length: '15-40cm (selectable)',
-      design: 'Bagua + Taiji carvings',
-      includes: 'Red cord for hanging',
-      origin: 'Hand-carved in China'
+      material: 'Natural Amethyst',
+      diameter: '5-8cm (selectable)',
+      stand: 'Wooden',
+      weight: '300-600g',
+      origin: 'Brazil'
+    }
+  },
+  {
+    id: 'feng-shui-crystal-tree',
+    name: '7 Color Crystal Wealth Tree',
+    shortName: 'Crystal Wealth Tree',
+    category: 'Crystals',
+    subcategory: 'Wealth',
+    sku: 'ME-FCT-001',
+    price: 54.99,
+    originalPrice: 79.99,
+    cost: 7.00,
+    shippingCost: 4.00,
+    rating: 4.6,
+    reviews: 89,
+    tags: ['fengshui', 'wealth', 'home'],
+    images: ['images/products/crystal-tree.jpg'],
+    description: {
+      short: 'Handcrafted 7-color crystal wealth tree for abundance. Brings positive energy and prosperity to any space.',
+      long: 'This magnificent 7 Color Crystal Wealth Tree features hundreds of tiny crystal beads in seven auspicious colors representing all the major chakras and energy meridians. Each tree is carefully handcrafted with genuine crystal chips mounted on a wooden trunk. According to Feng Shui principles, the crystal wealth tree activates the wealth corner of your space while attracting positive chi and neutralizing negative energy.',
+      meaning: 'In Feng Shui, Crystal Wealth Trees symbolize growth, vitality, and prosperity. Placing one in the southeast corner of your home or office is believed to activate the wealth and abundance sector. The 7 colors correspond to different types of luck: health, love, career, creativity, wisdom, spirituality, and finances.',
+      usage: 'Place in the southeast corner of your living room, office, or shop for maximum wealth-attracting power. Position on a surface at waist level or higher. Keep healthy by dusting weekly. Does not require cleansing as it continuously generates positive energy.'
+    },
+    variants: [
+      { size: 'Small (15cm)', price: 44.99 },
+      { size: 'Medium (20cm)', price: 54.99 },
+      { size: 'Large (28cm)', price: 69.99 }
+    ],
+    benefits: [
+      'Wealth attraction',
+      'Positive energy flow',
+      'Space harmonization',
+      'Decorative beauty'
+    ],
+    specifications: {
+      material: 'Crystal Beads + Wooden Base',
+      height: '15-28cm (selectable)',
+      base: '6cm diameter',
+      weight: '200-400g',
+      origin: 'Handcrafted'
     }
   },
 
-  // ========== 易经占卜类 ==========
+  // ========== 塔罗占卜类 ==========
+  {
+    id: 'tarot-cards-deck',
+    name: 'Rider-Waite Tarot Deck',
+    shortName: 'Tarot Deck',
+    category: 'Tarot',
+    subcategory: 'Divination',
+    sku: 'ME-TTD-001',
+    price: 24.99,
+    originalPrice: 34.99,
+    cost: 3.50,
+    shippingCost: 2.00,
+    rating: 4.9,
+    reviews: 203,
+    tags: ['bestseller', 'tarot', 'spiritual'],
+    images: ['images/products/tarot-cards.jpg'],
+    description: {
+      short: 'The classic Rider-Waite-Smith tarot deck. 78 cards with comprehensive guide booklet for beginners.',
+      long: 'This is the iconic Rider-Waite Tarot Deck, created by Pamela Colman Smith under the direction of Arthur Edward Waite in 1909. Widely regarded as the most influential tarot deck in history, it features vivid symbolic imagery on every card that has inspired millions of readers worldwide. This high-quality replica includes all 78 cards plus an English instruction guide explaining the meanings and reading techniques.',
+      meaning: 'The Rider-Waite deck is the gold standard for tarot readers, offering clear, intuitive symbolism that works for both beginners and experienced readers. The Major Arcana (22 cards) represent major life themes and spiritual lessons, while the Minor Arcana (56 cards) reflect everyday situations and challenges.',
+      usage: 'Ideal for daily card draws, one-card meditations, or full 3-card past-present-future spreads. The included guide makes it perfect for beginners learning tarot. Shuffle daily and draw one card for the day ahead, or use for in-depth Celtic Cross readings as you advance.'
+    },
+    variants: [
+      { type: 'Standard Edition', price: 24.99 },
+      { type: 'Gold Border Edition', price: 29.99 },
+      { type: 'Luxe Box Set', price: 34.99 }
+    ],
+    benefits: [
+      'Beginner-friendly guide included',
+      'High-quality cardstock',
+      'Vibrant full-color imagery',
+      '78 cards (complete deck)'
+    ],
+    specifications: {
+      cards: '78 cards',
+      dimensions: '12 x 7cm (standard tarot size)',
+      material: '350gsm cardstock',
+      finish: 'Semi-gloss with lamination',
+      origin: 'Printed in EU'
+    }
+  },
   {
     id: 'i-ching-coins-set',
     name: 'I Ching Divination Coin Set',
@@ -1108,7 +652,7 @@ const products = [
     }
   },
 
-  // ========== 香道/养生类 ==========
+  // ========== 香薰类 ==========
   {
     id: 'agarwood-incense-sticks',
     name: 'Premium Agarwood Incense Sticks',
@@ -1151,8 +695,90 @@ const products = [
       origin: 'Vietnam / Southeast Asia'
     }
   },
+  {
+    id: 'backflow-incense-burner',
+    name: 'Backflow Incense Burner Fountain',
+    shortName: 'Backflow Burner',
+    category: 'Incense',
+    subcategory: 'Burner',
+    sku: 'ME-BIB-001',
+    price: 34.99,
+    originalPrice: 49.99,
+    cost: 4.50,
+    shippingCost: 3.00,
+    rating: 4.8,
+    reviews: 156,
+    tags: ['incense', 'meditation', 'popular', 'decor'],
+    images: ['images/products/incense-holder.jpg'],
+    description: {
+      short: 'Mesmerizing backflow incense burner that creates a smoke waterfall. Perfect for meditation and relaxation.',
+      long: 'This mesmerizing Backflow Incense Burner creates a stunning waterfall effect as smoke flows downward instead of rising. Used with special backflow incense cones (10 included), the smoke cascades down the intricate design like a gentle stream, creating a hypnotic and calming visual display. The burner features a beautiful design that doubles as a decorative piece when not in use. Perfect for meditation spaces, yoga studios, bedrooms, or any area where you want to create a serene atmosphere.',
+      meaning: 'Incense has been used for thousands of years across cultures to purify spaces, deepen meditation, and connect with the divine. The backflow effect symbolizes the downward flow of blessings and the grounding of spiritual energy into the physical realm. Watching the smoke cascade is itself a meditative practice, helping to quiet the mind and induce a state of calm awareness.',
+      usage: 'Place the burner on a flat, heatproof surface away from drafts. Light a backflow incense cone, let it flame briefly, then blow out. Place the cone on the top of the burner. The smoke will begin to flow downward through the design. Use in a still room for best effect. Clean regularly by wiping with a damp cloth. Includes 10 backflow cones to get started.'
+    },
+    variants: [
+      { type: 'Lotus Design', price: 34.99 },
+      { type: 'Buddha Design', price: 39.99 },
+      { type: 'Mountain Design', price: 34.99 }
+    ],
+    benefits: [
+      'Mesmerizing visual effect',
+      'Meditation enhancement',
+      'Space purification',
+      'Beautiful decorative piece'
+    ],
+    specifications: {
+      material: 'Ceramic',
+      height: '15-20cm',
+      includes: 'Burner + 10 Backflow Cones',
+      usage: 'Backflow Incense Cones Only',
+      origin: 'China'
+    }
+  },
 
-  // ========== 颂钵/声疗类 ==========
+  // ========== 佛教/冥想类 ==========
+  {
+    id: '108-mala-beads',
+    name: 'Tibetan 108 Mala Prayer Beads',
+    shortName: '108 Mala Beads',
+    category: 'Buddhist',
+    subcategory: 'Meditation',
+    sku: 'ME-MAL-001',
+    price: 14.99,
+    originalPrice: 19.99,
+    cost: 1.89,
+    shippingCost: 2.00,
+    rating: 4.9,
+    reviews: 234,
+    tags: ['bestseller', 'buddhist', 'meditation', 'mala'],
+    images: ['images/products/mala-beads.jpg'],
+    description: {
+      short: 'Traditional 108-bead Tibetan mala for meditation and mindfulness. Hand-knotted with guru bead and tassel.',
+      long: 'This traditional 108-bead Mala is handcrafted using ancient techniques passed down through Tibetan Buddhist lineages. Each bead is separated by a hand-tied knot, creating a tactile and spiritual tool for meditation, mantra recitation, and mindfulness practice. The mala includes a traditional guru bead (3-holed bead representing the Buddha, Dharma, and Sangha) and a beautiful silk tassel symbolizing compassion and the connection to all sentient beings.',
+      meaning: '108 beads is the sacred number in many Eastern spiritual traditions, representing the 108 defilements (kleshas) that must be overcome to attain enlightenment. Other interpretations include the 108 sacred sites in India, 108 marma points in Ayurveda, and 108 nadis (energy channels) in the body.',
+      usage: 'Hold the mala in your right hand, draping it over your middle finger. Use your thumb to count beads, pulling each one toward you as you recite your mantra (Om Mani Padme Hum or any sacred phrase). Start at the guru bead, move through all 108 beads, then reverse direction to return. Never pass over the guru bead. Can also be worn as a necklace or bracelet for continuous spiritual benefit.'
+    },
+    variants: [
+      { material: 'Bodhi Seed', price: 14.99 },
+      { material: 'Sandalwood', price: 19.99 },
+      { material: 'Black Obsidian', price: 14.99 },
+      { material: 'Rosewood', price: 12.99 }
+    ],
+    benefits: [
+      'Meditation focus tool',
+      'Stress and anxiety relief',
+      'Spiritual connection',
+      'Wearable mindfulness reminder'
+    ],
+    specifications: {
+      material: 'Selectable (see variants)',
+      beadCount: '108 beads + guru bead',
+      beadSize: '8mm',
+      totalLength: '80-90cm',
+      includes: 'Guru bead + Silk tassel',
+      origin: 'Handcrafted in Nepal / Tibet'
+    }
+  },
   {
     id: 'tibetan-singing-bowl',
     name: 'Himalayan Tibetan Singing Bowl',
@@ -1160,10 +786,10 @@ const products = [
     category: 'Sound Healing',
     subcategory: 'Meditation',
     sku: 'ME-SBW-001',
-    price: 79.99,
-    originalPrice: 119.99,
-    cost: 18.00,
-    shippingCost: 8.00,
+    price: 179.99,
+    originalPrice: 239.99,
+    cost: 40.00,
+    shippingCost: 12.00,
     rating: 4.9,
     reviews: 178,
     tags: ['bestseller', 'meditation', 'soundhealing', 'premium'],
@@ -1175,9 +801,9 @@ const products = [
       usage: 'Place the bowl on the cushion in the palm of your hand. Gently tap the side of the bowl with the mallet to start the sound. For the "singing" effect, run the mallet slowly and evenly around the outside rim with consistent pressure. Experiment with speed and pressure to find the sweet spot. For meditation, simply listen to the sound and let your mind follow it into stillness. Can also be used for chakra balancing by placing on or near the body.'
     },
     variants: [
-      { size: 'Small (10cm) - Beginner', price: 59.99 },
-      { size: 'Medium (12cm) - Popular', price: 79.99 },
-      { size: 'Large (15cm) - Premium', price: 99.99 }
+      { size: 'Small (10cm) - Beginner', price: 149.99 },
+      { size: 'Medium (12cm) - Popular', price: 179.99 },
+      { size: 'Large (15cm) - Premium', price: 219.99 }
     ],
     benefits: [
       'Deep meditation states',
@@ -1188,7 +814,7 @@ const products = [
     specifications: {
       material: '7-Metal Alloy (Copper, Tin, etc.)',
       diameter: '10-15cm (selectable)',
-      includes: 'Singing Bowl + Malet + Cushion',
+      includes: 'Singing Bowl + Mallet + Cushion',
       weight: '300-600g',
       origin: 'Handmade in Nepal / Tibet'
     }
