@@ -215,6 +215,14 @@
   <script>
     const PAYPAL_CLIENT_ID = 'AXaDcIl8uRgoDKtNBWzZ2qYIVT5jFz-CmoV86azeiqP8OpOvzuwkcmDOg0vRWUdUILZ8mSGQ2kcBjRN9';
 
+    function getCart() {
+      const savedCart = localStorage.getItem('mysticeast_cart');
+      if (savedCart) {
+        return JSON.parse(savedCart);
+      }
+      return { items: [], discount: 0 };
+    }
+
     function updateCheckoutDisplay() {
       const cart = getCart();
       const cartItems = document.getElementById('cartItems');
@@ -227,18 +235,20 @@
 
       let subtotal = 0;
       let shipping = 0;
-      let discount = 0;
+      let discount = cart.discount || 0;
 
       if (cart.items && cart.items.length > 0) {
         cartItems.innerHTML = cart.items.map(item => {
-          const product = getProductById(item.id);
+          const product = getProductById(item.productId);
           const itemTotal = item.price * item.quantity;
           subtotal += itemTotal;
+          const imgSrc = item.productImage || (product ? product.image : '');
+          const itemName = item.productName || (product ? product.name : item.name);
           return `
             <div class="cart-item">
-              <img src="${product ? product.image : ''}" alt="${item.name}" class="cart-item-image">
+              <img src="${imgSrc}" alt="${itemName}" class="cart-item-image">
               <div class="cart-item-info">
-                <h4>${item.name}</h4>
+                <h4>${itemName}</h4>
                 <p class="cart-item-price">$${item.price.toFixed(2)}</p>
                 <p class="cart-item-quantity">Qty: ${item.quantity}</p>
               </div>
@@ -253,8 +263,7 @@
           shipping = 5.99;
         }
 
-        if (cart.discount) {
-          discount = subtotal * cart.discount / 100;
+        if (discount > 0) {
           discountRow.style.display = 'flex';
           discountEl.textContent = '- $' + discount.toFixed(2);
         } else {
@@ -271,7 +280,7 @@
       totalEl.textContent = '$' + total.toFixed(2);
       cartCount.textContent = cart.items ? cart.items.length : 0;
 
-      return { subtotal, shipping, total };
+      return { subtotal, shipping, total, items: cart.items };
     }
 
     function validateForm() {
@@ -314,17 +323,7 @@
             return Promise.reject(new Error('Please fill in all required fields.'));
           }
 
-          const cart = getCart();
           const totals = updateCheckoutDisplay();
-
-          const purchaseUnits = cart.items.map(item => ({
-            name: item.name,
-            unit_amount: {
-              currency_code: 'USD',
-              value: item.price.toFixed(2)
-            },
-            quantity: item.quantity
-          }));
 
           return actions.order.create({
             intent: 'CAPTURE',
@@ -343,19 +342,19 @@
                   }
                 }
               },
-              items: cart.items.map(item => ({
-                name: item.name,
+              items: totals.items.map(item => ({
+                name: item.productName || item.name || 'Product',
                 unit_amount: {
                   currency_code: 'USD',
                   value: item.price.toFixed(2)
                 },
                 quantity: item.quantity.toString(),
-                sku: item.id
+                sku: item.productId || item.id || 'SKU'
               }))
             }],
             application_context: {
               return_url: 'https://mysticeast.shop/success.html',
-              cancel_url: 'https://mysticeast.shop/cart.html',
+              cancel_url: 'https://mysticeast.shop/checkout.html',
               shipping_preference: 'NO_SHIPPING',
               user_action: 'PAY_NOW',
               brand_name: 'MysticEast'
@@ -365,7 +364,7 @@
 
         onApprove: function(data, actions) {
           return actions.order.capture().then(function(details) {
-            localStorage.removeItem('cart');
+            localStorage.removeItem('mysticeast_cart');
             window.location.href = 'success.html?orderId=' + data.orderID;
           });
         },
