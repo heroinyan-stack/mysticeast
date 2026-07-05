@@ -117,25 +117,25 @@
 
         <div class="checkout-summary">
           <h2 class="checkout-section-title">Order Summary</h2>
-          <div class="cart-items" id="cartItems">
+          <div id="checkoutCartItems" class="cart-items">
             <p class="empty-cart">Your cart is empty</p>
           </div>
-          <div class="cart-summary">
+          <div id="checkoutCartSummary" class="cart-summary">
             <div class="summary-row">
               <span>Subtotal</span>
-              <span id="subtotal">$0.00</span>
+              <span id="checkoutSubtotal">$0.00</span>
             </div>
             <div class="summary-row">
               <span>Shipping</span>
-              <span id="shipping">$0.00</span>
+              <span id="checkoutShipping">$0.00</span>
             </div>
-            <div class="summary-row discount-row" id="discountRow" style="display:none">
+            <div class="summary-row discount-row" id="checkoutDiscountRow" style="display:none">
               <span>Discount</span>
-              <span id="discount" class="discount">- $0.00</span>
+              <span id="checkoutDiscount" class="discount">- $0.00</span>
             </div>
             <div class="summary-row total-row">
               <span>Total</span>
-              <span id="total">$0.00</span>
+              <span id="checkoutTotal">$0.00</span>
             </div>
           </div>
         </div>
@@ -225,12 +225,12 @@
 
     function updateCheckoutDisplay() {
       const cart = getCart();
-      const cartItems = document.getElementById('cartItems');
-      const subtotalEl = document.getElementById('subtotal');
-      const shippingEl = document.getElementById('shipping');
-      const discountEl = document.getElementById('discount');
-      const discountRow = document.getElementById('discountRow');
-      const totalEl = document.getElementById('total');
+      const cartItems = document.getElementById('checkoutCartItems');
+      const subtotalEl = document.getElementById('checkoutSubtotal');
+      const shippingEl = document.getElementById('checkoutShipping');
+      const discountEl = document.getElementById('checkoutDiscount');
+      const discountRow = document.getElementById('checkoutDiscountRow');
+      const totalEl = document.getElementById('checkoutTotal');
       const cartCount = document.querySelector('.cart-count');
 
       let subtotal = 0;
