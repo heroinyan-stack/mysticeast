@@ -215,9 +215,9 @@ class Cart {
 
   // Render cart sidebar
   renderCartSidebar() {
-    const cartItemsContainer = document.querySelector('.cart-items');
-    const cartSummary = document.querySelector('.cart-summary');
-    const cartEmpty = document.querySelector('.cart-empty');
+    const cartItemsContainer = document.querySelector('.cart-sidebar .cart-items');
+    const cartSummary = document.querySelector('.cart-sidebar .cart-summary');
+    const cartEmpty = document.querySelector('.cart-sidebar .cart-empty');
 
     if (!cartItemsContainer) return;
 
