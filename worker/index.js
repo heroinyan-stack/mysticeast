@@ -130,7 +130,7 @@ async function createCJOrder(request, env, ctx) {
       remark: `MysticEast Order | Customer: ${email || 'N/A'}`,
       email: email || '',
       consigneeID: '',
-      payType: 1,
+      payType: 2, // Auto-deduct from CJ balance (no manual payment needed)
       shopAmount: String(totalCost.toFixed(2)),
       logisticName: 'Standard',
       fromCountryCode: 'CN',
