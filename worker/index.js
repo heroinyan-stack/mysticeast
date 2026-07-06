@@ -130,25 +130,45 @@ async function createCJOrder(request, env, ctx) {
       remark: `MysticEast Order | Customer: ${email || 'N/A'}`,
       email: email || '',
       consigneeID: '',
-      payType: 2, // Auto-deduct from CJ balance (no manual payment needed)
+      payType: 1, // Page payment (generate payment link) - more reliable for API
       shopAmount: String(totalCost.toFixed(2)),
       logisticName: 'Standard',
       fromCountryCode: 'CN',
       platform: 'Api',
       orderFlow: 1,
+      houseNumber: '',
+      iossType: '',
+      iossNumber: '',
       products: cjProducts
     };
 
-    const response = await fetch('https://developers.cjdropshipping.com/api2.0/v1/shopping/order/createOrderV2', {
-      method: 'POST',
-      headers: {
-        'CJ-Access-Token': cjToken,
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(orderData)
-    });
+    // Retry up to 3 times for rate limit issues
+    let data = null;
+    for (let attempt = 1; attempt <= 3; attempt++) {
+      const response = await fetch('https://developers.cjdropshipping.com/api2.0/v1/shopping/order/createOrderV2', {
+        method: 'POST',
+        headers: {
+          'CJ-Access-Token': cjToken,
+          'Content-Type': 'application/json',
+          'User-Agent': 'MysticEast-Worker/1.0'
+        },
+        body: JSON.stringify(orderData)
+      });
 
-    const data = await response.json();
+      data = await response.json();
+
+      if (data.code === 200 && data.result) {
+        break;
+      }
+
+      const errMsg = data.message || '';
+      // Retry on rate limit errors
+      if (attempt < 3 && (errMsg.includes('Too Many Requests') || errMsg.includes('Rate limit') || response.status === 429)) {
+        await new Promise(r => setTimeout(r, 2000 * attempt));
+        continue;
+      }
+      break;
+    }
 
     if (data.code === 200 && data.result) {
       // Send notification email in background (non-blocking)
