@@ -375,7 +375,7 @@ This is an automated alert from MysticEast Worker.`;
 
 // ========== Email: Send via Mailgun (or other) ==========
 async function sendEmail(env, subject, body) {
-  const notifyEmail = env.NOTIFY_EMAIL || '332847952@qq.com';
+  const notifyEmail = env.NOTIFY_EMAIL || 'heroinyan@gmail.com';
 
   // Option 1: Use Mailgun (set MAILGUN_API_KEY and MAILGUN_DOMAIN in env)
   if (env.MAILGUN_API_KEY && env.MAILGUN_DOMAIN) {
@@ -405,7 +405,7 @@ async function sendEmail(env, subject, body) {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        from: 'MysticEast Orders <orders@mysticeast.shop>',
+        from: 'MysticEast Orders <onboarding@resend.dev>',
         to: [notifyEmail],
         subject: subject,
         text: body
