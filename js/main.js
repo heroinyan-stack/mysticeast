@@ -57,16 +57,18 @@ function renderProducts() {
   const productsGrid = document.querySelector('.products-grid');
   if (!productsGrid) return;
 
-  const featuredProducts = products
+  const allProducts = window.products || [];
+  
+  const featuredProducts = allProducts
     .filter(p => p.tags && p.tags.includes('bestseller'))
-    .concat(products.filter(p => !p.tags || !p.tags.includes('bestseller')))
+    .concat(allProducts.filter(p => !p.tags || !p.tags.includes('bestseller')))
     .slice(0, 8);
 
   productsGrid.innerHTML = featuredProducts.map(product => createProductCard(product)).join('');
 }
 
 function createProductCard(product) {
-  const discountPercent = calculateDiscount(product.originalPrice, product.price);
+  const discountPercent = (window.calculateDiscount || calculateDiscount)(product.originalPrice, product.price);
   const isBestseller = product.tags && product.tags.includes('bestseller');
   
   return `
@@ -93,8 +95,8 @@ function createProductCard(product) {
           <span class="rating-count">(${product.reviews})</span>
         </div>
         <div class="product-price">
-          <span class="price-current">${formatPrice(product.price)}</span>
-          ${product.originalPrice > product.price ? `<span class="price-original">${formatPrice(product.originalPrice)}</span>` : ''}
+          <span class="price-current">${(window.formatPrice || formatPrice)(product.price)}</span>
+          ${product.originalPrice > product.price ? `<span class="price-original">${(window.formatPrice || formatPrice)(product.originalPrice)}</span>` : ''}
         </div>
         <div class="product-actions" onclick="event.preventDefault()">
           <button class="add-to-cart-btn" onclick="addToCart('${product.id}'); return false;">
