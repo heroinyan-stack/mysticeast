@@ -301,7 +301,7 @@ const products = [
     rating: 4.9,
     reviews: 127,
     tags: ['fengshui', 'bestseller', 'wealth', 'chinese'],
-    images: ['https://neeko-copilot.bytedance.net/api/text2image?prompt=golden%20chinese%20pixiu%20wealth%20charm%20bracelet%20jewelry%20dark%20background&image_size=square'],
+    images: ['images/products/pixiu.jpg'],
     description: {
       short: 'Handcrafted brass Pixiu (Pi Yao) figurine for wealth attraction. The most powerful feng shui wealth symbol.',
       long: 'This exquisite Brass Pixiu Figurine is carefully handcrafted from solid brass, capturing every detail of this mythical Chinese creature. Pixiu (also known as Pi Yao) is one of the most powerful feng shui symbols for attracting and preserving wealth. With its dragon head, lion body, and wings, this celestial creature is believed to seek out gold and treasures, bringing prosperity to its owner. This figurine makes a stunning addition to any home, office, or business space.',
@@ -585,7 +585,7 @@ const products = [
     rating: 4.9,
     reviews: 203,
     tags: ['bestseller', 'tarot', 'spiritual'],
-    images: ['https://neeko-copilot.bytedance.net/api/text2image?prompt=tarot%20cards%20deck%20mystical%20divination%20dark%20spiritual%20occult&image_size=square'],
+    images: ['images/products/tarot-cards.jpg'],
     description: {
       short: 'The classic Rider-Waite-Smith tarot deck. 78 cards with comprehensive guide booklet for beginners.',
       long: 'This is the iconic Rider-Waite Tarot Deck, created by Pamela Colman Smith under the direction of Arthur Edward Waite in 1909. Widely regarded as the most influential tarot deck in history, it features vivid symbolic imagery on every card that has inspired millions of readers worldwide. This high-quality replica includes all 78 cards plus an English instruction guide explaining the meanings and reading techniques.',
@@ -667,7 +667,7 @@ const products = [
     rating: 4.9,
     reviews: 201,
     tags: ['incense', 'meditation', 'agarwood', 'bestseller'],
-    images: ['https://neeko-copilot.bytedance.net/api/text2image?prompt=incense%20sticks%20aromatherapy%20smoke%20zen%20meditation%20dark%20mystical&image_size=square'],
+    images: ['images/products/agarwood-incense.jpg'],
     description: {
       short: 'Premium natural agarwood (oud) incense sticks. Hand-rolled for meditation, relaxation, and space cleansing.',
       long: 'Our Premium Agarwood Incense Sticks are hand-rolled using genuine agarwood (also known as oud or aloeswood), one of the most precious and aromatic woods in the world. The rich, deep, woody fragrance has been prized in Eastern cultures for thousands of years for its calming, grounding, and spiritually uplifting properties. Each stick burns for approximately 45 minutes, filling your space with a warm, earthy aroma that promotes deep relaxation and inner peace.',
@@ -751,7 +751,7 @@ const products = [
     rating: 4.9,
     reviews: 234,
     tags: ['bestseller', 'buddhist', 'meditation', 'mala'],
-    images: ['https://neeko-copilot.bytedance.net/api/text2image?prompt=tibetan%20mala%20prayer%20beads%20108%20buddhist%20meditation%20dark%20spiritual&image_size=square'],
+    images: ['images/products/mala-beads.jpg'],
     description: {
       short: 'Traditional 108-bead Tibetan mala for meditation and mindfulness. Hand-knotted with guru bead and tassel.',
       long: 'This traditional 108-bead Mala is handcrafted using ancient techniques passed down through Tibetan Buddhist lineages. Each bead is separated by a hand-tied knot, creating a tactile and spiritual tool for meditation, mantra recitation, and mindfulness practice. The mala includes a traditional guru bead (3-holed bead representing the Buddha, Dharma, and Sangha) and a beautiful silk tassel symbolizing compassion and the connection to all sentient beings.',
