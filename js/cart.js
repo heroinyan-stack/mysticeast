@@ -45,17 +45,16 @@ class Cart {
 
     if (product.variants && product.variants.length > 0) {
       if (!selectedVariant) {
-        // Use first variant's size/type as default, keep price from product
-        selectedVariant = product.variants[0].size || product.variants[0].type || null;
+        const firstVariant = product.variants[0];
+        selectedVariant = firstVariant.size || firstVariant.type || firstVariant.style || firstVariant.name || null;
       }
-      // Find matching variant by size or type (string comparison)
       const variantData = product.variants.find(v =>
-        v.size === selectedVariant || v.type === selectedVariant || v.sku === selectedVariant
+        v.size === selectedVariant || v.type === selectedVariant || v.style === selectedVariant || v.name === selectedVariant || v.sku === selectedVariant
       );
       if (variantData) {
         price = variantData.price;
         sku = variantData.sku || sku;
-        selectedVariant = variantData.size || variantData.type || null;
+        selectedVariant = variantData.size || variantData.type || variantData.style || variantData.name || null;
       }
     }
 

@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MysticEast - Admin Panel</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #1a1a2e; color: #fff; }
+    .admin-header { background: #16213e; padding: 20px 30px; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 10px rgba(0,0,0,0.3); }
+    .admin-header h1 { font-size: 24px; color: #e94560; }
+    .header-actions { display: flex; gap: 15px; }
+    .btn { padding: 10px 20px; border: none; border-radius: 8px; cursor: pointer; font-weight: 600; transition: all 0.3s; }
+    .btn-primary { background: #e94560; color: #fff; }
+    .btn-primary:hover { background: #ff6b6b; }
+    .btn-secondary { background: #0f3460; color: #fff; }
+    .btn-secondary:hover { background: #1a4a7a; }
+    .btn-success { background: #10b981; color: #fff; }
+    .btn-danger { background: #ef4444; color: #fff; }
+    .btn-sm { padding: 5px 12px; font-size: 12px; }
+    .admin-main { display: flex; }
+    .sidebar { width: 250px; background: #16213e; min-height: calc(100vh - 70px); padding: 20px; }
+    .sidebar-item { padding: 12px 15px; margin-bottom: 5px; border-radius: 8px; cursor: pointer; transition: all 0.3s; }
+    .sidebar-item:hover, .sidebar-item.active { background: #0f3460; color: #e94560; }
+    .content { flex: 1; padding: 30px; }
+    .page-title { font-size: 20px; margin-bottom: 20px; color: #e94560; }
+    .products-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); gap: 20px; }
+    .product-card { background: #16213e; border-radius: 12px; overflow: hidden; padding: 20px; }
+    .product-card-header { display: flex; gap: 15px; margin-bottom: 15px; }
+    .product-image { width: 100px; height: 100px; object-fit: cover; border-radius: 8px; }
+    .product-info h3 { font-size: 16px; margin-bottom: 5px; }
+    .product-info p { font-size: 12px; color: #999; }
+    .product-price { font-size: 18px; font-weight: bold; color: #10b981; }
+    .product-fields { margin-bottom: 15px; }
+    .field-group { margin-bottom: 10px; }
+    .field-group label { display: block; font-size: 12px; color: #999; margin-bottom: 5px; }
+    .field-group input, .field-group textarea { width: 100%; padding: 8px 12px; background: #0f3460; border: 1px solid #333; border-radius: 6px; color: #fff; font-size: 14px; }
+    .field-group textarea { min-height: 60px; resize: vertical; }
+    .field-group input:focus, .field-group textarea:focus { outline: none; border-color: #e94560; }
+    .product-actions { display: flex; gap: 10px; }
+    .modal-overlay { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.7); z-index: 1000; justify-content: center; align-items: center; }
+    .modal-overlay.active { display: flex; }
+    .modal { background: #16213e; border-radius: 12px; padding: 30px; width: 90%; max-width: 600px; max-height: 90vh; overflow-y: auto; }
+    .modal h2 { font-size: 20px; margin-bottom: 20px; color: #e94560; }
+    .modal-close { float: right; font-size: 24px; cursor: pointer; color: #999; }
+    .modal-close:hover { color: #fff; }
+    .variant-item { background: #0f3460; padding: 10px; border-radius: 8px; margin-bottom: 10px; }
+    .add-variant-btn { margin-top: 10px; }
+    .status-badge { display: inline-block; padding: 3px 10px; border-radius: 20px; font-size: 12px; }
+    .status-published { background: #10b981; color: #fff; }
+    .status-draft { background: #f59e0b; color: #fff; }
+    .search-bar { margin-bottom: 20px; }
+    .search-bar input { width: 100%; padding: 12px 20px; background: #0f3460; border: 1px solid #333; border-radius: 8px; color: #fff; font-size: 14px; }
+    .search-bar input:focus { outline: none; border-color: #e94560; }
+    .category-filter { margin-bottom: 20px; display: flex; gap: 10px; flex-wrap: wrap; }
+    .category-tag { padding: 8px 15px; background: #0f3460; border-radius: 20px; cursor: pointer; font-size: 13px; }
+    .category-tag.active { background: #e94560; }
+    .cj-link { font-size: 12px; color: #3b82f6; word-break: break-all; }
+    .cj-link:hover { color: #60a5fa; }
+    .toast { position: fixed; bottom: 20px; right: 20px; padding: 15px 25px; border-radius: 8px; color: #fff; font-weight: 600; z-index: 2000; animation: slideIn 0.3s ease; }
+    .toast-success { background: #10b981; }
+    .toast-error { background: #ef4444; }
+    @keyframes slideIn { from { transform: translateX(100%); } to { transform: translateX(0); } }
+    
+    .login-wrapper { min-height: 100vh; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); }
+    .login-box { background: #16213e; padding: 40px; border-radius: 16px; box-shadow: 0 20px 60px rgba(0,0,0,0.5); width: 100%; max-width: 400px; }
+    .login-box h2 { text-align: center; margin-bottom: 30px; color: #e94560; font-size: 28px; }
+    .login-field { margin-bottom: 20px; }
+    .login-field label { display: block; font-size: 13px; color: #999; margin-bottom: 8px; }
+    .login-field input { width: 100%; padding: 12px 16px; background: #0f3460; border: 1px solid #333; border-radius: 8px; color: #fff; font-size: 15px; }
+    .login-field input:focus { outline: none; border-color: #e94560; }
+    .login-btn { width: 100%; padding: 14px; background: #e94560; color: #fff; border: none; border-radius: 8px; font-size: 16px; font-weight: 600; cursor: pointer; transition: all 0.3s; }
+    .login-btn:hover { background: #ff6b6b; }
+    .login-error { color: #ef4444; font-size: 13px; margin-bottom: 15px; text-align: center; display: none; }
+    .hidden { display: none !important; }
+  </style>
+</head>
+<body>
+  <div id="loginScreen" class="login-wrapper">
+    <div class="login-box">
+      <h2>✦ MysticEast Admin</h2>
+      <div class="login-error" id="loginError">Invalid username or password</div>
+      <div class="login-field">
+        <label>Username</label>
+        <input type="text" id="loginUsername" placeholder="Enter username">
+      </div>
+      <div class="login-field">
+        <label>Password</label>
+        <input type="password" id="loginPassword" placeholder="Enter password">
+      </div>
+      <button class="login-btn" onclick="handleLogin()">Sign In</button>
+    </div>
+  </div>
+
+  <div id="adminApp" class="hidden">
+  <header class="admin-header">
+    <h1>✦ MysticEast Admin</h1>
+    <div class="header-actions">
+      <button class="btn btn-secondary" onclick="logout()">Logout</button>
+      <button class="btn btn-secondary" onclick="exportData()">Export Data</button>
+      <button class="btn btn-primary" onclick="addNewProduct()">+ Add Product</button>
+    </div>
+  </header>
+
+  <main class="admin-main">
+    <aside class="sidebar">
+      <div class="sidebar-item active" onclick="showPage('products')">📦 Products</div>
+      <div class="sidebar-item" onclick="showPage('settings')">⚙️ Settings</div>
+      <div class="sidebar-item" onclick="showPage('orders')">📋 Orders</div>
+    </aside>
+
+    <section class="content" id="content">
+      <div id="page-products">
+        <h2 class="page-title">Product Management</h2>
+        <div class="search-bar">
+          <input type="text" id="searchInput" placeholder="Search products..." oninput="filterProducts()">
+        </div>
+        <div class="category-filter" id="categoryFilter">
+          <div class="category-tag active" onclick="filterByCategory('all')">All</div>
+        </div>
+        <div class="products-grid" id="productsGrid"></div>
+      </div>
+
+      <div id="page-settings" style="display: none;">
+        <h2 class="page-title">Settings</h2>
+        <div class="product-card">
+          <h3>Site Settings</h3>
+          <div class="product-fields">
+            <div class="field-group">
+              <label>Site Title</label>
+              <input type="text" id="siteTitle" value="MysticEast">
+            </div>
+            <div class="field-group">
+              <label>Site Description</label>
+              <textarea id="siteDescription">Authentic crystals for your spiritual journey</textarea>
+            </div>
+            <div class="field-group">
+              <label>Currency Symbol</label>
+              <input type="text" id="currencySymbol" value="$">
+            </div>
+            <div class="field-group">
+              <label>Free Shipping Threshold</label>
+              <input type="number" id="freeShippingThreshold" value="49">
+            </div>
+          </div>
+          <button class="btn btn-success" onclick="saveSettings()">Save Settings</button>
+        </div>
+      </div>
+
+      <div id="page-orders" style="display: none;">
+        <h2 class="page-title">Orders</h2>
+        <div class="product-card">
+          <p>No orders found. Orders will appear here when customers make purchases.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div class="modal-overlay" id="productModal">
+    <div class="modal">
+      <span class="modal-close" onclick="closeModal()">×</span>
+      <h2 id="modalTitle">Add Product</h2>
+      <div class="product-fields">
+        <div class="field-group">
+          <label>Product ID</label>
+          <input type="text" id="editId" readonly>
+        </div>
+        <div class="field-group">
+          <label>Name</label>
+          <input type="text" id="editName">
+        </div>
+        <div class="field-group">
+          <label>Short Name</label>
+          <input type="text" id="editShortName">
+        </div>
+        <div class="field-group">
+          <label>Category</label>
+          <input type="text" id="editCategory">
+        </div>
+        <div class="field-group">
+          <label>Price</label>
+          <input type="number" id="editPrice" step="0.01">
+        </div>
+        <div class="field-group">
+          <label>Original Price</label>
+          <input type="number" id="editOriginalPrice" step="0.01">
+        </div>
+        <div class="field-group">
+          <label>Image URL</label>
+          <input type="text" id="editImage" placeholder="https://...">
+        </div>
+        <div class="field-group">
+          <label>CJ Dropshipping Link</label>
+          <input type="text" id="editCjLink" placeholder="https://www.cjdropshipping.com/product-detail...">
+        </div>
+        <div class="field-group">
+          <label>Short Description</label>
+          <textarea id="editShortDesc"></textarea>
+        </div>
+        <div class="field-group">
+          <label>Long Description</label>
+          <textarea id="editLongDesc"></textarea>
+        </div>
+        <div class="field-group">
+          <label>Tags (comma separated)</label>
+          <input type="text" id="editTags">
+        </div>
+        <div class="field-group">
+          <label>Variants</label>
+          <div id="variantsList"></div>
+          <button class="btn btn-sm btn-secondary add-variant-btn" onclick="addVariantInput()">+ Add Variant</button>
+        </div>
+      </div>
+      <div style="display: flex; gap: 10px; margin-top: 20px;">
+        <button class="btn btn-secondary" onclick="closeModal()">Cancel</button>
+        <button class="btn btn-success" onclick="saveProduct()">Save Product</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <script src="js/products.js"></script>
+  <script src="js/admin.js"></script>
+</body>
+</html>

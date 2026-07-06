@@ -96,7 +96,7 @@ function renderCategoryProducts(category) {
 }
 
 function createProductCard(product) {
-  const discountPercent = calculateDiscount(product.originalPrice, product.price);
+  const discountPercent = calculateDiscount(product);
   const isBestseller = product.tags && product.tags.includes('bestseller');
   
   return `

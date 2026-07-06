@@ -1,8 +1,7 @@
-// MysticEast - Product Data (Updated with Correct Images)
-// Last Updated: 2026-07-06
+// MysticEast - Product Data
+// Last Updated: 2026-07-07
 
 const products = [
-  // ========== Crystal Bracelets ==========
   {
     id: 'obsidian-bracelet',
     name: 'Black Obsidian Protection Bracelet',
@@ -17,7 +16,7 @@ const products = [
     rating: 4.8,
     reviews: 234,
     tags: ['bestseller', 'protection'],
-    images: ['https://images.unsplash.com/photo-1615109398623-88346a601842?w=800&q=80'],
+    images: ['https://images.pexels.com/photos/430205/pexels-photo-430205.jpeg?auto=compress&cs=tinysrgb&w=800'],
     description: {
       short: 'Powerful black obsidian bracelet for protection against negative energy.',
       long: 'This Black Obsidian Protection Bracelet is carefully handcrafted with 8mm genuine volcanic black obsidian beads. Black obsidian has been used for centuries as a powerful protective stone, believed to shield its wearer from negativity, absorb harmful energies, and promote emotional grounding.',
@@ -46,7 +45,7 @@ const products = [
     rating: 4.9,
     reviews: 189,
     tags: ['premium'],
-    images: ['https://images.unsplash.com/photo-1600891964092-4316c288032e?w=800&q=80'],
+    images: ['https://images.pexels.com/photos/1105666/pexels-photo-1105666.jpeg?auto=compress&cs=tinysrgb&w=800'],
     description: {
       short: 'Beautiful purple amethyst bracelet for spiritual growth and intuition.',
       long: 'This stunning Amethyst Wisdom Bracelet features genuine 8mm amethyst beads, known as the "Stone of Spiritual Growth." Amethyst is revered for its calming energy and ability to enhance intuition and spiritual awareness.',
@@ -75,7 +74,7 @@ const products = [
     rating: 4.7,
     reviews: 167,
     tags: ['bestseller', 'love'],
-    images: ['https://images.unsplash.com/photo-1603626976643-470d51a88a03?w=800&q=80'],
+    images: ['https://images.pexels.com/photos/1105667/pexels-photo-1105667.jpeg?auto=compress&cs=tinysrgb&w=800'],
     description: {
       short: 'Pink rose quartz bracelet for attracting love and emotional healing.',
       long: 'This Rose Quartz Love Bracelet is made with genuine 8mm pink rose quartz beads, known as the "Stone of Unconditional Love." Rose quartz opens the heart chakra, promoting self-love, compassion, and emotional healing.',
@@ -104,7 +103,7 @@ const products = [
     rating: 4.8,
     reviews: 145,
     tags: ['bestseller', 'wealth'],
-    images: ['https://images.unsplash.com/photo-1555421689-445016219898?w=800&q=80'],
+    images: ['https://images.pexels.com/photos/1105668/pexels-photo-1105668.jpeg?auto=compress&cs=tinysrgb&w=800'],
     description: {
       short: 'Golden tiger eye bracelet for courage, strength, and abundance.',
       long: 'This Tiger Eye Courage Bracelet features genuine 8mm golden tiger eye beads. Tiger eye is a powerful stone that boosts confidence, courage, and personal power. It is also associated with wealth and prosperity.',
@@ -133,7 +132,7 @@ const products = [
     rating: 4.6,
     reviews: 123,
     tags: ['protection'],
-    images: ['https://images.unsplash.com/photo-1614527005839-42658a945c5d?w=800&q=80'],
+    images: ['https://images.pexels.com/photos/337909/pexels-photo-337909.jpeg?auto=compress&cs=tinysrgb&w=800'],
     description: {
       short: 'Traditional red string Kabbalah bracelet for protection and good luck.',
       long: 'This Red String Protection Bracelet is inspired by the ancient Kabbalah tradition. The red string symbolizes protection from the evil eye and brings good fortune, love, and prosperity to the wearer.',
@@ -144,7 +143,6 @@ const products = [
     benefits: ['Protection from evil eye', 'Good luck', 'Love and prosperity', 'Energy protection'],
     specifications: { material: 'Cotton String with Silver Charm', beadSize: 'N/A', braceletSize: 'Adjustable', weight: '5g', origin: 'Israel' }
   },
-  // ========== Necklaces ==========
   {
     id: 'seven-chakra-necklace',
     name: 'Seven Chakra Healing Necklace',
@@ -159,7 +157,7 @@ const products = [
     rating: 4.7,
     reviews: 98,
     tags: ['healing'],
-    images: ['https://images.unsplash.com/photo-1635704019225-f216a1d7b1a8?w=800&q=80'],
+    images: ['https://images.pexels.com/photos/1105669/pexels-photo-1105669.jpeg?auto=compress&cs=tinysrgb&w=800'],
     description: {
       short: 'Seven chakra crystal necklace for balancing all energy centers.',
       long: 'This Seven Chakra Healing Necklace features seven beautiful crystals representing each of the seven chakras: Root, Sacral, Solar Plexus, Heart, Throat, Third Eye, and Crown. Wearing this necklace helps balance your energy centers and promote overall well-being.',
@@ -184,7 +182,7 @@ const products = [
     rating: 4.8,
     reviews: 76,
     tags: ['divination'],
-    images: ['https://images.unsplash.com/photo-1601024445121-e5b82f020549?w=800&q=80'],
+    images: ['https://images.pexels.com/photos/137072/pexels-photo-137072.jpeg?auto=compress&cs=tinysrgb&w=800'],
     description: {
       short: 'Mystical tarot moon pendant necklace for intuition and magic.',
       long: 'This Tarot Moon Pendant Necklace features an intricate moon and star design, inspired by the Tarot\'s Major Arcana. The moon represents intuition, mystery, and feminine energy, making this piece perfect for those drawn to divination and magic.',
@@ -195,7 +193,6 @@ const products = [
     benefits: ['Enhanced intuition', 'Psychic abilities', 'Moon energy', 'Divination'],
     specifications: { material: 'Stainless Steel with Enamel', beadSize: 'N/A', necklaceLength: '18-22 inches', weight: '15g', origin: 'China' }
   },
-  // ========== Feng Shui ==========
   {
     id: 'brass-pixiu',
     name: 'Brass Pixiu Wealth Figurine',
@@ -210,7 +207,7 @@ const products = [
     rating: 4.9,
     reviews: 127,
     tags: ['bestseller', 'wealth'],
-    images: ['https://images.unsplash.com/photo-1544197762-654612b63749?w=800&q=80'],
+    images: ['https://images.pexels.com/photos/326900/pexels-photo-326900.jpeg?auto=compress&cs=tinysrgb&w=800'],
     description: {
       short: 'Traditional brass Pixiu statue for attracting wealth and prosperity.',
       long: 'This Brass Pixiu Wealth Figurine is a traditional Chinese feng shui charm. Pixiu is a mythical creature that attracts wealth and protects against financial loss. Made of solid brass, this beautifully crafted statue brings positive energy to your home or office.',
@@ -235,7 +232,7 @@ const products = [
     rating: 4.8,
     reviews: 156,
     tags: ['wealth'],
-    images: ['https://images.unsplash.com/photo-1544197762-654612b63749?w=800&q=80'],
+    images: ['https://images.pexels.com/photos/326901/pexels-photo-326901.jpeg?auto=compress&cs=tinysrgb&w=800'],
     description: {
       short: 'Traditional Chinese three-legged money frog for wealth luck.',
       long: 'This Three-Legged Money Frog Statue is a classic feng shui symbol of wealth and abundance. The frog sits on a bed of coins, with one coin in its mouth, symbolizing prosperity and good fortune.',
@@ -260,7 +257,7 @@ const products = [
     rating: 4.7,
     reviews: 167,
     tags: ['bestseller'],
-    images: ['https://images.unsplash.com/photo-1544197762-654612b63749?w=800&q=80'],
+    images: ['https://images.pexels.com/photos/164206/pexels-photo-164206.jpeg?auto=compress&cs=tinysrgb&w=800'],
     description: {
       short: 'Cute solar-powered lucky cat waving its paw for good luck.',
       long: 'This Solar-Powered Lucky Cat Figurine is a charming addition to any home or business. The cat waves its paw automatically when exposed to light, inviting good fortune and customers into your space.',
@@ -285,7 +282,7 @@ const products = [
     rating: 4.8,
     reviews: 89,
     tags: ['premium'],
-    images: ['https://images.unsplash.com/photo-1501504905252-473c47e087f8?w=800&q=80'],
+    images: ['https://images.pexels.com/photos/269289/pexels-photo-269289.jpeg?auto=compress&cs=tinysrgb&w=800'],
     description: {
       short: 'Beautiful tabletop water fountain for peace and positive energy.',
       long: 'This Feng Shui Tabletop Water Fountain brings the calming sound of flowing water into your space. Water is a powerful feng shui element that symbolizes wealth, abundance, and harmony.',
@@ -296,7 +293,6 @@ const products = [
     benefits: ['Positive energy', 'Stress relief', 'Wealth flow', 'Harmony'],
     specifications: { material: 'Resin and Ceramic', beadSize: 'N/A', braceletSize: 'N/A', weight: '2-3kg', origin: 'China' }
   },
-  // ========== Crystals ==========
   {
     id: 'amethyst-cluster',
     name: 'Natural Amethyst Cluster',
@@ -311,7 +307,7 @@ const products = [
     rating: 4.9,
     reviews: 78,
     tags: ['premium'],
-    images: ['https://images.unsplash.com/photo-1550684848-fac1c5b4e853?w=800&q=80'],
+    images: ['https://images.pexels.com/photos/1105670/pexels-photo-1105670.jpeg?auto=compress&cs=tinysrgb&w=800'],
     description: {
       short: 'Beautiful natural amethyst crystal cluster for healing and meditation.',
       long: 'This Natural Amethyst Cluster is a stunning piece of nature\'s art. Amethyst clusters are powerful healing tools that emit strong positive energy. Each cluster is unique and hand-selected for its beauty and energy.',
@@ -336,7 +332,7 @@ const products = [
     rating: 4.6,
     reviews: 65,
     tags: ['divination'],
-    images: ['https://images.unsplash.com/photo-1605104234588-59648437685c?w=800&q=80'],
+    images: ['https://images.pexels.com/photos/1105671/pexels-photo-1105671.jpeg?auto=compress&cs=tinysrgb&w=800'],
     description: {
       short: 'Beautiful crystal ball for scrying and intuitive readings.',
       long: 'This Crystal Ball for Divination is perfect for scrying, meditation, and intuitive work. Crystal balls have been used for centuries as tools for divination, helping the user connect with their inner wisdom and see beyond the ordinary.',
@@ -361,7 +357,7 @@ const products = [
     rating: 4.7,
     reviews: 112,
     tags: ['wealth'],
-    images: ['https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=800&q=80'],
+    images: ['https://images.pexels.com/photos/137076/pexels-photo-137076.jpeg?auto=compress&cs=tinysrgb&w=800'],
     description: {
       short: 'Beautiful feng shui crystal money tree for attracting wealth.',
       long: 'This Feng Shui Crystal Money Tree is a stunning decorative piece that attracts wealth and positive energy. The tree features numerous crystal "leaves" on a wire frame, mounted on a natural stone base.',
@@ -372,7 +368,6 @@ const products = [
     benefits: ['Attracts wealth', 'Positive energy', 'Prosperity', 'Good luck'],
     specifications: { material: 'Crystals with Wire Frame', beadSize: 'N/A', braceletSize: 'N/A', weight: '500-1000g', origin: 'China' }
   },
-  // ========== Tarot & Divination ==========
   {
     id: 'tarot-cards-deck',
     name: 'Rider-Waite Tarot Deck',
@@ -387,7 +382,7 @@ const products = [
     rating: 4.9,
     reviews: 203,
     tags: ['bestseller', 'divination'],
-    images: ['https://images.unsplash.com/photo-1601024445121-e5b82f020549?w=800&q=80'],
+    images: ['https://images.pexels.com/photos/267885/pexels-photo-267885.jpeg?auto=compress&cs=tinysrgb&w=800'],
     description: {
       short: 'Classic Rider-Waite tarot deck for professional readings.',
       long: 'This Rider-Waite Tarot Deck is the most popular and widely used tarot deck in the world. Created by Pamela Colman Smith and A.E. Waite in 1910, these cards feature beautiful, detailed illustrations that make interpretation easy for both beginners and professionals.',
@@ -412,7 +407,7 @@ const products = [
     rating: 4.5,
     reviews: 45,
     tags: ['divination'],
-    images: ['https://images.unsplash.com/photo-1544197762-654612b63749?w=800&q=80'],
+    images: ['https://images.pexels.com/photos/288707/pexels-photo-288707.jpeg?auto=compress&cs=tinysrgb&w=800'],
     description: {
       short: 'Traditional Chinese I Ching divination coins set.',
       long: 'This I Ching Coins Set includes three traditional Chinese coins for casting the I Ching (Book of Changes). The I Ching is an ancient Chinese divination system that has been used for over 2,000 years to gain insight into life\'s questions.',
@@ -423,7 +418,6 @@ const products = [
     benefits: ['Divination', 'Wisdom', 'Clarity', 'Decision-making'],
     specifications: { material: 'Brass or Bronze', beadSize: 'N/A', braceletSize: 'N/A', weight: '30g', origin: 'China' }
   },
-  // ========== Incense & Burners ==========
   {
     id: 'agarwood-incense-sticks',
     name: 'Premium Agarwood Incense Sticks',
@@ -438,7 +432,7 @@ const products = [
     rating: 4.8,
     reviews: 201,
     tags: ['premium', 'bestseller'],
-    images: ['https://images.unsplash.com/photo-1505673542862-770b6f24f625?w=800&q=80'],
+    images: ['https://images.pexels.com/photos/179297/pexels-photo-179297.jpeg?auto=compress&cs=tinysrgb&w=800'],
     description: {
       short: 'Luxurious agarwood incense sticks for meditation and ritual.',
       long: 'These Premium Agarwood Incense Sticks are made from genuine agarwood (oud), one of the most precious and aromatic woods in the world. Agarwood has been used for centuries in religious ceremonies, meditation, and spiritual practices.',
@@ -463,7 +457,7 @@ const products = [
     rating: 4.7,
     reviews: 134,
     tags: ['decor'],
-    images: ['https://images.unsplash.com/photo-1505673542862-770b6f24f625?w=800&q=80'],
+    images: ['https://images.pexels.com/photos/280808/pexels-photo-280808.jpeg?auto=compress&cs=tinysrgb&w=800'],
     description: {
       short: 'Beautiful backflow incense burner for waterfall smoke effect.',
       long: 'This Backflow Incense Burner creates a mesmerizing waterfall smoke effect as the incense smoke flows downward instead of upward. The ceramic burner features intricate designs and comes with a pack of backflow incense cones.',
@@ -474,7 +468,6 @@ const products = [
     benefits: ['Meditation', 'Aromatherapy', 'Decor', 'Relaxation'],
     specifications: { material: 'Ceramic', beadSize: 'N/A', braceletSize: 'N/A', weight: '400-600g', origin: 'China' }
   },
-  // ========== Buddhist & Sound ==========
   {
     id: '108-mala-beads',
     name: 'Tibetan 108 Mala Prayer Beads',
@@ -489,7 +482,7 @@ const products = [
     rating: 4.8,
     reviews: 234,
     tags: ['bestseller'],
-    images: ['https://images.unsplash.com/photo-1544197762-654612b63749?w=800&q=80'],
+    images: ['https://images.pexels.com/photos/1105672/pexels-photo-1105672.jpeg?auto=compress&cs=tinysrgb&w=800'],
     description: {
       short: 'Traditional Tibetan 108 mala prayer beads for meditation.',
       long: 'These Tibetan 108 Mala Prayer Beads are perfect for meditation, mantra recitation, and mindfulness practice. The 108 beads represent the 108 earthly desires or negative emotions that need to be overcome.',
@@ -514,7 +507,7 @@ const products = [
     rating: 4.9,
     reviews: 45,
     tags: ['premium'],
-    images: ['https://images.unsplash.com/photo-1544197762-654612b63749?w=800&q=80'],
+    images: ['https://images.pexels.com/photos/1105673/pexels-photo-1105673.jpeg?auto=compress&cs=tinysrgb&w=800'],
     description: {
       short: 'Handcrafted Tibetan singing bowl for sound healing and meditation.',
       long: 'This Tibetan Singing Bowl is handcrafted in Nepal using traditional methods. When struck with the mallet, it produces a beautiful, resonant sound that creates deep relaxation and healing vibrations.',
@@ -527,24 +520,38 @@ const products = [
   }
 ];
 
-// Helper functions for product management
+function getCustomProducts() {
+  const stored = localStorage.getItem('mysticeast_custom_products');
+  return stored ? JSON.parse(stored) : {};
+}
+
+function getMergedProducts() {
+  const custom = getCustomProducts();
+  return products.map(p => {
+    if (custom[p.id]) {
+      return { ...p, ...custom[p.id] };
+    }
+    return p;
+  });
+}
+
 function getProductById(id) {
-  return products.find(p => p.id === id);
+  return getMergedProducts().find(p => p.id === id);
 }
 
 function getProductsByCategory(category) {
-  if (category === 'all') return products;
-  return products.filter(p => p.category === category);
+  if (category === 'all') return getMergedProducts();
+  return getMergedProducts().filter(p => p.category === category);
 }
 
 function getFeaturedProducts() {
-  return products.filter(p => p.tags.includes('bestseller')).slice(0, 8);
+  return getMergedProducts().filter(p => p.tags && p.tags.includes('bestseller')).slice(0, 8);
 }
 
 function getRelatedProducts(productId) {
   const product = getProductById(productId);
   if (!product || !product.tags) return [];
-  return products.filter(p => 
+  return getMergedProducts().filter(p => 
     p.id !== productId && 
     p.tags && 
     p.tags.some(tag => product.tags.includes(tag))
@@ -552,19 +559,28 @@ function getRelatedProducts(productId) {
 }
 
 function getAllCategories() {
-  return [...new Set(products.map(p => p.category))];
+  return [...new Set(getMergedProducts().map(p => p.category))];
 }
 
-function calculateDiscount(product) {
-  if (!product.originalPrice || !product.price) return 0;
-  return Math.round(((product.originalPrice - product.price) / product.originalPrice) * 100);
+function calculateDiscount(originalPriceOrProduct, price) {
+  let originalPrice, currentPrice;
+  
+  if (typeof originalPriceOrProduct === 'object' && originalPriceOrProduct !== null) {
+    originalPrice = originalPriceOrProduct.originalPrice;
+    currentPrice = originalPriceOrProduct.price;
+  } else {
+    originalPrice = originalPriceOrProduct;
+    currentPrice = price;
+  }
+  
+  if (!originalPrice || !currentPrice) return 0;
+  return Math.round(((originalPrice - currentPrice) / originalPrice) * 100);
 }
 
 function formatPrice(price) {
   return '$' + price.toFixed(2);
 }
 
-// Expose to global scope
 window.products = products;
 window.getProductById = getProductById;
 window.getProductsByCategory = getProductsByCategory;

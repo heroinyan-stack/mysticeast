@@ -36,9 +36,28 @@ function initProductPage() {
   renderRelatedProducts(product);
 }
 
+function getVariantLabel(variants) {
+  if (!variants || variants.length === 0) return '';
+  const firstVariant = variants[0];
+  if (firstVariant.size) {
+    const sizeVal = firstVariant.size;
+    if (sizeVal.includes('mm') || sizeVal.includes('cm') || sizeVal.includes('inches') || sizeVal.includes('mm)')) {
+      return 'Size';
+    }
+    return 'Size';
+  }
+  if (firstVariant.type) return 'Type';
+  if (firstVariant.style) return 'Style';
+  return 'Option';
+}
+
+function getVariantText(variant) {
+  return variant.size || variant.type || variant.style || variant.name || 'Default';
+}
+
 function renderProductDetail(product) {
   const container = document.getElementById('productContent');
-  const discount = calculateDiscount(product.originalPrice, product.price);
+  const discount = calculateDiscount(product);
 
   container.innerHTML = `
     <div class="product-gallery">
@@ -75,13 +94,13 @@ function renderProductDetail(product) {
 
       <div class="product-variants">
         ${product.variants && product.variants.length > 0 ? `
-          <div class="variant-label">${product.variants[0].size ? 'Bead Size' : 'Style'}</div>
+          <div class="variant-label">${getVariantLabel(product.variants)}</div>
           <div class="variant-options">
             ${product.variants.map((v, i) => `
               <button class="variant-option ${i === 0 ? 'active' : ''}" 
                       onclick="selectVariant(${i})"
                       data-price="${v.price}">
-                ${v.size || v.type}
+                ${getVariantText(v)}
               </button>
             `).join('')}
           </div>
@@ -181,7 +200,7 @@ function renderProductDetail(product) {
 }
 
 function renderRelatedProducts(product) {
-  const related = getRelatedProducts(product, 4);
+  const related = getRelatedProducts(product.id);
   if (related.length === 0) return;
 
   const section = document.getElementById('relatedSection');
@@ -190,7 +209,7 @@ function renderRelatedProducts(product) {
   section.style.display = 'block';
 
   grid.innerHTML = related.map(p => {
-    const disc = calculateDiscount(p.originalPrice, p.price);
+    const disc = calculateDiscount(p);
     return `
       <a href="product.html?id=${p.id}" class="product-card">
         <div class="product-image">
@@ -241,7 +260,7 @@ function addToCartFromPage() {
   if (!currentProduct) return;
   
   const qty = parseInt(document.getElementById('quantityValue').textContent);
-  const variant = selectedVariant ? (selectedVariant.size || selectedVariant.type) : null;
+  const variant = selectedVariant ? getVariantText(selectedVariant) : null;
   
   cart.addItem(currentProduct.id, variant, qty);
   cart.openSidebar();
