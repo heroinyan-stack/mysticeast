@@ -450,6 +450,52 @@
           console.log('Payment approved:', data);
           return actions.order.capture().then(function(details) {
             console.log('Payment captured:', details);
+
+            // Auto-create CJ Dropshipping order
+            try {
+              const cart = getCart();
+              const formData = new FormData(document.getElementById('checkoutForm'));
+              const shippingAddress = {
+                firstName: formData.get('firstName'),
+                lastName: formData.get('lastName'),
+                address: formData.get('address'),
+                apartment: formData.get('apartment') || '',
+                city: formData.get('city'),
+                state: formData.get('state'),
+                zip: formData.get('zip'),
+                country: formData.get('country') || 'US',
+                countryName: 'United States',
+                phone: formData.get('phone') || ''
+              };
+              const email = formData.get('email');
+
+              const items = cart.items.map(item => ({
+                productId: item.productId || item.id,
+                name: item.productName || item.name,
+                price: item.price,
+                quantity: item.quantity
+              }));
+
+              const ourOrderId = 'ORD-' + Date.now();
+
+              fetch('https://mysticeast-api.workers.dev/api/order/create', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                  orderId: ourOrderId,
+                  items: items,
+                  email: email,
+                  shippingAddress: shippingAddress
+                })
+              }).then(res => res.json()).then(cjResult => {
+                console.log('CJ order result:', cjResult);
+              }).catch(err => {
+                console.error('CJ order creation failed (non-blocking):', err);
+              });
+            } catch (e) {
+              console.error('CJ order prep error (non-blocking):', e);
+            }
+
             localStorage.removeItem('mysticeast_cart');
             window.location.href = 'success.html?orderId=' + data.orderID;
           }).catch(function(error) {
