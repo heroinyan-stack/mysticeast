@@ -33,7 +33,7 @@ const CJ_PRODUCT_MAP = {
 };
 
 export default {
-  async fetch(request, env) {
+  async fetch(request, env, ctx) {
     const url = new URL(request.url);
     const path = url.pathname;
 
@@ -50,7 +50,7 @@ export default {
 
     // Create CJ order after PayPal payment
     if (path === '/api/order/create' && request.method === 'POST') {
-      return await createCJOrder(request, env);
+      return await createCJOrder(request, env, ctx);
     }
 
     // Get order status
@@ -60,7 +60,7 @@ export default {
 
     // CJ Webhook - logistics updates
     if (path === '/api/cj/webhook' && request.method === 'POST') {
-      return await handleCJWebhook(request, env);
+      return await handleCJWebhook(request, env, ctx);
     }
 
     // Send order notification email
@@ -76,7 +76,7 @@ export default {
 };
 
 // ========== CJ Order Creation ==========
-async function createCJOrder(request, env) {
+async function createCJOrder(request, env, ctx) {
   try {
     const { orderId, items, email, shippingAddress } = await request.json();
 
@@ -130,7 +130,7 @@ async function createCJOrder(request, env) {
       remark: `MysticEast Order | Customer: ${email || 'N/A'}`,
       email: email || '',
       consigneeID: '',
-      payType: 1, // Page payment - CJ will generate a payment URL
+      payType: 1,
       shopAmount: String(totalCost.toFixed(2)),
       logisticName: 'Standard',
       fromCountryCode: 'CN',
@@ -151,8 +151,8 @@ async function createCJOrder(request, env) {
     const data = await response.json();
 
     if (data.code === 200 && data.result) {
-      // Send notification email
-      await sendOrderEmail(env, {
+      // Send notification email in background (non-blocking)
+      ctx.waitUntil(sendOrderEmail(env, {
         orderId: orderId,
         cjOrderId: data.data?.orderId || '',
         cjPayUrl: data.data?.cjPayUrl || '',
@@ -161,7 +161,7 @@ async function createCJOrder(request, env) {
         shippingAddress: shippingAddress,
         email: email,
         warnings: warnings
-      });
+      }));
 
       return new Response(JSON.stringify({
         success: true,
@@ -171,15 +171,15 @@ async function createCJOrder(request, env) {
         warnings: warnings
       }), { headers: CORS_HEADERS });
     } else {
-      // CJ order creation failed - send alert email
-      await sendAlertEmail(env, {
+      // CJ order creation failed - send alert email in background
+      ctx.waitUntil(sendAlertEmail(env, {
         type: 'CJ_ORDER_FAILED',
         orderId: orderId,
         error: data.message || 'Unknown CJ error',
         items: items,
         shippingAddress: shippingAddress,
         email: email
-      });
+      }));
 
       return new Response(JSON.stringify({
         success: false,
@@ -231,7 +231,7 @@ async function getOrderStatus(request, env) {
 }
 
 // ========== CJ Webhook Handler ==========
-async function handleCJWebhook(request, env) {
+async function handleCJWebhook(request, env, ctx) {
   try {
     const body = await request.json();
 
@@ -244,12 +244,12 @@ async function handleCJWebhook(request, env) {
       const orderId = body.data?.orderNumber;
 
       if (trackingNumber && orderId) {
-        await sendAlertEmail(env, {
+        ctx.waitUntil(sendAlertEmail(env, {
           type: 'TRACKING_UPDATE',
           orderId: orderId,
           trackingNumber: trackingNumber,
           message: `Order ${orderId} has been shipped! Tracking: ${trackingNumber}`
-        });
+        }));
       }
     } else if (eventType === 'order') {
       // Order status change
@@ -257,18 +257,18 @@ async function handleCJWebhook(request, env) {
       const orderId = body.data?.orderNumber;
 
       if (status === 'CANCELLED' || status === 'FAILED') {
-        await sendAlertEmail(env, {
+        ctx.waitUntil(sendAlertEmail(env, {
           type: 'ORDER_ALERT',
           orderId: orderId,
           message: `CJ Order ${orderId} status: ${status}. Action required!`
-        });
+        }));
       }
     } else if (eventType === 'stock') {
       // Stock change - product out of stock
-      await sendAlertEmail(env, {
+      ctx.waitUntil(sendAlertEmail(env, {
         type: 'STOCK_ALERT',
         message: `Product stock change: ${JSON.stringify(body.data)}`
-      });
+      }));
     }
 
     return new Response('OK', { status: 200 });
