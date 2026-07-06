@@ -12,11 +12,31 @@ class Cart {
   loadFromStorage() {
     const savedCart = localStorage.getItem('mysticeast_cart');
     if (savedCart) {
-      const cartData = JSON.parse(savedCart);
-      this.items = cartData.items || [];
-      this.discountCode = cartData.discountCode || null;
-      this.discount = cartData.discount || 0;
+      try {
+        const cartData = JSON.parse(savedCart);
+        this.items = cartData.items || [];
+        this.discountCode = cartData.discountCode || null;
+        this.discount = cartData.discount || 0;
+        this.cleanInvalidItems();
+      } catch (e) {
+        console.error('Failed to parse cart data', e);
+        this.items = [];
+      }
     }
+  }
+
+  cleanInvalidItems() {
+    const validItems = [];
+    for (const item of this.items) {
+      const product = getProductById(item.productId);
+      if (product) {
+        if (typeof item.variant === 'object' && item.variant !== null) {
+          item.variant = item.variant.size || item.variant.type || item.variant.style || item.variant.name || null;
+        }
+        validItems.push(item);
+      }
+    }
+    this.items = validItems;
   }
 
   // Save cart to localStorage
@@ -248,26 +268,28 @@ class Cart {
     if (cartEmpty) cartEmpty.style.display = 'none';
 
     // Render cart items
-    cartItemsContainer.innerHTML = this.items.map(item => `
-      <div class="cart-item" data-product-id="${item.productId}" data-variant="${item.variant || ''}">
+    cartItemsContainer.innerHTML = this.items.map(item => {
+      const variantValue = item.variant || '';
+      return `
+      <div class="cart-item" data-product-id="${item.productId}" data-variant="${variantValue}">
         <img src="${item.productImage}" alt="${item.productName}" class="cart-item-image">
         <div class="cart-item-info">
           <div class="cart-item-name">${item.productName}</div>
           ${item.variant ? `<div class="cart-item-variant">${item.variant}</div>` : ''}
           <div class="cart-item-price">${formatPrice(item.price)}</div>
           <div class="cart-item-quantity">
-            <button class="quantity-btn" onclick="cart.updateQuantity('${item.productId}', '${item.variant}', ${item.quantity - 1})">-</button>
+            <button class="quantity-btn" onclick="cart.updateQuantity('${item.productId}', ${item.variant ? `'${item.variant}'` : 'null'}, ${item.quantity - 1})">-</button>
             <span class="quantity-value">${item.quantity}</span>
-            <button class="quantity-btn" onclick="cart.updateQuantity('${item.productId}', '${item.variant}', ${item.quantity + 1})">+</button>
+            <button class="quantity-btn" onclick="cart.updateQuantity('${item.productId}', ${item.variant ? `'${item.variant}'` : 'null'}, ${item.quantity + 1})">+</button>
           </div>
         </div>
-        <button class="cart-item-remove" onclick="cart.removeItem('${item.productId}', '${item.variant}')">
+        <button class="cart-item-remove" onclick="cart.removeItem('${item.productId}', ${item.variant ? `'${item.variant}'` : 'null'})">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <path d="M3 6h18M19 6v14a2 2 0 01-2 2H7a2 2 0 01-2-2V6m3 0V4a2 2 0 012-2h4a2 2 0 012 2v2"/>
           </svg>
         </button>
       </div>
-    `).join('');
+    `}).join('');
 
     // Render summary
     if (cartSummary) {
