@@ -177,7 +177,7 @@ const products = [
     rating: 4.8,
     reviews: 287,
     tags: ['protection', 'popular', 'bestseller'],
-    images: ['images/products/tibetan-bracelet.jpg'],
+    images: ['images/products/red-string-bracelet.jpg'],
     description: {
       short: 'Authentic Kabbalah red string bracelet for protection. Worn by millions worldwide to ward off the evil eye.',
       long: 'This Authentic Kabbalah Red String Bracelet is tied from a continuous red thread blessed for protection. The red string tradition dates back thousands of years, rooted in Kabbalistic wisdom and embraced by cultures across the Mediterranean, Middle East, and Latin America. The bracelet is believed to ward off the evil eye and protect the wearer from envy and negative energy. Adjustable and lightweight, it is suitable for all ages and can be worn alone or stacked with other bracelets.',
@@ -258,7 +258,7 @@ const products = [
     rating: 4.7,
     reviews: 134,
     tags: ['tarot', 'necklace', 'popular', 'gift'],
-    images: ['images/products/crystal-point-necklace.jpg'],
+    images: ['images/products/tarot-pendant-necklace.jpg'],
     description: {
       short: 'Mystical tarot card pendant necklace. Wear your favorite Major Arcana card as a personal amulet.',
       long: 'This Mystical Tarot Card Pendant Necklace features a delicately engraved tarot card from the Major Arcana, suspended on an adjustable silver-tone chain. Each card carries profound symbolic meaning drawn from centuries of esoteric wisdom. Whether you choose The Sun for joy, The Star for hope, The Moon for intuition, or The Lovers for connection, this necklace lets you carry the energy of your chosen card close to your heart. A perfect gift for tarot enthusiasts and spiritual seekers.',
@@ -421,7 +421,7 @@ const products = [
     rating: 4.7,
     reviews: 89,
     tags: ['fengshui', 'wealth', 'home', 'decor'],
-    images: ['images/products/wind-chime.jpg'],
+    images: ['images/products/feng-shui-fountain.jpg'],
     description: {
       short: 'Beautiful tabletop feng shui water fountain with rolling crystal ball. Attracts wealth and prosperity.',
       long: 'This elegant Feng Shui Tabletop Water Fountain combines the ancient principles of water energy with modern design. In feng shui, flowing water represents the continuous flow of wealth and abundance. This fountain features a self-contained pump that circulates water gently, creating a soothing sound that masks background noise while activating positive chi. The design includes a rolling crystal ball that spins with the water flow, symbolizing the rolling in of fortune and prosperity.',
@@ -709,7 +709,7 @@ const products = [
     rating: 4.8,
     reviews: 156,
     tags: ['incense', 'meditation', 'popular', 'decor'],
-    images: ['images/products/incense-holder.jpg'],
+    images: ['images/products/backflow-incense-burner.jpg'],
     description: {
       short: 'Mesmerizing backflow incense burner that creates a smoke waterfall. Perfect for meditation and relaxation.',
       long: 'This mesmerizing Backflow Incense Burner creates a stunning waterfall effect as smoke flows downward instead of rising. Used with special backflow incense cones (10 included), the smoke cascades down the intricate design like a gentle stream, creating a hypnotic and calming visual display. The burner features a beautiful design that doubles as a decorative piece when not in use. Perfect for meditation spaces, yoga studios, bedrooms, or any area where you want to create a serene atmosphere.',
