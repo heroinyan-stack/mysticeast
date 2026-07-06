@@ -191,11 +191,35 @@ async function createCJOrder(request, env, ctx) {
         warnings: warnings
       }), { headers: CORS_HEADERS });
     } else {
-      // CJ order creation failed - send alert email in background
+      const errMsg = data.message || 'Unknown CJ error';
+      const isRateLimit = errMsg.includes('Too Many Requests') || errMsg.includes('Rate limit');
+
+      if (isRateLimit) {
+        // CJ rate limit - send manual order notification instead of failing
+        ctx.waitUntil(sendManualOrderEmail(env, {
+          orderId: orderId,
+          items: items,
+          totalCost: totalCost,
+          shippingAddress: shippingAddress,
+          email: email,
+          cjProducts: cjProducts,
+          error: errMsg
+        }));
+
+        return new Response(JSON.stringify({
+          success: true,
+          cjOrderId: 'MANUAL-' + orderId,
+          message: 'Order received. CJ API temporarily limited - manual processing notification sent.',
+          totalCost: totalCost,
+          warnings: warnings.concat(['CJ API rate limited, please process manually via email notification'])
+        }), { headers: CORS_HEADERS });
+      }
+
+      // Other CJ errors - send alert email
       ctx.waitUntil(sendAlertEmail(env, {
         type: 'CJ_ORDER_FAILED',
         orderId: orderId,
-        error: data.message || 'Unknown CJ error',
+        error: errMsg,
         items: items,
         shippingAddress: shippingAddress,
         email: email
@@ -203,7 +227,7 @@ async function createCJOrder(request, env, ctx) {
 
       return new Response(JSON.stringify({
         success: false,
-        error: data.message || 'CJ order creation failed',
+        error: errMsg,
         warnings: warnings
       }), { status: 500, headers: CORS_HEADERS });
     }
@@ -373,6 +397,60 @@ ${warningText}
 
 ---
 This is an automated notification from MysticEast Worker.`;
+
+  await sendEmail(env, subject, body);
+}
+
+// ========== Email: Manual Order (CJ Rate Limit Fallback) ==========
+async function sendManualOrderEmail(env, info) {
+  const subject = `[MysticEast URGENT] Manual CJ Order Required - ${info.orderId}`;
+
+  const itemRows = info.items.map(item =>
+    `- ${item.name || item.productName} x${item.quantity || 1} ($${(item.price || 0).toFixed(2)})`
+  ).join('\n');
+
+  const cjProductRows = info.cjProducts.map(p =>
+    `- VID: ${p.vid}, Qty: ${p.quantity}`
+  ).join('\n');
+
+  const body = `URGENT: CJ API rate limited - manual order required!
+
+Order ID: ${info.orderId}
+Customer Email: ${info.email}
+Total CJ Cost: $${info.totalCost.toFixed(2)}
+CJ Error: ${info.error}
+
+=======================================
+CUSTOMER SHIPPING INFO (copy to CJ):
+=======================================
+Name: ${info.shippingAddress.firstName} ${info.shippingAddress.lastName}
+Address: ${info.shippingAddress.address}
+${info.shippingAddress.apartment ? 'Apt: ' + info.shippingAddress.apartment + '\n' : ''}City: ${info.shippingAddress.city}
+State: ${info.shippingAddress.state}
+ZIP: ${info.shippingAddress.zip}
+Country: ${info.shippingAddress.country}
+Phone: ${info.shippingAddress.phone || 'N/A'}
+
+=======================================
+PRODUCTS TO ORDER ON CJ:
+=======================================
+${itemRows}
+
+CJ Product VIDs (for API order):
+${cjProductRows}
+
+=======================================
+MANUAL ORDER STEPS:
+=======================================
+1. Login to CJ: https://www.cjdropshipping.com/
+2. Go to Orders -> Create Order
+3. Fill in customer shipping info above
+4. Add products by VID (search in CJ product list)
+5. Submit order and pay wholesale cost
+
+---
+This is an automated fallback notification from MysticEast Worker.
+CJ API was rate-limited, please process this order manually.`;
 
   await sendEmail(env, subject, body);
 }
