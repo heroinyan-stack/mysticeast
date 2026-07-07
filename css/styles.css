@@ -1748,12 +1748,17 @@ p {
   color: var(--color-text-primary);
   cursor: pointer;
   transition: all var(--transition-fast);
+  position: relative;
+  z-index: 10;
+  pointer-events: auto;
 }
 
 .variant-option:hover,
+.variant-option.active,
 .variant-option.selected {
   border-color: var(--color-accent-primary);
   background: rgba(201, 169, 97, 0.1);
+  color: var(--color-accent-primary);
 }
 
 .product-quantity {

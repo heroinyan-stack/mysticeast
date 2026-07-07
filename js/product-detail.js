@@ -34,6 +34,18 @@ function initProductPage() {
 
   renderProductDetail(product);
   renderRelatedProducts(product);
+
+  setTimeout(bindVariantEvents, 0);
+}
+
+function bindVariantEvents() {
+  document.querySelectorAll('.variant-option').forEach((btn, i) => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      selectVariant(i);
+    });
+  });
 }
 
 function getVariantLabel(variants) {
