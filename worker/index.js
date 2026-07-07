@@ -126,19 +126,14 @@ async function createCJOrder(request, env, ctx) {
       shippingCustomerName: `${shippingAddress.firstName} ${shippingAddress.lastName}`,
       shippingAddress: shippingAddress.address,
       shippingAddress2: shippingAddress.apartment || '',
-      taxId: '',
-      remark: `MysticEast Order | Customer: ${email || 'N/A'}`,
       email: email || '',
-      consigneeID: '',
-      payType: 1, // Page payment (generate payment link) - more reliable for API
+      remark: `MysticEast Order | Customer: ${email || 'N/A'}`,
+      payType: 3, // Create order only, no payment needed
       shopAmount: String(totalCost.toFixed(2)),
-      logisticName: 'Standard',
+      logisticName: 'CJPacket',
       fromCountryCode: 'CN',
-      platform: 'Api',
+      platform: 'api',
       orderFlow: 1,
-      houseNumber: '',
-      iossType: '',
-      iossNumber: '',
       products: cjProducts
     };
 
