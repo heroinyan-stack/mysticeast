@@ -1,5 +1,5 @@
-// MysticEast Cloudflare Worker - PayPal + CJ Dropshipping Auto-Fulfillment
-// Updated: 2026-07-06
+// MysticEast Cloudflare Worker - PayPal + CJ Dropshipping Auto-Fulfillment + Pinterest Auto-Publish
+// Updated: 2026-07-07
 
 const CORS_HEADERS = {
   'Access-Control-Allow-Origin': 'https://mysticeast.shop',
@@ -66,6 +66,21 @@ export default {
     // Send order notification email
     if (path === '/api/notify' && request.method === 'POST') {
       return await sendNotification(request, env);
+    }
+
+    // Pinterest: Get boards
+    if (path === '/api/pinterest/boards' && request.method === 'GET') {
+      return await getPinterestBoards(env);
+    }
+
+    // Pinterest: Publish pin
+    if (path === '/api/pinterest/publish' && request.method === 'POST') {
+      return await publishPinterestPin(request, env);
+    }
+
+    // Pinterest: Publish random pin (for scheduled tasks)
+    if (path === '/api/pinterest/publish-random' && request.method === 'POST') {
+      return await publishRandomPinterestPin(request, env);
     }
 
     return new Response(JSON.stringify({ error: 'Not found' }), {
@@ -509,4 +524,204 @@ async function sendEmail(env, subject, body) {
 
   // Fallback: Log to console (no email service configured)
   console.log(`EMAIL [${subject}]: ${body}`);
+}
+
+// ========== Pinterest Integration ==========
+
+const PINTEREST_PIN_CONTENT = [
+  {
+    title: 'Black Obsidian Protection Bracelet | Shield Your Energy',
+    description: 'Feel the power of Black Obsidian — the ultimate protection stone. This handcrafted bracelet absorbs negative energy and creates a shield of spiritual protection around you. Perfect for empaths and anyone who needs to set boundaries. #BlackObsidian #ProtectionCrystal #CrystalBracelet #SpiritualJewelry #EnergyProtection #CrystalHealing',
+    link: 'https://mysticeast.shop/product.html?id=obsidian-bracelet',
+    imageUrl: 'https://mysticeast.shop/images/pinterest-obsidian-bracelet.jpg'
+  },
+  {
+    title: 'Amethyst Bracelet | Calm Your Mind & Open Your Third Eye',
+    description: 'Amethyst: the stone of peace, intuition & spiritual growth. Wear this stunning bracelet to quiet your mind, enhance meditation, and connect with your higher self. #Amethyst #CrystalBracelet #ThirdEye #MeditationJewelry #SpiritualGrowth #HealingCrystals',
+    link: 'https://mysticeast.shop/product.html?id=amethyst-bracelet',
+    imageUrl: 'https://mysticeast.shop/images/pinterest-amethyst-bracelet.jpg'
+  },
+  {
+    title: 'Red String Bracelet | Ancient Secret to Luck & Love',
+    description: 'The Red String has been worn for thousands of years in Eastern culture for protection, luck, and attracting love. This traditional bracelet carries the energy of ancient blessings. #RedStringBracelet #GoodLuck #ChineseTradition #LuckyBracelet #Manifestation #FengShui',
+    link: 'https://mysticeast.shop/product.html?id=red-string-bracelet',
+    imageUrl: 'https://mysticeast.shop/images/pinterest-red-string.jpg'
+  },
+  {
+    title: 'Brass Pixiu | The Wealth-Attracting Beast of Feng Shui',
+    description: 'Pixiu — the legendary creature that devours wealth from all directions and keeps it for you. In Feng Shui, placing a Pixiu attracts money energy and prevents financial loss. #Pixiu #FengShui #WealthAttraction #MoneyEnergy #Abundance #ChineseMythology',
+    link: 'https://mysticeast.shop/product.html?id=brass-pixiu',
+    imageUrl: 'https://mysticeast.shop/images/pinterest-brass-pixiu.jpg'
+  },
+  {
+    title: 'Rider-Waite Tarot Deck | Unlock Your Intuition',
+    description: 'The classic Rider-Waite Tarot deck — perfect for beginners and experts alike. 78 beautifully illustrated cards to help you tap into your intuition and receive guidance. #TarotCards #TarotDeck #RiderWaite #Divination #TarotForBeginners #SpiritualTools',
+    link: 'https://mysticeast.shop/product.html?id=tarot-cards-deck',
+    imageUrl: 'https://mysticeast.shop/images/pinterest-tarot-deck.jpg'
+  },
+  {
+    title: 'Which Crystal Do YOU Need?',
+    description: 'Not sure which crystal is right for you? Black Obsidian → Protection, Amethyst → Peace, Rose Quartz → Love, Tiger Eye → Confidence. Save this pin for later! #CrystalGuide #CrystalMeanings #WhichCrystal #CrystalForBeginners #HealingStones #SpiritualJourney',
+    link: 'https://mysticeast.shop/category.html?category=Bracelet',
+    imageUrl: 'https://mysticeast.shop/images/pinterest-crystal-guide.jpg'
+  },
+  {
+    title: '5 Feng Shui Tips That Actually Work',
+    description: 'Pixiu in wealth corner, Money Frog near entrance, Crystal Tree on desk, Keep entrance clear, Singing bowl weekly. Save this for your home arrangement! #FengShui #FengShuiTips #HomeEnergy #WealthCorner #ChineseCulture #SpaceClearing',
+    link: 'https://mysticeast.shop/category.html?category=Feng%20Shui',
+    imageUrl: 'https://mysticeast.shop/images/pinterest-feng-shui-tips.jpg'
+  },
+  {
+    title: 'Crystal Meanings Cheat Sheet',
+    description: 'Save this crystal meanings cheat sheet: Amethyst = Calm, Obsidian = Protection, Rose Quartz = Love, Tiger Eye = Confidence. Which crystal are you drawn to today? #CrystalMeanings #CrystalGuide #HealingCrystals #CrystalProperties #SpiritualJourney',
+    link: 'https://mysticeast.shop/category.html?category=Bracelet',
+    imageUrl: 'https://mysticeast.shop/images/pinterest-crystal-meanings.jpg'
+  },
+  {
+    title: 'The Perfect Spiritual Gift Guide',
+    description: 'Shopping for someone who loves crystals? Gifts they will love: Amethyst Bracelet, Brass Pixiu, Tarot Deck, Singing Bowl, Red String Bracelet. Save this for holiday shopping! #SpiritualGifts #GiftGuide #CrystalGift #UniqueGifts #PresentsForHer #HolisticGifts',
+    link: 'https://mysticeast.shop/',
+    imageUrl: 'https://mysticeast.shop/images/pinterest-spiritual-gift-guide.jpg'
+  },
+  {
+    title: 'Crystal Money Tree | Bring Prosperity to Your Home',
+    description: 'The Crystal Money Tree attracts wealth energy and brings prosperity to your home. Place it in your living room or office for abundance and good fortune. #CrystalTree #FengShui #WealthAttraction #MoneyTree #Abundance #HomeDecor',
+    link: 'https://mysticeast.shop/product.html?id=crystal-money-tree',
+    imageUrl: 'https://mysticeast.shop/images/pinterest-crystal-tree.jpg'
+  }
+];
+
+async function getPinterestBoards(env) {
+  try {
+    const token = env.PINTEREST_TOKEN;
+    if (!token) {
+      return new Response(JSON.stringify({ success: false, error: 'PINTEREST_TOKEN not configured' }), {
+        status: 500, headers: CORS_HEADERS
+      });
+    }
+    
+    const response = await fetch('https://api.pinterest.com/v5/boards?page_size=25', {
+      headers: { 'Authorization': `Bearer ${token}` }
+    });
+    
+    const data = await response.json();
+    
+    return new Response(JSON.stringify({ success: true, data }), { headers: CORS_HEADERS });
+  } catch (error) {
+    return new Response(JSON.stringify({ success: false, error: error.message }), {
+      status: 500, headers: CORS_HEADERS
+    });
+  }
+}
+
+async function publishPinterestPin(request, env) {
+  try {
+    const body = await request.json();
+    const { board_id, pin_index } = body;
+    
+    if (!board_id) {
+      return new Response(JSON.stringify({ success: false, error: 'board_id is required' }), {
+        status: 400, headers: CORS_HEADERS
+      });
+    }
+    
+    const pinContent = pin_index !== undefined && pin_index < PINTEREST_PIN_CONTENT.length 
+      ? PINTEREST_PIN_CONTENT[pin_index] 
+      : PINTEREST_PIN_CONTENT[Math.floor(Math.random() * PINTEREST_PIN_CONTENT.length)];
+    
+    const token = env.PINTEREST_TOKEN;
+    if (!token) {
+      return new Response(JSON.stringify({ success: false, error: 'PINTEREST_TOKEN not configured' }), {
+        status: 500, headers: CORS_HEADERS
+      });
+    }
+    
+    const response = await fetch('https://api.pinterest.com/v5/pins', {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${token}`,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        board_id: board_id,
+        title: pinContent.title,
+        description: pinContent.description,
+        link: pinContent.link,
+        media_source: {
+          source_type: 'image_url',
+          url: pinContent.imageUrl
+        }
+      })
+    });
+    
+    if (!response.ok) {
+      const errorData = await response.json().catch(() => ({ status: response.status }));
+      return new Response(JSON.stringify({ success: false, error: `Pinterest API error: ${response.status}`, details: errorData }), {
+        status: 500, headers: CORS_HEADERS
+      });
+    }
+    
+    const result = await response.json();
+    
+    return new Response(JSON.stringify({ success: true, pin: result }), { headers: CORS_HEADERS });
+  } catch (error) {
+    return new Response(JSON.stringify({ success: false, error: error.message }), {
+      status: 500, headers: CORS_HEADERS
+    });
+  }
+}
+
+async function publishRandomPinterestPin(request, env) {
+  try {
+    const body = await request.json();
+    const { board_id } = body;
+    
+    if (!board_id) {
+      return new Response(JSON.stringify({ success: false, error: 'board_id is required' }), {
+        status: 400, headers: CORS_HEADERS
+      });
+    }
+    
+    const randomPin = PINTEREST_PIN_CONTENT[Math.floor(Math.random() * PINTEREST_PIN_CONTENT.length)];
+    
+    const token = env.PINTEREST_TOKEN;
+    if (!token) {
+      return new Response(JSON.stringify({ success: false, error: 'PINTEREST_TOKEN not configured' }), {
+        status: 500, headers: CORS_HEADERS
+      });
+    }
+    
+    const response = await fetch('https://api.pinterest.com/v5/pins', {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${token}`,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        board_id: board_id,
+        title: randomPin.title,
+        description: randomPin.description,
+        link: randomPin.link,
+        media_source: {
+          source_type: 'image_url',
+          url: randomPin.imageUrl
+        }
+      })
+    });
+    
+    if (!response.ok) {
+      const errorData = await response.json().catch(() => ({ status: response.status }));
+      return new Response(JSON.stringify({ success: false, error: `Pinterest API error: ${response.status}`, details: errorData }), {
+        status: 500, headers: CORS_HEADERS
+      });
+    }
+    
+    const result = await response.json();
+    
+    return new Response(JSON.stringify({ success: true, pin: result, publishedPin: randomPin }), { headers: CORS_HEADERS });
+  } catch (error) {
+    return new Response(JSON.stringify({ success: false, error: error.message }), {
+      status: 500, headers: CORS_HEADERS
+    });
+  }
 }
