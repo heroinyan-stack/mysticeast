@@ -17,6 +17,7 @@
   --color-warning: #9CAF88;
   --color-error: #E74C3C;
   --color-overlay: rgba(10, 10, 10, 0.7);
+  --color-free-shipping: #2ECC71;
 
   /* Typography */
   --font-display: 'Playfair Display', Georgia, serif;
@@ -177,9 +178,54 @@ p {
 }
 
 /* ===== Header ===== */
-.header {
+.free-shipping-banner {
   position: fixed;
   top: 0;
+  left: 0;
+  right: 0;
+  height: 40px;
+  background: linear-gradient(90deg, #0A0A0A 0%, #1A1A2E 50%, #0A0A0A 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-sm);
+  padding: 0 var(--spacing-xl);
+  z-index: 1001;
+  border-bottom: 1px solid rgba(46, 204, 113, 0.3);
+}
+
+.free-shipping-banner span {
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-sm);
+  font-family: var(--font-body);
+}
+
+.free-shipping-banner strong {
+  color: var(--color-free-shipping);
+  font-weight: 600;
+}
+
+.free-shipping-icon {
+  color: var(--color-accent-primary);
+  font-size: var(--font-size-base);
+}
+
+.free-shipping-close {
+  position: absolute;
+  right: var(--spacing-xl);
+  cursor: pointer;
+  color: var(--color-text-muted);
+  font-size: var(--font-size-lg);
+  transition: color 0.3s ease;
+}
+
+.free-shipping-close:hover {
+  color: var(--color-text-primary);
+}
+
+.header {
+  position: fixed;
+  top: 40px;
   left: 0;
   right: 0;
   height: var(--header-height);
