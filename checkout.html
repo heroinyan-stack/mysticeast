@@ -347,20 +347,46 @@
     }
 
     function validateForm() {
-      const email = document.getElementById('email').value;
-      const firstName = document.getElementById('firstName').value;
-      const lastName = document.getElementById('lastName').value;
-      const address = document.getElementById('address').value;
-      const city = document.getElementById('city').value;
-      const state = document.getElementById('state').value;
-      const zip = document.getElementById('zip').value;
-      const country = document.getElementById('country').value;
-      const phone = document.getElementById('phone').value;
+      const fields = [
+        { id: 'email', label: 'Email' },
+        { id: 'firstName', label: 'First Name' },
+        { id: 'lastName', label: 'Last Name' },
+        { id: 'address', label: 'Address' },
+        { id: 'city', label: 'City' },
+        { id: 'state', label: 'State / Province' },
+        { id: 'zip', label: 'ZIP / Postal Code' },
+        { id: 'phone', label: 'Phone' }
+      ];
 
-      if (!email || !firstName || !lastName || !address || !city || !state || !zip || !country || !phone) {
-        alert('Please fill in all required fields.');
+      let missing = [];
+      fields.forEach(f => {
+        const el = document.getElementById(f.id);
+        if (!el || !el.value.trim()) {
+          missing.push(f.label);
+          if (el) {
+            el.style.borderColor = '#e74c3c';
+            el.addEventListener('input', function handler() {
+              el.style.borderColor = '';
+              el.removeEventListener('input', handler);
+            });
+          }
+        }
+      });
+
+      if (missing.length > 0) {
+        cart.showNotification('Please fill in: ' + missing.join(', '), 'error');
+        const firstMissing = document.getElementById(fields.find(f => missing.includes(f.label)).id);
+        if (firstMissing) firstMissing.focus();
         return false;
       }
+
+      const email = document.getElementById('email').value.trim();
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        cart.showNotification('Please enter a valid email address', 'error');
+        document.getElementById('email').focus();
+        return false;
+      }
+
       return true;
     }
 
@@ -384,30 +410,24 @@
         },
 
         createOrder: function(data, actions) {
-          console.log('PayPal button clicked - createOrder called');
-
           if (!validateForm()) {
-            console.log('Form validation failed');
-            return Promise.reject(new Error('Please fill in all required fields.'));
+            return actions.reject();
           }
 
           const cart = getCart();
-          console.log('Cart data:', cart);
 
           if (!cart.items || cart.items.length === 0) {
-            alert('Your cart is empty. Please add items first.');
-            return Promise.reject(new Error('Cart is empty'));
+            cart.showNotification('Your cart is empty. Please add items first.', 'error');
+            return actions.reject();
           }
 
           const totals = updateCheckoutDisplay();
-          console.log('Order totals:', totals);
 
           const orderItems = cart.items.map(item => {
             const price = Number(item.price) || 0;
             const name = item.productName || item.name || 'Product';
             const sku = item.productId || item.id || 'SKU';
             const qty = Number(item.quantity) || 1;
-            console.log('Item:', name, 'Price:', price, 'Qty:', qty);
             return {
               name: name,
               unit_amount: {
@@ -449,40 +469,36 @@
             }]
           };
 
-          console.log('Order data to send:', JSON.stringify(orderData));
+          console.log('Order data:', JSON.stringify(orderData));
 
           return actions.order.create(orderData).then(function(orderId) {
-            console.log('Order created successfully:', orderId);
             return orderId;
           }).catch(function(error) {
             console.error('Create order error:', error);
-            alert('Failed to create order: ' + (error.message || 'Unknown error'));
+            cart.showNotification('Failed to create order: ' + (error.message || 'Unknown error'), 'error');
             throw error;
           });
         },
 
         onApprove: function(data, actions) {
-          console.log('Payment approved:', data);
           return actions.order.capture().then(function(details) {
-            console.log('Payment captured:', details);
-
             // Auto-create CJ Dropshipping order
             try {
               const cart = getCart();
               const formData = new FormData(document.getElementById('checkoutForm'));
               const shippingAddress = {
-                firstName: formData.get('firstName'),
-                lastName: formData.get('lastName'),
-                address: formData.get('address'),
+                firstName: formData.get('firstName') || document.getElementById('firstName').value,
+                lastName: formData.get('lastName') || document.getElementById('lastName').value,
+                address: formData.get('address') || document.getElementById('address').value,
                 apartment: formData.get('apartment') || '',
-                city: formData.get('city'),
-                state: formData.get('state'),
-                zip: formData.get('zip'),
-                country: formData.get('country') || 'US',
+                city: formData.get('city') || document.getElementById('city').value,
+                state: formData.get('state') || document.getElementById('state').value,
+                zip: formData.get('zip') || document.getElementById('zip').value,
+                country: 'US',
                 countryName: 'United States',
-                phone: formData.get('phone') || ''
+                phone: formData.get('phone') || document.getElementById('phone').value
               };
-              const email = formData.get('email');
+              const email = formData.get('email') || document.getElementById('email').value;
 
               const items = cart.items.map(item => ({
                 productId: item.productId || item.id,
@@ -511,29 +527,44 @@
               console.error('CJ order prep error (non-blocking):', e);
             }
 
+            // GA4 purchase event
+            if (typeof gtag === 'function') {
+              const totals = updateCheckoutDisplay();
+              gtag('event', 'purchase', {
+                transaction_id: data.orderID,
+                currency: 'USD',
+                value: parseFloat(totals.total.toFixed(2)),
+                items: cart.items.map(item => ({
+                  item_id: item.sku || item.productId,
+                  item_name: item.productName || item.name,
+                  price: parseFloat(item.price),
+                  quantity: item.quantity
+                }))
+              });
+            }
+
             localStorage.removeItem('mysticeast_cart');
             window.location.href = 'success.html?orderId=' + data.orderID;
           }).catch(function(error) {
             console.error('Capture error:', error);
-            alert('Payment capture failed: ' + (error.message || 'Unknown error'));
+            cart.showNotification('Payment capture failed: ' + (error.message || 'Unknown error'), 'error');
             throw error;
           });
         },
 
         onError: function(err) {
           console.error('PayPal onError:', err);
-          alert('Payment error: ' + (err.message || 'Please try again.'));
+          // Don't alert if it's a validation rejection (already shown by validateForm)
+          if (err && err.message && err.message.includes('fill in')) return;
+          cart.showNotification('Payment error: ' + (err.message || 'Please try again.'), 'error');
         },
 
         onCancel: function(data) {
-          console.log('Payment cancelled:', data);
+          cart.showNotification('Payment cancelled. You can try again.', 'error');
         },
 
         onClick: function() {
-          console.log('PayPal button clicked');
-          if (!validateForm()) {
-            alert('Please fill in all required fields before clicking PayPal.');
-          }
+          validateForm();
         }
       }).render('#paypal-button-container').then(function() {
         console.log('PayPal button rendered successfully');
