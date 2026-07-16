@@ -416,3 +416,4 @@ window.addToCart = addToCart;
 window.showQuickView = showQuickView;
 window.closeQuickView = closeQuickView;
 window.toggleWishlist = toggleWishlist;
+window.initMobileMenu = initMobileMenu;

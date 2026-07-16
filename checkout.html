@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-SS9JY2G24D"></script>
   <script>
@@ -54,6 +54,12 @@
             <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
           </svg>
           <span class="cart-count">0</span>
+        </button>
+        
+        <button class="mobile-menu-btn">
+          <span></span>
+          <span></span>
+          <span></span>
         </button>
       </div>
     </div>
@@ -227,6 +233,18 @@
 
   <script src="js/products.js?v=202607091"></script>
   <script src="js/cart.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const menuBtn = document.querySelector('.mobile-menu-btn');
+      const nav = document.querySelector('.nav');
+      if (menuBtn && nav) {
+        menuBtn.addEventListener('click', () => {
+          nav.classList.toggle('mobile-open');
+          menuBtn.classList.toggle('active');
+        });
+      }
+    });
+  </script>
   <script>
     const PAYPAL_CLIENT_ID = 'AWYuLJcrApmoeGtWFrm-i5fYnRZj5FL6kkiZPzif13Em4Ew94unvQPIwlH21PIoc4uYRKWmUXPJ7sArv';
 
