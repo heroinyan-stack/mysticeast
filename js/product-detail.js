@@ -32,6 +32,45 @@ function initProductPage() {
   document.querySelector('meta[name="description"]').content = product.description.short;
   document.getElementById('breadcrumbProduct').textContent = product.name;
 
+  // Inject Product structured data (JSON-LD)
+  const existingLd = document.getElementById('product-jsonld');
+  if (existingLd) existingLd.remove();
+  const productLd = {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": product.name,
+    "image": product.images,
+    "description": product.description.short,
+    "sku": product.sku || product.id,
+    "brand": { "@type": "Brand", "name": "MysticEast" },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": product.rating,
+      "reviewCount": product.reviews
+    },
+    "offers": {
+      "@type": "Offer",
+      "url": `https://mysticeast.shop/product.html?id=${product.id}`,
+      "priceCurrency": "USD",
+      "price": product.price,
+      "availability": "https://schema.org/InStock",
+      "seller": { "@type": "Organization", "name": "MysticEast" }
+    }
+  };
+  const ldScript = document.createElement('script');
+  ldScript.type = 'application/ld+json';
+  ldScript.id = 'product-jsonld';
+  ldScript.textContent = JSON.stringify(productLd);
+  document.head.appendChild(ldScript);
+
+  // Update OG tags
+  const ogTitle = document.querySelector('meta[property="og:title"]');
+  if (ogTitle) ogTitle.content = `${product.name} | MysticEast`;
+  const ogDesc = document.querySelector('meta[property="og:description"]');
+  if (ogDesc) ogDesc.content = product.description.short;
+  const ogType = document.querySelector('meta[property="og:type"]');
+  if (ogType) ogType.content = 'product';
+
   renderProductDetail(product);
   renderRelatedProducts(product);
 

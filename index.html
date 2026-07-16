@@ -30,11 +30,44 @@
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="MysticEast">
   <meta property="og:locale" content="en_US">
+  <meta property="og:url" content="https://mysticeast.shop/">
+  <meta property="og:image" content="https://images.pexels.com/photos/11266559/pexels-photo-11266559.jpeg?auto=compress&cs=tinysrgb&w=1200">
   
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="MysticEast | Crystal Bracelets & Feng Shui Products">
   <meta name="twitter:description" content="Discover mystical crystal bracelets and powerful feng shui items. Authentic Eastern wisdom.">
+  
+  <!-- Structured Data: Organization + WebSite -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://mysticeast.shop/#organization",
+        "name": "MysticEast",
+        "url": "https://mysticeast.shop/",
+        "description": "Authentic Eastern spiritual products: crystal bracelets, feng shui items, talismans & sacred tools.",
+        "sameAs": [
+          "https://www.pinterest.com/mysticeastshop/"
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://mysticeast.shop/#website",
+        "url": "https://mysticeast.shop/",
+        "name": "MysticEast",
+        "publisher": { "@id": "https://mysticeast.shop/#organization" },
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "https://mysticeast.shop/category.html?category=all&q={search_term_string}",
+          "query-input": "required name=search_term_string"
+        }
+      }
+    ]
+  }
+  </script>
   
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
