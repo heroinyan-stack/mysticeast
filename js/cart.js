@@ -100,6 +100,22 @@ class Cart {
     this.saveToStorage();
     this.updateUI();
     this.showNotification(`${product.name} added to cart!`);
+
+    // GA4 add_to_cart event
+    if (typeof gtag === 'function') {
+      gtag('event', 'add_to_cart', {
+        currency: 'USD',
+        value: parseFloat((price * quantity).toFixed(2)),
+        items: [{
+          item_id: sku,
+          item_name: product.name,
+          item_category: product.category,
+          price: parseFloat(price),
+          quantity: quantity
+        }]
+      });
+    }
+
     return true;
   }
 

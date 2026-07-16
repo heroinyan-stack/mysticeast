@@ -26,6 +26,21 @@ function initCheckout() {
   updateShippingPrices();
   initPayPalButtons();
   initCreemCheckout();
+
+  // GA4 begin_checkout event
+  if (typeof gtag === 'function') {
+    const items = cart.items.map(item => ({
+      item_id: item.sku || item.productId,
+      item_name: item.productName,
+      price: parseFloat(item.price),
+      quantity: item.quantity
+    }));
+    gtag('event', 'begin_checkout', {
+      currency: 'USD',
+      value: parseFloat(cart.getTotal().toFixed(2)),
+      items: items
+    });
+  }
 }
 
 function renderOrderSummary() {
@@ -309,7 +324,8 @@ function initPayPalButtons() {
       return actions.order.capture().then(function(details) {
         const orderData = collectOrderData();
         const orderId = details.id || generateOrderId();
-        
+        const orderTotal = getOrderTotal();
+
         saveOrder({
           ...orderData,
           orderId: orderId,
@@ -319,6 +335,21 @@ function initPayPalButtons() {
           payer: details.payer,
           createdAt: new Date().toISOString()
         });
+
+        // GA4 purchase event
+        if (typeof gtag === 'function') {
+          gtag('event', 'purchase', {
+            transaction_id: orderId,
+            currency: 'USD',
+            value: parseFloat(orderTotal.toFixed(2)),
+            items: cart.items.map(item => ({
+              item_id: item.sku || item.productId,
+              item_name: item.productName,
+              price: parseFloat(item.price),
+              quantity: item.quantity
+            }))
+          });
+        }
 
         showOrderSuccess({
           orderId: orderId,
