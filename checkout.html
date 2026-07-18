@@ -429,14 +429,14 @@
 
         createOrder: function(data, actions) {
           if (!validateForm()) {
-            return actions.reject();
+            return Promise.reject(new Error('Form validation failed'));
           }
 
           const cartData = getCart();
 
           if (!cartData.items || cartData.items.length === 0) {
             cart.showNotification('Your cart is empty. Please add items first.', 'error');
-            return actions.reject();
+            return Promise.reject(new Error('Cart is empty'));
           }
 
           const totals = updateCheckoutDisplay();

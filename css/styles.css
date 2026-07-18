@@ -2494,7 +2494,6 @@ p {
   
   .checkout-summary {
     position: static;
-    order: -1;
   }
 }
 
@@ -2524,6 +2523,41 @@ p {
   
   .checkout-main {
     padding: var(--spacing-3xl) var(--spacing-md);
+  }
+
+  .checkout-section-title {
+    font-size: var(--font-size-lg);
+    margin-bottom: var(--spacing-lg);
+  }
+
+  .form-group {
+    margin-bottom: var(--spacing-md);
+  }
+
+  .form-group input,
+  .form-group select {
+    padding: var(--spacing-md) var(--spacing-lg);
+    font-size: var(--font-size-base);
+    min-height: 44px;
+  }
+
+  .form-group label {
+    font-size: var(--font-size-sm);
+    margin-bottom: var(--spacing-xs);
+  }
+
+  .payment-option {
+    padding: var(--spacing-md);
+    margin-bottom: var(--spacing-sm);
+  }
+
+  #paypal-button-container {
+    margin: var(--spacing-xl) 0;
+  }
+
+  .checkout-note {
+    font-size: var(--font-size-sm);
+    padding: var(--spacing-md);
   }
 }
 
