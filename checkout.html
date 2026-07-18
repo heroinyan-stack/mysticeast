@@ -493,7 +493,18 @@
             return orderId;
           }).catch(function(error) {
             console.error('Create order error:', error);
-            cart.showNotification('Failed to create order: ' + (error.message || 'Unknown error'), 'error');
+            let errorMsg = 'Failed to create order. Please try again.';
+            if (error && error.message) {
+              const msg = String(error.message);
+              if (msg.includes('PAYEE_ACCOUNT_RESTRICTED')) {
+                errorMsg = 'Payment cannot be processed. Please contact the store owner.';
+              } else if (msg.includes('UNPROCESSABLE_ENTITY')) {
+                errorMsg = 'Payment could not be processed. Please check your details and try again.';
+              } else if (msg.length < 200) {
+                errorMsg = 'Order error: ' + msg;
+              }
+            }
+            cart.showNotification(errorMsg, 'error');
             throw error;
           });
         },
@@ -566,16 +577,39 @@
             window.location.href = 'success.html?orderId=' + data.orderID;
           }).catch(function(error) {
             console.error('Capture error:', error);
-            cart.showNotification('Payment capture failed: ' + (error.message || 'Unknown error'), 'error');
+            let errorMsg = 'Payment capture failed. Please try again.';
+            if (error && error.message) {
+              const msg = String(error.message);
+              if (msg.includes('PAYEE_ACCOUNT_RESTRICTED')) {
+                errorMsg = 'Payment cannot be processed. Please contact the store owner.';
+              } else if (msg.includes('UNPROCESSABLE_ENTITY')) {
+                errorMsg = 'Payment could not be processed. Please check your details and try again.';
+              } else if (msg.length < 200) {
+                errorMsg = 'Payment error: ' + msg;
+              }
+            }
+            cart.showNotification(errorMsg, 'error');
             throw error;
           });
         },
 
         onError: function(err) {
           console.error('PayPal onError:', err);
-          // Don't alert if it's a validation rejection (already shown by validateForm)
           if (err && err.message && err.message.includes('fill in')) return;
-          cart.showNotification('Payment error: ' + (err.message || 'Please try again.'), 'error');
+          
+          let errorMsg = 'Payment error. Please try again.';
+          if (err && err.message) {
+            const msg = String(err.message);
+            if (msg.includes('PAYEE_ACCOUNT_RESTRICTED')) {
+              errorMsg = 'Payment cannot be processed. Please contact the store owner.';
+            } else if (msg.includes('UNPROCESSABLE_ENTITY')) {
+              errorMsg = 'Payment could not be processed. Please check your details and try again.';
+            } else if (msg.length < 200) {
+              errorMsg = 'Payment error: ' + msg;
+            }
+          }
+          
+          cart.showNotification(errorMsg, 'error');
         },
 
         onCancel: function(data) {
@@ -589,6 +623,10 @@
         console.log('PayPal button rendered successfully');
       }).catch(function(error) {
         console.error('Failed to render PayPal button:', error);
+        const container = document.getElementById('paypal-button-container');
+        if (container) {
+          container.innerHTML = '<div style="padding:var(--spacing-xl);background:var(--color-bg-card);border-radius:var(--border-radius-md);border:1px solid rgba(231,76,60,0.3);text-align:center;"><p style="color:var(--color-error);margin-bottom:var(--spacing-sm);font-weight:600;">Payment unavailable</p><p style="font-size:var(--font-size-sm);color:var(--color-text-muted);margin-bottom:var(--spacing-md);">We\'re sorry, but PayPal is not available right now.</p><p style="font-size:var(--font-size-sm);color:var(--color-text-muted);">Please try again later or contact support.</p></div>';
+        }
       });
     }
 
