@@ -17,6 +17,14 @@
   <meta name="yandex-verification" content="d3d059c5a1aa6c93">
   <link rel="canonical" href="https://mysticeast.shop/category.html">
   <script>
+    // 动态设置 canonical 包含查询参数，避免 Google 误判为备用网页
+    (function() {
+      var fullUrl = 'https://mysticeast.shop' + window.location.pathname + window.location.search;
+      var canonicalEl = document.querySelector('link[rel="canonical"]');
+      if (canonicalEl) canonicalEl.setAttribute('href', fullUrl);
+      var ogUrlEl = document.querySelector('meta[property="og:url"]');
+      if (ogUrlEl) ogUrlEl.setAttribute('content', fullUrl);
+    })();
     if (window.location.hostname === 'www.mysticeast.shop') {
       window.location.replace('https://mysticeast.shop' + window.location.pathname + window.location.search);
     }
