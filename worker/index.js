@@ -83,10 +83,35 @@ export default {
       return await publishRandomPinterestPin(request, env);
     }
 
+    // Products: Get all products
+    if (path === '/api/products' && request.method === 'GET') {
+      return await getProducts(env);
+    }
+
+    // Products: Search CJ for trending products
+    if (path === '/api/products/cj-search' && request.method === 'POST') {
+      return await searchCJTrendingProducts(request, env);
+    }
+
+    // Products: Add product from CJ
+    if (path === '/api/products/add-cj' && request.method === 'POST') {
+      return await addCJProduct(request, env);
+    }
+
+    // Products: Run weekly trending discovery
+    if (path === '/api/products/discover' && request.method === 'POST') {
+      return await discoverTrendingProducts(env);
+    }
+
     return new Response(JSON.stringify({ error: 'Not found' }), {
       status: 404,
       headers: CORS_HEADERS
     });
+  },
+
+  async scheduled(event, env, ctx) {
+    // Weekly: Discover trending products from CJ (every Monday 3 AM UTC)
+    ctx.waitUntil(discoverTrendingProducts(env));
   }
 };
 
@@ -98,6 +123,9 @@ async function createCJOrder(request, env, ctx) {
     // Get CJ access token
     const cjToken = await getCJAccessToken(env);
 
+    // Get product mapping from KV (with static fallback)
+    const productMap = await getProductMap(env);
+
     // Map website products to CJ variants
     const cjProducts = [];
     let totalCost = 0;
@@ -105,7 +133,7 @@ async function createCJOrder(request, env, ctx) {
 
     for (const item of items) {
       const productId = item.productId || item.id;
-      const mapping = CJ_PRODUCT_MAP[productId];
+      const mapping = productMap[productId];
 
       if (!mapping) {
         warnings.push(`Product "${productId}" not found in CJ mapping, will be ordered manually`);
@@ -724,4 +752,391 @@ async function publishRandomPinterestPin(request, env) {
       status: 500, headers: CORS_HEADERS
     });
   }
+}
+
+// ========== Product KV Storage ==========
+const KV_PRODUCTS_KEY = 'products_data';
+const KV_PRODUCT_MAP_KEY = 'cj_product_map';
+
+const NICHE_KEYWORDS = [
+  'bracelet', 'necklace', 'feng shui', 'crystal', 'talisman',
+  'chakra', 'tarot', 'incense', 'buddhist', 'prayer beads',
+  'mala', 'pixiu', 'obsidian', 'amethyst', 'rose quartz',
+  'tiger eye', 'healing stone', 'spiritual', 'meditation',
+  'reiki', 'chakra stones', 'singing bowl', 'money frog',
+  'lucky cat', 'brass figurine', 'quartz', 'gemstone'
+];
+
+async function getProducts(env) {
+  try {
+    if (!env.KV) {
+      return new Response(JSON.stringify({ products: [], fromKV: false }), { headers: CORS_HEADERS });
+    }
+    const data = await env.KV.get(KV_PRODUCTS_KEY);
+    const products = data ? JSON.parse(data) : [];
+    return new Response(JSON.stringify({ products, fromKV: true, count: products.length }), { headers: CORS_HEADERS });
+  } catch (error) {
+    return new Response(JSON.stringify({ error: error.message }), {
+      status: 500, headers: CORS_HEADERS
+    });
+  }
+}
+
+async function saveProducts(env, products) {
+  if (env.KV) {
+    await env.KV.put(KV_PRODUCTS_KEY, JSON.stringify(products));
+  }
+}
+
+async function getProductMap(env) {
+  if (!env.KV) return { ...CJ_PRODUCT_MAP };
+  const data = await env.KV.get(KV_PRODUCT_MAP_KEY);
+  if (data) return JSON.parse(data);
+  await env.KV.put(KV_PRODUCT_MAP_KEY, JSON.stringify(CJ_PRODUCT_MAP));
+  return { ...CJ_PRODUCT_MAP };
+}
+
+async function saveProductMap(env, map) {
+  if (env.KV) {
+    await env.KV.put(KV_PRODUCT_MAP_KEY, JSON.stringify(map));
+  }
+}
+
+// ========== CJ Product Search ==========
+async function searchCJTrendingProducts(request, env) {
+  try {
+    const { keyword = 'crystal bracelet', page = 1, pageSize = 20 } = await request.json();
+    const cjToken = await getCJAccessToken(env);
+
+    const response = await fetch(
+      `https://developers.cjdropshipping.com/api2.0/v1/product/search?keyword=${encodeURIComponent(keyword)}&pageNum=${page}&pageSize=${pageSize}`,
+      {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+          'CJ-Access-Token': cjToken
+        }
+      }
+    );
+
+    const data = await response.json();
+
+    if (data.code !== 200) {
+      return new Response(JSON.stringify({ error: data.message || 'CJ search failed', code: data.code }), {
+        status: 500, headers: CORS_HEADERS
+      });
+    }
+
+    const products = (data.data?.list || []).map(item => ({
+      cjPid: item.productId || item.pid,
+      vid: item.variantId || item.vid,
+      sku: item.sku,
+      name: item.productName || item.name,
+      price: item.sellPrice || item.price,
+      cost: item.basePrice || item.cost,
+      image: item.productImage || item.image || item.images?.[0],
+      category: item.categoryName || item.category,
+      sales: item.saleCount || item.sales || 0,
+      rating: item.rating || item.evaluateScore || 0,
+      reviews: item.commentCount || item.reviews || 0,
+      cjLink: `https://www.cjdropshipping.com/product-detail?pid=${item.productId || item.pid}`
+    }));
+
+    return new Response(JSON.stringify({ products, total: data.data?.total || 0 }), { headers: CORS_HEADERS });
+  } catch (error) {
+    return new Response(JSON.stringify({ error: error.message }), {
+      status: 500, headers: CORS_HEADERS
+    });
+  }
+}
+
+// ========== Add Product from CJ ==========
+async function addCJProduct(request, env) {
+  try {
+    const { cjPid, vid, category } = await request.json();
+    const cjToken = await getCJAccessToken(env);
+
+    // Get product detail from CJ
+    const response = await fetch(
+      `https://developers.cjdropshipping.com/api2.0/v1/product/query?productId=${cjPid}`,
+      {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+          'CJ-Access-Token': cjToken
+        }
+      }
+    );
+
+    const data = await response.json();
+
+    if (data.code !== 200 || !data.data) {
+      return new Response(JSON.stringify({ error: data.message || 'Failed to get CJ product detail' }), {
+        status: 500, headers: CORS_HEADERS
+      });
+    }
+
+    const cjProduct = data.data;
+    const productId = slugify(cjProduct.productName || cjProduct.name);
+
+    // Get variants
+    const variants = (cjProduct.variants || []).map(v => ({
+      size: v.variantName || v.name,
+      price: parseFloat(v.sellPrice || v.price || 0)
+    }));
+
+    // Build product
+    const sellPrice = parseFloat(cjProduct.sellPrice || cjProduct.price || 19.99);
+    const costPrice = parseFloat(cjProduct.basePrice || cjProduct.cost || 3.00);
+    const product = {
+      id: productId,
+      name: cjProduct.productName || cjProduct.name,
+      shortName: (cjProduct.productName || cjProduct.name).split(' ').slice(0, 3).join(' '),
+      category: category || detectCategory(cjProduct.productName || cjProduct.name),
+      subcategory: '',
+      sku: 'ME-' + productId.toUpperCase().replace(/-/g, '').slice(0, 8),
+      price: Math.max(sellPrice * 3, costPrice * 5, 19.99),
+      originalPrice: Math.max(sellPrice * 4, costPrice * 7, 29.99),
+      cost: costPrice,
+      shippingCost: 2.50,
+      rating: parseFloat(cjProduct.evaluateScore || cjProduct.rating || 4.5),
+      reviews: parseInt(cjProduct.commentCount || cjProduct.reviews || 0),
+      tags: ['new', 'trending'],
+      images: (cjProduct.images || [cjProduct.productImage || cjProduct.image]).filter(Boolean).slice(0, 5),
+      cjLink: `https://www.cjdropshipping.com/product-detail?pid=${cjPid}`,
+      cjSku: cjProduct.sku || '',
+      description: {
+        short: cjProduct.description?.slice(0, 120) || `Premium ${cjProduct.categoryName || 'spiritual'} product for your collection.`,
+        long: cjProduct.description || `This beautiful ${cjProduct.categoryName || 'crystal'} product is carefully crafted with high-quality materials. Perfect for spiritual practice, meditation, or as a meaningful gift.`,
+        meaning: '',
+        usage: ''
+      },
+      variants: variants.length > 0 ? variants : [{ size: 'One Size', price: Math.max(sellPrice * 3, costPrice * 5, 19.99) }],
+      benefits: ['High quality material', 'Handcrafted with care', 'Perfect gift idea', 'Satisfaction guaranteed'],
+      specifications: { material: cjProduct.material || 'Natural crystal', origin: cjProduct.origin || 'China' },
+      addedFromCJ: true,
+      addedDate: new Date().toISOString()
+    };
+
+    // Save to KV
+    const products = await getProductsFromKV(env);
+    const existing = products.find(p => p.id === productId);
+    if (existing) {
+      return new Response(JSON.stringify({ success: false, error: 'Product already exists', productId }), {
+        status: 409, headers: CORS_HEADERS
+      });
+    }
+    products.unshift(product);
+    await saveProducts(env, products);
+
+    // Update product map
+    const productMap = await getProductMap(env);
+    productMap[productId] = {
+      vid: vid || cjProduct.variants?.[0]?.variantId || '',
+      sku: cjProduct.sku || '',
+      cost: costPrice
+    };
+    await saveProductMap(env, productMap);
+
+    return new Response(JSON.stringify({ success: true, product, productId }), { headers: CORS_HEADERS });
+  } catch (error) {
+    return new Response(JSON.stringify({ error: error.message }), {
+      status: 500, headers: CORS_HEADERS
+    });
+  }
+}
+
+async function getProductsFromKV(env) {
+  if (!env.KV) return [];
+  const data = await env.KV.get(KV_PRODUCTS_KEY);
+  return data ? JSON.parse(data) : [];
+}
+
+// ========== Weekly Trending Product Discovery ==========
+async function discoverTrendingProducts(env) {
+  try {
+    const cjToken = await getCJAccessToken(env);
+    const existingProducts = await getProductsFromKV(env);
+    const existingIds = new Set(existingProducts.map(p => p.id));
+    const existingCJLinks = new Set(existingProducts.map(p => p.cjLink));
+
+    const newProducts = [];
+    const maxProductsPerWeek = 3;
+
+    // Search across niche keywords
+    for (const keyword of NICHE_KEYWORDS) {
+      if (newProducts.length >= maxProductsPerWeek) break;
+
+      try {
+        const response = await fetch(
+          `https://developers.cjdropshipping.com/api2.0/v1/product/search?keyword=${encodeURIComponent(keyword)}&pageNum=1&pageSize=30`,
+          {
+            method: 'GET',
+            headers: {
+              'Content-Type': 'application/json',
+              'CJ-Access-Token': cjToken
+            }
+          }
+        );
+
+        const data = await response.json();
+        if (data.code !== 200 || !data.data?.list) continue;
+
+        // Filter for trending: high sales + good rating + reasonable price
+        const candidates = data.data.list
+          .filter(item => {
+            const sales = item.saleCount || item.sales || 0;
+            const rating = item.rating || item.evaluateScore || 0;
+            const price = parseFloat(item.sellPrice || item.price || 0);
+            const cjLink = `https://www.cjdropshipping.com/product-detail?pid=${item.productId || item.pid}`;
+
+            return sales >= 100
+              && rating >= 4.0
+              && price >= 1.00
+              && price <= 15.00
+              && !existingCJLinks.has(cjLink);
+          })
+          .sort((a, b) => (b.saleCount || b.sales || 0) - (a.saleCount || a.sales || 0));
+
+        // Take top candidate from this keyword
+        if (candidates.length > 0 && newProducts.length < maxProductsPerWeek) {
+          const candidate = candidates[0];
+          const productId = slugify(candidate.productName || candidate.name);
+
+          if (!existingIds.has(productId)) {
+            // Get full product detail
+            const detailResp = await fetch(
+              `https://developers.cjdropshipping.com/api2.0/v1/product/query?productId=${candidate.productId || candidate.pid}`,
+              {
+                method: 'GET',
+                headers: {
+                  'Content-Type': 'application/json',
+                  'CJ-Access-Token': cjToken
+                }
+              }
+            );
+
+            const detailData = await detailResp.json();
+            if (detailData.code === 200 && detailData.data) {
+              const cjProduct = detailData.data;
+              const costPrice = parseFloat(cjProduct.basePrice || cjProduct.cost || candidate.sellPrice || 3.00);
+              const variants = (cjProduct.variants || []).map(v => ({
+                size: v.variantName || v.name,
+                price: parseFloat(v.sellPrice || v.price || 0)
+              }));
+              const sellPrice = Math.max(costPrice * 5, 19.99);
+
+              const product = {
+                id: productId,
+                name: cjProduct.productName || cjProduct.name,
+                shortName: (cjProduct.productName || cjProduct.name).split(' ').slice(0, 3).join(' '),
+                category: detectCategory(cjProduct.productName || cjProduct.name),
+                subcategory: '',
+                sku: 'ME-' + productId.toUpperCase().replace(/-/g, '').slice(0, 8),
+                price: sellPrice,
+                originalPrice: Math.max(costPrice * 7, 29.99),
+                cost: costPrice,
+                shippingCost: 2.50,
+                rating: parseFloat(cjProduct.evaluateScore || cjProduct.rating || 4.5),
+                reviews: parseInt(cjProduct.commentCount || cjProduct.reviews || 0),
+                tags: ['new', 'trending'],
+                images: (cjProduct.images || [cjProduct.productImage || cjProduct.image]).filter(Boolean).slice(0, 5),
+                cjLink: `https://www.cjdropshipping.com/product-detail?pid=${candidate.productId || candidate.pid}`,
+                cjSku: cjProduct.sku || '',
+                description: {
+                  short: `Premium ${detectCategory(cjProduct.productName || cjProduct.name).toLowerCase()} product for your spiritual collection.`,
+                  long: `This beautiful ${detectCategory(cjProduct.productName || cjProduct.name).toLowerCase()} is carefully crafted with high-quality materials. Perfect for spiritual practice, meditation, or as a meaningful gift for loved ones. Each piece is selected for its quality and energetic properties.`,
+                  meaning: '',
+                  usage: 'Perfect for daily wear or meditation practice.'
+                },
+                variants: variants.length > 0 ? variants : [{ size: 'One Size', price: sellPrice }],
+                benefits: ['Premium quality', 'Handcrafted', 'Positive energy', 'Perfect gift'],
+                specifications: { material: cjProduct.material || 'Natural crystal', origin: cjProduct.origin || 'China' },
+                addedFromCJ: true,
+                addedDate: new Date().toISOString(),
+                autoDiscovered: true,
+                discoveryKeyword: keyword,
+                cjSales: candidate.saleCount || candidate.sales || 0
+              };
+
+              newProducts.push(product);
+              existingIds.add(productId);
+            }
+          }
+        }
+      } catch (e) {
+        console.error(`Error searching for "${keyword}":`, e.message);
+        continue;
+      }
+    }
+
+    if (newProducts.length > 0) {
+      // Add new products to KV (at the beginning)
+      const allProducts = [...newProducts, ...existingProducts];
+      await saveProducts(env, allProducts);
+
+      // Update product map
+      const productMap = await getProductMap(env);
+      for (const p of newProducts) {
+        productMap[p.id] = {
+          vid: p.cjSku ? '' : '',
+          sku: p.cjSku || '',
+          cost: p.cost
+        };
+      }
+      await saveProductMap(env, productMap);
+
+      // Send notification email
+      try {
+        const body = `Weekly Trending Product Discovery Complete!\n\nNew products added: ${newProducts.length}\n\n${newProducts.map(p => `- ${p.name}\n  Price: $${p.price.toFixed(2)}\n  Cost: $${p.cost.toFixed(2)}\n  CJ Sales: ${p.cjSales || 0}\n  Category: ${p.category}\n  Link: ${p.cjLink}\n`).join('\n')}\n\nTotal products: ${allProducts.length}`;
+        await sendEmail(env, '[MysticEast] Weekly Product Discovery Report', body);
+      } catch (e) {
+        console.error('Failed to send notification:', e.message);
+      }
+
+      return new Response(JSON.stringify({
+        success: true,
+        newProducts: newProducts.length,
+        products: newProducts,
+        totalProducts: existingProducts.length + newProducts.length
+      }), { headers: CORS_HEADERS });
+    }
+
+    return new Response(JSON.stringify({
+      success: true,
+      newProducts: 0,
+      message: 'No new trending products found this week',
+      totalProducts: existingProducts.length
+    }), { headers: CORS_HEADERS });
+  } catch (error) {
+    console.error('discoverTrendingProducts error:', error);
+    return new Response(JSON.stringify({ error: error.message }), {
+      status: 500, headers: CORS_HEADERS
+    });
+  }
+}
+
+// ========== Helpers ==========
+function slugify(text) {
+  return text
+    .toLowerCase()
+    .replace(/[^\w\s-]/g, '')
+    .replace(/\s+/g, '-')
+    .replace(/-+/g, '-')
+    .replace(/^-+|-+$/g, '')
+    .slice(0, 60);
+}
+
+function detectCategory(name) {
+  const lower = name.toLowerCase();
+  if (lower.includes('bracelet')) return 'Bracelet';
+  if (lower.includes('necklace') || lower.includes('pendant')) return 'Necklace';
+  if (lower.includes('pixiu') || lower.includes('frog') || lower.includes('cat') || lower.includes('statue') || lower.includes('figurine') || lower.includes('fountain')) return 'Feng Shui';
+  if (lower.includes('crystal') || lower.includes('quartz') || lower.includes('obsidian') || lower.includes('amethyst') || lower.includes('cluster') || lower.includes('ball') || lower.includes('wand') || lower.includes('tumbled') || lower.includes('gemstone')) return 'Crystal';
+  if (lower.includes('tarot') || lower.includes('divination') || lower.includes('i ching') || lower.includes('coins')) return 'Tarot';
+  if (lower.includes('incense') || lower.includes('burner') || lower.includes('sage')) return 'Incense';
+  if (lower.includes('mala') || lower.includes('prayer beads') || lower.includes('buddhist') || lower.includes('singing bowl') || lower.includes('meditation')) return 'Buddhist';
+  if (lower.includes('talisman') || lower.includes('charm') || lower.includes('amulet')) return 'Talisman';
+  if (lower.includes('chakra')) return 'Crystal';
+  return 'Bracelet';
 }

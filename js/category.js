@@ -2,7 +2,8 @@
 
 let currentCategory = 'all';
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', async () => {
+  await loadProductsFromAPI();
   initCategoryPage();
   initFilterTags();
   initMobileMenu();

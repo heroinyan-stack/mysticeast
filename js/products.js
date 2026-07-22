@@ -1,7 +1,8 @@
 // MysticEast - Product Data
-// Last Updated: 2026-07-07
+// Last Updated: 2026-07-22
+// Loaded from Cloudflare Worker KV with local fallback
 
-const products = [
+const localProducts = [
   {
     id: 'obsidian-bracelet',
     name: 'Black Obsidian Protection Bracelet',
@@ -694,6 +695,30 @@ const products = [
     specifications: { material: 'Natural Tumbled Crystals', beadSize: 'N/A', braceletSize: 'N/A', weight: '100-150g', origin: 'Mixed' }
   }
 ];
+
+let products = [...localProducts];
+let productsLoaded = false;
+
+async function loadProductsFromAPI() {
+  if (productsLoaded) return products;
+
+  try {
+    const response = await fetch('/api/products');
+    if (!response.ok) throw new Error('API not available');
+
+    const data = await response.json();
+    if (data.products && data.products.length > 0) {
+      products = data.products;
+      productsLoaded = true;
+      return products;
+    }
+  } catch (e) {
+    console.log('Using local product data (API unavailable)');
+  }
+
+  productsLoaded = true;
+  return products;
+}
 
 function getCustomProducts() {
   const stored = localStorage.getItem('mysticeast_custom_products');

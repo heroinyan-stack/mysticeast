@@ -1,7 +1,8 @@
 // MysticEast - Main JavaScript
 
 // ===== Initialize Application =====
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', async () => {
+  await loadProductsFromAPI();
   initHeader();
   initHeroParticles();
   initProductCards();
